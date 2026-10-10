@@ -34,11 +34,18 @@ Second `Arbeidskrav` for `Backend Programming`, year 2, at `Gokstad Akademiet`.
 dotnet build
 dotnet run
 ```
+(dotnet run uses the ports specified in [launchSettings](SoftwareDesign/Properties/launchSettings.json))
+
+In Rider:
+```text
+Press the `Play` button. 
+This will use port 5000.
+```
 
 ---
 
 ## Other Documentation
-- [Design Documentation]()
-- [Design Choices]()
-- [Test Documentation]()
-- [AI Use Documentation]()
+- [Design Documentation](Docs/DesignDocumentation.md)
+- [Design Choices](Docs/DesignChoices.md)
+- [Test Documentation](Docs/TestDocumentation.md)
+- [AI Use Documentation](Docs/AIUse.md)
