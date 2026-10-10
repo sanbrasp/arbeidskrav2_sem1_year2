@@ -1,6 +1,9 @@
 ﻿# Commit History
 Newest to oldest.
 
+DELETE WHEN DONE:  
+`git log --date=short --pretty=tformat:"| %ad | %s |"`
+
 ---
 
 | Date  | Commit message    |
