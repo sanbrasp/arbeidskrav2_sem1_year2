@@ -31,6 +31,7 @@ Second `Arbeidskrav` for `Backend Programming`, year 2, at `Gokstad Akademiet`.
 ## Build and Run
 
 ```bash
+cd SoftwareDesign
 dotnet build
 dotnet run
 ```
@@ -39,7 +40,7 @@ dotnet run
 In Rider:
 ```text
 Press the `Play` button. 
-This will use port 5000.
+Might use a different port than "dotnet run"
 ```
 
 ---
