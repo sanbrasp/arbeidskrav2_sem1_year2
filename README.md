@@ -45,6 +45,7 @@ This will use port 5000.
 ---
 
 ## Other Documentation
+- [App README](SoftwareDesign/README.md)
 - [Design Documentation](Docs/DesignDocumentation.md)
 - [Design Choices](Docs/DesignChoices.md)
 - [Test Documentation](Docs/TestDocumentation.md)
