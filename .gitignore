@@ -2,6 +2,7 @@
 .idea
 obj
 bin
+Task6_Video
 
 # Template from https://github.com/dotnet/blazor-samples/blob/main/.gitignore
 
