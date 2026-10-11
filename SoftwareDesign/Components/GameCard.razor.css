@@ -1,8 +1,9 @@
 .game-card {
-    width: fit-content;
-    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
     margin: auto;
     padding: 1rem;
     border: 1px solid black;
-    border-radius: 12px;
+    border-radius: 8px;
 }
