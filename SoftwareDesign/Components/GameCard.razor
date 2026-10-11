@@ -1,0 +1,24 @@
+﻿<div class="game-card">
+    <h2>@Name</h2>
+    <p class="minplayers">@MinPlayers</p>
+    <p class="maxplayers">@MaxPlayers</p>
+    <p class="category">@Category</p>
+    <p class="description">@Description</p>
+    <p class="rating">@Rating</p>
+</div>
+
+@code {
+    // TODO: Add parameter for ID when finished
+    [Parameter] public string Name { get; set; }
+    [Parameter] public int MinPlayers { get; set; }
+    [Parameter] public int MaxPlayers { get; set; }
+    [Parameter] public string Category { get; set; }
+    [Parameter] public string Description { get; set; }
+    [Parameter] public int Rating { get; set; }
+    [Parameter] public EventCallback<string> OnPick { get; set; }
+
+    private async Task OnPickClicked()
+    {
+        await OnPick.InvokeAsync(Name);
+    }
+}
