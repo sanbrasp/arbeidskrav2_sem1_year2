@@ -1,0 +1,35 @@
+﻿@page "/games"
+@rendermode InteractiveServer
+@using SoftwareDesign.Data
+@using SoftwareDesign.Models
+@inject GameRepository GameRepo
+
+<h3>Games</h3>
+
+<h1>Game library display here...</h1>
+
+<GameCard />
+
+@if (_boardGames.Count == 0)
+{
+    <p>No games found...</p>
+}
+
+<ul>
+    
+    @foreach (var game in _boardGames)
+    {
+        <li>@game.Name - @game.Category - @game.MinPlayers - @game.MaxPlayers</li>
+    }
+</ul>
+
+@code {
+
+    IReadOnlyList<BoardGame> _boardGames = new List<BoardGame>();
+
+    protected override void OnInitialized()
+    {
+        _boardGames = GameRepo.GetAllGames();
+    }
+
+}
