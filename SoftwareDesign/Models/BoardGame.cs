@@ -1,4 +1,6 @@
-﻿namespace SoftwareDesign.Models;
+﻿using Microsoft.AspNetCore.Components;
+
+namespace SoftwareDesign.Models;
 
 public class BoardGame
 {
@@ -11,10 +13,8 @@ public class BoardGame
     public int Rating { get; private set; }
     public string Description { get; private set; } = "";
 
-
     public BoardGame(string name, int minPlayers, int maxPlayers, string category, string description)
     {
-        Id += 1;
         Name = name;
         MinPlayers = minPlayers;
         MaxPlayers = maxPlayers;
