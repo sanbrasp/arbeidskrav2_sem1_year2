@@ -8,7 +8,6 @@
 
 <h1>Game library display here...</h1>
 
-<GameCard />
 
 @if (_boardGames.Count == 0)
 {
@@ -19,7 +18,8 @@
     
     @foreach (var game in _boardGames)
     {
-        <li>@game.Name - @game.Category - @game.MinPlayers - @game.MaxPlayers</li>
+        <GameCard Name="@game.Name" MinPlayers="@game.MinPlayers" MaxPlayers="game.MaxPlayers" 
+                  Category="@game.Category" Description="@game.Description" Rating="game.Rating"/>
     }
 </ul>
 
