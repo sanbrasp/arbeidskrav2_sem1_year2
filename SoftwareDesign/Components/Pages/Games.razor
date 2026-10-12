@@ -15,12 +15,13 @@
 }
 
 <ul>
-    
-    @foreach (var game in _boardGames)
-    {
-        <GameCard Name="@game.Name" MinPlayers="@game.MinPlayers" MaxPlayers="game.MaxPlayers" 
-                  Category="@game.Category" Description="@game.Description" Rating="game.Rating"/>
-    }
+    <div class="game-grid">
+        @foreach (var game in _boardGames)
+        {
+            <GameCard Name="@game.Name" MinPlayers="@game.MinPlayers" MaxPlayers="game.MaxPlayers"
+                      Category="@game.Category" Description="@game.Description" Rating="game.Rating"/>
+        }
+    </div>
 </ul>
 
 @code {
