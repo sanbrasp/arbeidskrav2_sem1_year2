@@ -35,12 +35,10 @@ cd SoftwareDesign
 dotnet build
 dotnet run
 ```
-(dotnet run uses the ports specified in [launchSettings](SoftwareDesign/Properties/launchSettings.json))
 
 In Rider:
 ```text
 Press the `Play` button. 
-Might use a different port than "dotnet run"
 ```
 
 ---
