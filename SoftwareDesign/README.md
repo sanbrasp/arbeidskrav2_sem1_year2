@@ -10,13 +10,30 @@ _(Translated from Norwegian to English)_
     - [Task 3 - My Game Night](#my-game-night)
     - [Task 4 - Behind the Counter](#behind-the-counter)
     - [Task 5 - Design Documentation, Choices, and Testing](#design-documentation-design-choices-and-testing)
-    - 
+    - [Task 6 - Video Presentation](#video)
 
+---
 
 ## Tasks
 ### Game Shelf
 Task 1:  
 Components and data binding.
+page, component, test results, responsibilities
+
+**Pages:**  
+`Home.razor`  
+Game Café home page. Welcomes the user.
+
+
+`Games.razor`  
+Displays the library of games, allows the user to search for a game.
+
+**Component:**  
+`GameCard.razor`
+
+
+**Design Choices**  
+Documentation found [here](Docs/DesignChoices.md)
 
 ---
 
