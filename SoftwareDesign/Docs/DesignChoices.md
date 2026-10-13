@@ -9,10 +9,19 @@ in memory with a database or adding a new field to the game.
 
 ## Task 1 - 
 
-**Games.razor**
+**Games.razor**  
+Displays the games and allows user to search and filter at the same time.
 
-**GameCard.razor**
+**GameCard.razor**  
+Shows one game per card. 
 
-**GameRepository.cs**
+**GameRepository.cs**  
+Separation of concerns. The GameRepository is the One Source of Truth.
 
-**GameFilterService.cs**
+**GameFilterService.cs**  
+Note to self:  
+Options were compared (page, repo, separate class)  
+Went with separate class for testability, because the filtering need will grow, and to avoid 
+dependency of where the data comes from.  
+The cost is one more class, one more registration, and the page has to pass the list in.
+
