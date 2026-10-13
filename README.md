@@ -47,7 +47,7 @@ Might use a different port than "dotnet run"
 
 ## Other Documentation
 - [App README](SoftwareDesign/README.md)
-- [Design Documentation](Docs/DesignDocumentation.md)
-- [Design Choices](Docs/DesignChoices.md)
-- [Test Documentation](Docs/TestDocumentation.md)
-- [AI Use Documentation](Docs/AIUse.md)
+- [Design Documentation](SoftwareDesign/Docs/DesignDocumentation.md)
+- [Design Choices](SoftwareDesign/Docs/DesignChoices.md)
+- [Test Documentation](SoftwareDesign/Docs/TestDocumentation.md)
+- [AI Use Documentation](SoftwareDesign/Docs/AIUse.md)
