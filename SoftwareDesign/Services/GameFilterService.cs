@@ -10,4 +10,11 @@ internal class GameFilterService
         
         return searchResult;
     }
+
+    public IEnumerable<BoardGame> FilterByNumberOfPlayers(IEnumerable<BoardGame> boardGames, int numberOfPlayers)
+    {
+        var numberResult = boardGames.Where(n => n.MinPlayers <= numberOfPlayers && n.MaxPlayers >= numberOfPlayers);
+        
+        return numberResult;
+    }
 }
