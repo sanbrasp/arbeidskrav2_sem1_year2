@@ -2,7 +2,9 @@
 @rendermode InteractiveServer
 @using SoftwareDesign.Data
 @using SoftwareDesign.Models
+@using SoftwareDesign.Services
 @inject GameRepository GameRepo
+@inject GameFilterService FilterService
 
 <h1>Games</h1>
 
@@ -34,7 +36,7 @@ else
 
     IReadOnlyList<BoardGame> _boardGames = new List<BoardGame>();
     private string _searchInput = "";
-    private IEnumerable<BoardGame> SearchResult => _boardGames.Where(g => g.Name.ToLower().Contains(_searchInput.ToLower()));
+    private IEnumerable<BoardGame> SearchResult => FilterService.Filter(_boardGames, _searchInput);
     
     protected override void OnInitialized()
     {
