@@ -2,7 +2,7 @@
 **Module 2 - Software Design**  
 **Subject 3 - Advanced Backend Programming**
 
-**Student:** Sandra N Bratti-Aspvik
+**Student:** Sandra N Brattli-Aspvik
 
 ---
 
@@ -15,7 +15,7 @@
 ---
 
 ## About
-Second `Arbeidskrav` for `Backend Programming`, year 2, at `Gokstad Akademiet`.
+Second Arbeidskrav for Backend Programming, year 2, at Gokstad Akademiet.
 
 ---
 
@@ -24,7 +24,7 @@ Second `Arbeidskrav` for `Backend Programming`, year 2, at `Gokstad Akademiet`.
 | Item       | Name                 |
 |------------|----------------------|
 | Frameworks | .NET 10, Blazor      |
-| Languages  | C#, HTML, CSS, razor |
+| Languages  | C#, HTML, CSS, Razor |
 
 ---
 
@@ -51,3 +51,4 @@ Might use a different port than "dotnet run"
 - [Design Choices](SoftwareDesign/Docs/DesignChoices.md)
 - [Test Documentation](SoftwareDesign/Docs/TestDocumentation.md)
 - [AI Use Documentation](SoftwareDesign/Docs/AIUse.md)
+- [Commit History](SoftwareDesign/Docs/CommitHistory.md)
