@@ -9,7 +9,7 @@
 
 <div class="search-field">
     <input @bind="_searchInput" @bind:event="oninput" placeholder="Search for a game" />
-    @if (!GetSearchResult(_searchInput).Any())
+    @if (!SearchResult.Any())
     {
         <p>No games matching the search.</p>
     }
@@ -21,30 +21,21 @@
 }
 else
 {
-    <ul>
-        <div class="game-grid">
-            @foreach (var game in GetSearchResult(_searchInput))
-            {
-                <GameCard Name="@game.Name" MinPlayers="@game.MinPlayers" MaxPlayers="game.MaxPlayers"
-                          Category="@game.Category" Description="@game.Description" Rating="game.Rating"/>
-            }
-        </div>
-    </ul>
+    <div class="game-grid">
+        @foreach (var game in SearchResult)
+        {
+            <GameCard Name="@game.Name" MinPlayers="@game.MinPlayers" MaxPlayers="@game.MaxPlayers"
+                      Category="@game.Category" Description="@game.Description" Rating="@game.Rating"/>
+        }
+    </div>
 }
 
 @code {
 
     IReadOnlyList<BoardGame> _boardGames = new List<BoardGame>();
-
-    private string _searchInput;
-
-    private IEnumerable<BoardGame> GetSearchResult(string searchInput)
-    {
-        var result = _boardGames.Where(g => g.Name.ToLower().Contains(searchInput.ToLower()));
-
-        return result;
-    }
-
+    private string _searchInput = "";
+    private IEnumerable<BoardGame> SearchResult => _boardGames.Where(g => g.Name.ToLower().Contains(_searchInput.ToLower()));
+    
     protected override void OnInitialized()
     {
         _boardGames = GameRepo.GetAllGames();
