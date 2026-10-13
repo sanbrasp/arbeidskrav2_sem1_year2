@@ -7,3 +7,12 @@ Must contain:
 in memory with a database or adding a new field to the game.
 - Describe known limitations.
 
+## Task 1 - 
+
+**Games.razor**
+
+**GameCard.razor**
+
+**GameRepository.cs**
+
+**GameFilterService.cs**
