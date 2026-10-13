@@ -42,9 +42,9 @@ HttpClient and CRUD against Rest API.
 Task 5:  
 Each subject has its own document, located in solution root directory `Docs`.  
 
-- [Design Documentation](../Docs/DesignDocumentation.md)
-- [Design Choices](../Docs/DesignChoices.md)
-- [Test Documentation](../Docs/TestDocumentation.md)
+- [Design Documentation](Docs/DesignDocumentation.md)
+- [Design Choices](Docs/DesignChoices.md)
+- [Test Documentation](Docs/TestDocumentation.md)
 
 ---
 
