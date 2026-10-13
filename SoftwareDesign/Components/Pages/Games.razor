@@ -6,24 +6,44 @@
 
 <h1>Games</h1>
 
+
+<div class="search-field">
+    <input @bind="_searchInput" @bind:event="oninput" placeholder="Search for a game" />
+    @if (!GetSearchResult(_searchInput).Any())
+    {
+        <p>No games matching the search.</p>
+    }
+</div>
+
 @if (_boardGames.Count == 0)
 {
     <p>No games found...</p>
 }
-
-<ul>
-    <div class="game-grid">
-        @foreach (var game in _boardGames)
-        {
-            <GameCard Name="@game.Name" MinPlayers="@game.MinPlayers" MaxPlayers="game.MaxPlayers"
-                      Category="@game.Category" Description="@game.Description" Rating="game.Rating"/>
-        }
-    </div>
-</ul>
+else
+{
+    <ul>
+        <div class="game-grid">
+            @foreach (var game in GetSearchResult(_searchInput))
+            {
+                <GameCard Name="@game.Name" MinPlayers="@game.MinPlayers" MaxPlayers="game.MaxPlayers"
+                          Category="@game.Category" Description="@game.Description" Rating="game.Rating"/>
+            }
+        </div>
+    </ul>
+}
 
 @code {
 
     IReadOnlyList<BoardGame> _boardGames = new List<BoardGame>();
+
+    private string _searchInput;
+
+    private IEnumerable<BoardGame> GetSearchResult(string searchInput)
+    {
+        var result = _boardGames.Where(g => g.Name.ToLower().Contains(searchInput.ToLower()));
+
+        return result;
+    }
 
     protected override void OnInitialized()
     {
