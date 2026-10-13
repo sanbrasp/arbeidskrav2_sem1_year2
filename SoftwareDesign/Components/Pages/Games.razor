@@ -11,10 +11,7 @@
 
 <div class="search-field">
     <input @bind="_searchInput" @bind:event="oninput" placeholder="Search for a game" />
-    @if (!SearchResult.Any())
-    {
-        <p>No games matching the search.</p>
-    }
+    
     <select name="dropdown-menu" id="dropdown-menu">
         <p>Number of players</p>
         <option value="any">Any</option>
@@ -22,6 +19,10 @@
         <option value="2-4">2 - 4</option>
         <option value="4-8">4 - 8</option>
     </select>
+    @if (!SearchResult.Any())
+    {
+        <p>No games matching the search.</p>
+    }
 </div>
 
 @if (_boardGames.Count == 0)
