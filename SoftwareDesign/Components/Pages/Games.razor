@@ -15,6 +15,13 @@
     {
         <p>No games matching the search.</p>
     }
+    <select name="dropdown-menu" id="dropdown-menu">
+        <p>Number of players</p>
+        <option value="any">Any</option>
+        <option value="1-3">1 - 3</option>
+        <option value="2-4">2 - 4</option>
+        <option value="4-8">4 - 8</option>
+    </select>
 </div>
 
 @if (_boardGames.Count == 0)
