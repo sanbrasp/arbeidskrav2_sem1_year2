@@ -20,6 +20,9 @@ internal class GameRepository
             new("Tiny Tavern", 2, 2, "Card", "Test game"),
             new("Cat Cafe Chaos", 1, 5, "Party", "Test game"),
             new("Rune Raiders", 4, 8, "Party", "Test game"),
+            new("Dungeons and Dragons", 2, 12, "RPG", "The classic"),
+            new("Snakes and Ladders", 2, 6, "Party", "Avoid the snakes!"),
+            new("Maple Forest", 2, 10, "Adventure", "Test game"),
         };
     }
 }
