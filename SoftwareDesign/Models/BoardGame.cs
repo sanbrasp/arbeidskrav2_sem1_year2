@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-
-namespace SoftwareDesign.Models;
+﻿namespace SoftwareDesign.Models;
 
 public class BoardGame
 {
