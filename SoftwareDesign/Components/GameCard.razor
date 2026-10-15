@@ -9,12 +9,12 @@
 </div>
 
 @code {
-    // TODO: Add parameter for ID when finished
-    [Parameter] public string Name { get; set; }
+    [Parameter] public int Id { get; set; }
+    [Parameter] public string Name { get; set; } = "";
     [Parameter] public int MinPlayers { get; set; }
     [Parameter] public int MaxPlayers { get; set; }
-    [Parameter] public string Category { get; set; }
-    [Parameter] public string Description { get; set; }
+    [Parameter] public string Category { get; set; } = "";
+    [Parameter] public string Description { get; set; } = "";
     [Parameter] public int Rating { get; set; }
     [Parameter] public EventCallback<string> OnPick { get; set; }
     [Parameter] public bool IsPickedCard { get; set; }
