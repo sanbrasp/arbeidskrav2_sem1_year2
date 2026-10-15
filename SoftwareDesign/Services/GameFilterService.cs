@@ -17,4 +17,15 @@ internal class GameFilterService
         
         return numberResult;
     }
+
+    public int MaxAmountOfPlayers(IEnumerable<BoardGame> boardGames)
+    {
+        int empty = 0;
+        if (!boardGames.Any())
+        {
+            return empty;
+        }
+        
+        return boardGames.Max(g => g.MaxPlayers);
+    }
 }
