@@ -9,6 +9,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddSingleton<GameRepository>();
 builder.Services.AddSingleton<GameFilterService>();
+builder.Services.AddSingleton<GameRandomizer>();
 
 var app = builder.Build();
 
