@@ -5,6 +5,7 @@
 @using SoftwareDesign.Services
 @inject GameRepository GameRepo
 @inject GameFilterService FilterService
+@inject GameRandomizer Randomizer
 
 <h1>Games</h1>
 
@@ -19,6 +20,10 @@
             <option value="@amount">@amount</option>
         }
     </select>
+    
+    <button @onclick="RandomizeGame">
+        Choose a random game among the visible section!
+    </button>
     
     <p>Hits: @(SearchResultWithNumberOfPlayers.Count())</p>
     
@@ -38,7 +43,8 @@ else
         @foreach (var game in SearchResultWithNumberOfPlayers)
         {
             <GameCard Name="@game.Name" MinPlayers="@game.MinPlayers" MaxPlayers="@game.MaxPlayers"
-                      Category="@game.Category" Description="@game.Description" Rating="@game.Rating"/>
+                      Category="@game.Category" Description="@game.Description" Rating="@game.Rating" 
+                      IsPickedCard="@(game == _randomBoardGame)"/>
         }
     </div>
 }
@@ -46,15 +52,22 @@ else
 @code {
     
     IReadOnlyList<BoardGame> _boardGames = new List<BoardGame>();
+    
+    private BoardGame? _randomBoardGame = null;
     private string _searchInput = "";
     private int _numberOfPlayers = 0;
-    private IEnumerable<BoardGame> SearchResultWithNumberOfPlayers => 
+    
+    private IReadOnlyList<BoardGame> SearchResultWithNumberOfPlayers => 
         _numberOfPlayers == 0 ? SearchResult : FilterService.FilterByNumberOfPlayers(SearchResult, _numberOfPlayers);
-    private IEnumerable<BoardGame> SearchResult => FilterService.Filter(_boardGames, _searchInput);
-    private IEnumerable<BoardGame> NumberOfPlayersResult => FilterService.FilterByNumberOfPlayers(_boardGames, _numberOfPlayers);
+    private IReadOnlyList<BoardGame> SearchResult => FilterService.Filter(_boardGames, _searchInput);
     
     protected override void OnInitialized()
     {
         _boardGames = GameRepo.GetAllGames();
+    }
+
+    private void RandomizeGame()
+    {
+        _randomBoardGame = Randomizer.GetRandomGame(SearchResultWithNumberOfPlayers);
     }
 }
