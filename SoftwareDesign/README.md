@@ -12,14 +12,14 @@ TODO: DELETE WHEN FINISHED!
 - ~~`@if` shows different content for matches vs. empty list~~
 - ~~Search field bound with `@bind`, filters by name while typing~~
 - ~~Search is case-insensitive~~
-- [ ] Player count filter (shown when the count is between `MinPlayers` and `MaxPlayers`)
-- [ ] Hit count shown, updates when search or filter changes
-- [ ] "Roll the dice" button picks a random game among the matches
-- [ ] Picked game is highlighted
-- [ ] Button uses `@onclick`
-- [ ] README.md: responsibility of the page and `GameCard`, and why they are split this way
-  - ~~Responsibility table written (what)~~
-  - [ ] Why written
+- ~~Player count filter (shown when the count is between `MinPlayers` and `MaxPlayers`)~~
+- Hit count shown, updates when search or filter changes
+- "Roll the dice" button picks a random game among the matches
+- Picked game is highlighted
+- Button uses `@onclick`
+- README.md: responsibility of the page and `GameCard`, and why they are split this way
+- ~~Responsibility table written (what)~~
+- [ ] Why written
 
 #### Collection
 - [ ] At least eight games (the repository only has five test games)
