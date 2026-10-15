@@ -14,12 +14,13 @@
     <label for="dropdown-menu" class="dropdown-label">Number of players:</label>
     <select @bind="_numberOfPlayers" id="dropdown-menu">
         <option value="0">Any</option>
-        
         @for (int amount = 1; amount <= FilterService.MaxAmountOfPlayers(_boardGames); amount++)
         {
             <option value="@amount">@amount</option>
         }
     </select>
+    
+    <p>Hits: @(SearchResultWithNumberOfPlayers.Count())</p>
     
     @if (!SearchResultWithNumberOfPlayers.Any())
     {
@@ -43,7 +44,7 @@ else
 }
 
 @code {
-
+    
     IReadOnlyList<BoardGame> _boardGames = new List<BoardGame>();
     private string _searchInput = "";
     private int _numberOfPlayers = 0;
