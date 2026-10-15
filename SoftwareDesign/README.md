@@ -13,10 +13,10 @@ TODO: DELETE WHEN FINISHED!
 - ~~Search field bound with `@bind`, filters by name while typing~~
 - ~~Search is case-insensitive~~
 - ~~Player count filter (shown when the count is between `MinPlayers` and `MaxPlayers`)~~
-- Hit count shown, updates when search or filter changes
-- "Roll the dice" button picks a random game among the matches
-- Picked game is highlighted
-- Button uses `@onclick`
+- ~~Hit count shown, updates when search or filter changes~~
+- ~~"Roll the dice" button picks a random game among the matches~~
+- ~~Picked game is highlighted~~
+- ~~Button uses `@onclick`~~
 - README.md: responsibility of the page and `GameCard`, and why they are split this way
 - ~~Responsibility table written (what)~~
 - [ ] Why written
@@ -144,3 +144,10 @@ Video presentation will be available in the submission link, but not in the repo
   https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.count?view=net-10.0
 - **Blazor Event Handling:**  
   https://learn.microsoft.com/en-us/aspnet/core/blazor/components/event-handling?view=aspnetcore-10.0
+- **CSS borders:**  
+  https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/border
+- **CSS Box Shadows:**  
+  https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/box-shadow
+- **CSS background color:**  
+  https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/background-color
+- 
