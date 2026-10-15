@@ -1,4 +1,4 @@
-﻿<div class="game-card">
+﻿<div class="game-card @(IsPickedCard ? "picked-card" : "")">
     <p class="name">@Name</p>
     <p class="minplayers">Min players: @MinPlayers</p>
     <p class="maxplayers">Max players: @MaxPlayers</p>
@@ -17,6 +17,7 @@
     [Parameter] public string Description { get; set; }
     [Parameter] public int Rating { get; set; }
     [Parameter] public EventCallback<string> OnPick { get; set; }
+    [Parameter] public bool IsPickedCard { get; set; }
 
     private async Task OnPickClicked()
     {
