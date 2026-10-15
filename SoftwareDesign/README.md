@@ -63,6 +63,7 @@ TODO: DELETE WHEN FINISHED!
     - [Task 4 - Behind the Counter](#behind-the-counter)
     - [Task 5 - Design Documentation, Choices, and Testing](#design-documentation-design-choices-and-testing)
     - [Task 6 - Video Presentation](#video)
+- [Sources](#sources)
 
 ---
 
@@ -121,3 +122,7 @@ Each subject has its own document, located in solution root directory `Docs`.
 Video presentation will be available in the submission link, but not in the repo.  
 
 [Video Presentation](../Task6_Video/presentation.mp4) (TODO: Ensure name is correct!)
+
+---
+
+## Sources
