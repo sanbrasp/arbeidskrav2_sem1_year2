@@ -12,15 +12,16 @@
 <div class="search-field">
     <input @bind="_searchInput" @bind:event="oninput" placeholder="Search for a game" />
     <label for="dropdown-menu" class="dropdown-label">Number of players:</label>
-    <select name="dropdown-menu" id="dropdown-menu">
-        <p>Number of players</p>
-        <option value="any">Any</option>
-        <option value="1-3">1 - 3</option>
-        <option value="2-4">2 - 4</option>
-        <option value="4-8">4 - 8</option>
+    <select @bind="_numberOfPlayers" id="dropdown-menu">
+        <option value="0">Any</option>
+        
+        @for (int amount = 1; amount <= FilterService.MaxAmountOfPlayers(_boardGames); amount++)
+        {
+            <option value="@amount">@amount</option>
+        }
     </select>
     
-    @if (!SearchResult.Any())
+    @if (!SearchResultWithNumberOfPlayers.Any())
     {
         <p>No games matching the search.</p>
     }
@@ -33,7 +34,7 @@
 else
 {
     <div class="game-grid">
-        @foreach (var game in SearchResult)
+        @foreach (var game in SearchResultWithNumberOfPlayers)
         {
             <GameCard Name="@game.Name" MinPlayers="@game.MinPlayers" MaxPlayers="@game.MaxPlayers"
                       Category="@game.Category" Description="@game.Description" Rating="@game.Rating"/>
@@ -45,7 +46,11 @@ else
 
     IReadOnlyList<BoardGame> _boardGames = new List<BoardGame>();
     private string _searchInput = "";
+    private int _numberOfPlayers = 0;
+    private IEnumerable<BoardGame> SearchResultWithNumberOfPlayers => 
+        _numberOfPlayers == 0 ? SearchResult : FilterService.FilterByNumberOfPlayers(SearchResult, _numberOfPlayers);
     private IEnumerable<BoardGame> SearchResult => FilterService.Filter(_boardGames, _searchInput);
+    private IEnumerable<BoardGame> NumberOfPlayersResult => FilterService.FilterByNumberOfPlayers(_boardGames, _numberOfPlayers);
     
     protected override void OnInitialized()
     {
