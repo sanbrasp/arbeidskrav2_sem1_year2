@@ -50,8 +50,8 @@ Press the `Play` button.
 
 ## Documentation
 - [Dice Throw Café README](../SoftwareDesign/README.md)
-- [Design Documentation](../SoftwareDesign/Docs/DesignDocumentation.md)
-- [Design Choices](../SoftwareDesign/Docs/DesignChoices.md)
-- [Test Documentation](../SoftwareDesign.Tests/README.md)
-- [AI Use Documentation](../SoftwareDesign/Docs/AIUse.md)
-- [Commit History](../SoftwareDesign/Docs/CommitHistory.md)
+- [Design Documentation](../Docs/DesignDocumentation.md)
+- [Design Choices](../Docs/DesignChoices.md)
+- [Test Documentation](...Tests/README.md)
+- [AI Use Documentation](../Docs/AIUse.md)
+- [Commit History](../Docs/CommitHistory.md)
