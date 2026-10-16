@@ -25,7 +25,11 @@ Must contain:
 ---
 
 ## Manual Test Log
+**Search with no hits, clicking "Choose a random game!" does nothing:**
+![manual test](Images/task1_manualtest_games_search.png)
 
+**Random game when there are hits:**
+![random when there are hits](Images/task1_manualtest_games_hit_random.png)
 ---
 
 ## Task 1 Tests

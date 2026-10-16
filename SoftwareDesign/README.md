@@ -86,8 +86,8 @@ Components and data binding.**
 | `BoardGame.cs`         | The model for a board game. Validates its own rating (1 - 6).                                                                                                                                                                   | Does not know anything about the other classes, pages or components. |
 
 **Why Page and Component are split**  
-`GameCard` (component) and `Games` (page) are split because it is a more practical and efficient way to display and maintain 
-the game information. The `GameCard` is a reusable component that can easily be used on any page displaying any information.
+`GameCard` (component) and `Games` (page) are split because it is a more practical way to display and maintain 
+the game information. The `GameCard` is a reusable component that can easily be used on any page.
 
 **Test Results:**  
 Refer to the test suite [README](../SoftwareDesign.Tests/README.md)
