@@ -63,12 +63,29 @@ public class GameFilterServiceTests
     [Fact]
     public void Filter_CombinedSearchAndFilter_ReturnsCorrectNumberOfHits()
     {
+        // Arrange
         
+
+        // Act
+        var searchFilterResult = _gameFilterService.Filter(_testList, "s");
+        var combinedResult = _gameFilterService.FilterByNumberOfPlayers(searchFilterResult, 8);
+
+        // Assert
+        Assert.Equal(2, searchFilterResult.Count);
+        Assert.Single(combinedResult);
+        Assert.Equal("Monkeys", combinedResult[0].Name);
     }
 
     [Fact]
-    public void Filter_EmptyingSearchField_ShowsFullCollection()
+    public void Filter_EmptyingSearch_ReturnsAllGames()
     {
+        // Arrange
         
+
+        // Act
+        var emptySearchFieldResult = _gameFilterService.Filter(_testList, "");
+
+        // Assert
+        Assert.Equal(_testList, emptySearchFieldResult);
     }
 }
