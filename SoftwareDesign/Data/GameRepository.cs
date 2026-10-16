@@ -15,8 +15,7 @@ internal class GameRepository
     public GameRepository()
     {
         RegisterNewBoardGame("Wyrmspan", 1, 5, "Strategy",
-            "You are an amateur dracologist in the world of Wyrmspan, a place where dragons of all shapes," +
-            " sizes, and colors roam the skies.");
+            "You are an amateur dracologist in the world of Wyrmspan, where dragons roam.");
         
         RegisterNewBoardGame("Wingspan", 1, 5, "Engine-building", 
             "Attract birds to your reserve and chain their abilities together.");
