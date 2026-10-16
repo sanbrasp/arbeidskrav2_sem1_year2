@@ -1,6 +1,6 @@
 ﻿namespace SoftwareDesign.Tests;
 
-public class UnitTest1
+public class GameFilterServiceTests
 {
     [Fact]
     public void Test1()
