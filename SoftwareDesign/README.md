@@ -88,10 +88,10 @@ Components and data binding.**
 
 
 **Test Results:**  
-TODO: Test results here. Screenshots and such.
+Refer to the test suite [README](../SoftwareDesign.Tests/README.md)
 
 **Design Choices**  
-Documentation found [here](../Docs/DesignChoices.md)
+Refer to the documentation in [DesignChoices](../Docs/DesignChoices.md)
 
 ---
 
