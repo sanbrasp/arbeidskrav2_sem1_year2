@@ -3,10 +3,14 @@ _(Translated from Norwegian to English)_
 
 TODO: DELETE WHEN FINISHED!  
 #### Requirements
+- `GameCard` receives the game as a parameter (currently six separate values, not one `BoardGame`)
+- README.md: responsibility of the page and `GameCard`, and why they are split this way
+- Responsibility table written (what)
+- Why written
+
 - ~~Page `/games` shows all games in the collection~~
 - ~~List lives in its own class, not in the component (`GameRepository`)~~
 - ~~`GameCard` component shows one game~~
-- `GameCard` receives the game as a parameter (currently six separate values, not one `BoardGame`)
 - ~~`GameCard` is not responsible for the list~~
 - ~~List displayed with `@foreach`~~
 - ~~`@if` shows different content for matches vs. empty list~~
@@ -17,30 +21,27 @@ TODO: DELETE WHEN FINISHED!
 - ~~"Roll the dice" button picks a random game among the matches~~
 - ~~Picked game is highlighted~~
 - ~~Button uses `@onclick`~~
-- README.md: responsibility of the page and `GameCard`, and why they are split this way
-- ~~Responsibility table written (what)~~
-- [ ] Why written
 
 #### Collection
-- [ ] At least eight games (the repository only has five test games)
+- ~~At least eight games (added 11)~~
 
 #### Test cases and edge cases
-- [ ] Search for an existing game, in both lowercase and uppercase
-- [ ] Search for something that doesn't exist: clear message shown
-- [ ] "Roll the dice" does not crash when there are no matches
-- [ ] Player filter boundaries: a 2-4 player game shows for 2 and 4, not for 1 or 5
-- [ ] Search and filter combined: hit count is correct
-- [ ] Clear the search field: whole collection shows again
+- Search for an existing game, in both lowercase and uppercase
+- Search for something that doesn't exist: clear message shown
+- "Roll the dice" does not crash when there are no matches
+- Player filter boundaries: a 2-4 player game shows for 2 and 4, not for 1 or 5
+- Search and filter combined: hit count is correct
+- Clear the search field: whole collection shows again
 
 #### Delivery
 - ~~The page~~
 - ~~The component~~
-- [ ] Test results (in README)
-- [ ] Division of responsibilities described in README.md
+- Test results (in README)
+- Division of responsibilities described in README.md
 
 #### Tip from the assignment
 - ~~Filtering gathered in one property in C#~~
-- [ ] Filter still in one place after adding the player filter
+- Filter still in one place after adding the player filter
 
 #### Assessed
 - Interface split into components with clear responsibilities
