@@ -20,10 +20,9 @@ internal class GameFilterService
 
     public int MaxAmountOfPlayers(IReadOnlyList<BoardGame> boardGames)
     {
-        int empty = 0;
         if (!boardGames.Any())
         {
-            return empty;
+            return 0;
         }
         
         return boardGames.Max(g => g.MaxPlayers);
