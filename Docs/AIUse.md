@@ -7,8 +7,9 @@ Contains documentation of when, how, and why AI was used in this project.
 
 Overview
 - [How AI Has Been Used](#how-ai-has-been-used)
-- [Conceptual Discussions](#conceptual-discussion)
+- [Conceptual Discussions](#conceptual-discussions)
 - [Translation](#translation)
+- [Reflection](#ai-use-reflection)
 
 ---
 
@@ -39,3 +40,5 @@ subjects have been discussed.
 for me to follow along. 
 
 ---
+
+## AI Use Reflection

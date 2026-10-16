@@ -10,12 +10,17 @@
 - [About](#about)
 - [Tech Stack](#tech-stack)
 - [Build and Run](#build-and-run)
-- [Other Documentation](#other-documentation)
+- [Documentation](#documentation)
 
 ---
 
 ## About
-Second Arbeidskrav for Backend Programming, year 2, at Gokstad Akademiet.
+Second Arbeidskrav for Backend Programming, year 2, at Gokstad Akademiet.  
+
+This project represents a board game café where users can browse games, choose a random game, and filter by 
+name and by number of players.
+
+(TODO: This might need to be extended when the project is finished!)
 
 ---
 
@@ -43,8 +48,8 @@ Press the `Play` button.
 
 ---
 
-## Other Documentation
-- [App README](SoftwareDesign/README.md)
+## Documentation
+- [Dice Throw Café README](SoftwareDesign/README.md)
 - [Design Documentation](SoftwareDesign/Docs/DesignDocumentation.md)
 - [Design Choices](SoftwareDesign/Docs/DesignChoices.md)
 - [Test Documentation](SoftwareDesign.Tests/README.md)
