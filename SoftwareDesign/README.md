@@ -143,3 +143,4 @@ Video presentation will be available in the submission link, but not in the repo
 | **CSS Box Shadows:**                           | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/box-shadow                                        |
 | **CSS background color:**                      | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/background-color                                  |
 | **Select Box Binding:**                        | https://stackoverflow.com/questions/58485439/select-box-binding-in-blazor                                               |
+| **CSS Text Color:**                            | https://www.w3schools.com/css/css_text.asp                                                                              |
