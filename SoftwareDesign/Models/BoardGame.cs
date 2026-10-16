@@ -22,6 +22,10 @@ public class BoardGame
     
     public void SetRating(int rating)
     {
+        if (rating < 0 || rating > 10)
+        {
+            
+        }
         Rating = rating;
     }
 }
