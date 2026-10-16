@@ -16,10 +16,15 @@ Must contain:
 ---
 
 ## Overview
+- [Manual Test Log](#manual-test-log)
 - [Task 1 Tests](#task-1-tests)
 - [Task 2 Tests](#task-2-tests)
 - [Task 3 Tests](#task-3-tests)
 - [Task 4 Tests](#task-4-tests)
+
+---
+
+## Manual Test Log
 
 ---
 
