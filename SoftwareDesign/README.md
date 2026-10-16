@@ -71,20 +71,19 @@ TODO: DELETE WHEN FINISHED!
 ## Tasks
 ### Game Shelf
 **Task 1:  
-Components and data binding.**  
-~~page, component~~, test results, ~~responsibilities~~
+Components and data binding.**
 
 **Pages and Components:**  
 
 | Part                   | Does                                                                                                                                                                                                                                        | Does not                                                             |
 |------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
 | `Home.razor`           | Dice Throw Café home page. Welcomes the user.                                                                                                                                                                                               |                                                                      |
-| `GameRepository.cs`    | Owns the list, hands it out as read-only, own IDs.                                                                                                                                                                                          | Knows nothing about pages or search.                                 |
+| `GameRepository.cs`    | Owns the list, hands it out as read-only, owns IDs.                                                                                                                                                                                         | Knows nothing about pages or search.                                 |
 | `Games.razor`          | Displays the library of games, allows the user to search for a game. It asks the repository for the games in `OnInitialized`, holds the search text, filters in one property, loops, and shows empty states (no result / empty games list). | Does not own or create games.                                        |
 | `GameCard.razor`       | Shows one game per card.                                                                                                                                                                                                                    | Does not know the list, the search, or the repository.               |
 | `GameFilterService.cs` | Handles real-time filtering on letters and number of players.                                                                                                                                                                               | Does not know where the data comes from.                             |
-| `GameRandomizer.cs`    | Handles the choice of a random game based on the current view the user sees.                                                                                                                                                                | Know about anything but the games list.                              |
-| `BoardGame.cs`         | The model for a board game.                                                                                                                                                                                                                 | Does not know anything about the other classes, pages or components. |
+| `GameRandomizer.cs`    | Handles the choice of a random game based on the current view the user sees.                                                                                                                                                                | Does not know about anything but the games list.                     |
+| `BoardGame.cs`         | The model for a board game. Validates its own rating (1 - 6).                                                                                                                                                                               | Does not know anything about the other classes, pages or components. |
 
 
 **Test Results:**  
