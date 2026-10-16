@@ -44,7 +44,7 @@ else
         {
             <GameCard Name="@game.Name" MinPlayers="@game.MinPlayers" MaxPlayers="@game.MaxPlayers"
                       Category="@game.Category" Description="@game.Description" Rating="@game.Rating" 
-                      IsPickedCard="@(game == _randomBoardGame)"/>
+                      IsPickedCard="@(game == _randomBoardGame)" Id="@game.Id"/>
         }
     </div>
 }
