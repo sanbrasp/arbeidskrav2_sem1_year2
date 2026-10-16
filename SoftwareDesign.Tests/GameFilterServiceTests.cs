@@ -65,7 +65,7 @@ public class GameFilterServiceTests
     public void Filter_EmptyingSearch_ReturnsAllGames()
     {
         // Arrange
-        
+        // In the shared constructor
 
         // Act
         var emptySearchFieldResult = _gameFilterService.Filter(_testList, "");
