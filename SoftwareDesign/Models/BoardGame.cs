@@ -22,9 +22,9 @@ public class BoardGame
     
     public void SetRating(int rating)
     {
-        if (rating < 0 || rating > 10)
+        if (rating <= 0 || rating > 6)
         {
-            
+            throw new ArgumentOutOfRangeException(nameof(rating));
         }
         Rating = rating;
     }
