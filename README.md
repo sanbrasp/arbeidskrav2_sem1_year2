@@ -47,6 +47,6 @@ Press the `Play` button.
 - [App README](SoftwareDesign/README.md)
 - [Design Documentation](SoftwareDesign/Docs/DesignDocumentation.md)
 - [Design Choices](SoftwareDesign/Docs/DesignChoices.md)
-- [Test Documentation](SoftwareDesign/Docs/TestDocumentation.md)
+- [Test Documentation](SoftwareDesign.Tests/README.md)
 - [AI Use Documentation](SoftwareDesign/Docs/AIUse.md)
 - [Commit History](SoftwareDesign/Docs/CommitHistory.md)
