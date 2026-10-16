@@ -44,27 +44,12 @@ public class GameFilterServiceTests
         // Assert
         Assert.Empty(noMatchSearch);
     }
-
-    [Fact]
-    public void FilterByNumberOfPlayers_UpholdsFilteringRulesForNumberOfPlayers_ShowsCorrectGames()
-    {
-        // Arrange
-        // In the shared constructor
-
-        // Act
-        var resultForTwoPlayers = _gameFilterService.FilterByNumberOfPlayers(_testList, 2);
-        var resultForFourPlayers = _gameFilterService.FilterByNumberOfPlayers(_testList, 4);
-        
-        // Assert
-        Assert.Single(resultForTwoPlayers);
-        Assert.Single(resultForFourPlayers);
-    }
-
+    
     [Fact]
     public void Filter_CombinedSearchAndFilter_ReturnsCorrectNumberOfHits()
     {
         // Arrange
-        
+        // In the shared constructor
 
         // Act
         var searchFilterResult = _gameFilterService.Filter(_testList, "s");
@@ -87,5 +72,51 @@ public class GameFilterServiceTests
 
         // Assert
         Assert.Equal(_testList, emptySearchFieldResult);
+    }
+    
+    [Fact]
+    public void FilterByNumberOfPlayers_UpholdsFilteringRules_ShowsCorrectGames()
+    {
+        // Arrange
+        // In the shared constructor
+
+        // Act
+        var resultForTwoPlayers = _gameFilterService.FilterByNumberOfPlayers(_testList, 2);
+        var resultForFourPlayers = _gameFilterService.FilterByNumberOfPlayers(_testList, 4);
+        var resultForOnePlayer = _gameFilterService.FilterByNumberOfPlayers(_testList, 1);
+        var resultForFivePlayers = _gameFilterService.FilterByNumberOfPlayers(_testList, 5);
+        
+        // Assert
+        Assert.Single(resultForTwoPlayers);
+        Assert.Single(resultForFourPlayers);
+        Assert.Empty(resultForOnePlayer);
+        Assert.Empty(resultForFivePlayers);
+        Assert.Equal("Cards", resultForTwoPlayers[0].Name);
+    }
+    
+    [Fact]
+    public void MaxAmountOfPlayers_EmptyList_ReturnsZero()
+    {
+        // Arrange
+        var emptyList = new List<BoardGame>();
+
+        // Act
+        var emptyListResult = _gameFilterService.MaxAmountOfPlayers(emptyList);
+
+        // Assert
+        Assert.Equal(0, emptyListResult);
+    }
+
+    [Fact]
+    public void MaxAmountOfPlayers_ReturnsCorrectAmount()
+    {
+        // Arrange
+        // In the shared constructor
+
+        // Act
+        var result = _gameFilterService.MaxAmountOfPlayers(_testList);
+
+        // Assert
+        Assert.Equal(8, result);
     }
 }
