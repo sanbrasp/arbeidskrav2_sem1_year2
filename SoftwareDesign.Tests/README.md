@@ -5,7 +5,7 @@ TODO: DELETE WHEN DONE!
 Testing Documentation
 
 Must contain:
-- At least 5 automated tests in its own test project (add test data and screenshots here)
+- ~~At least 5 automated tests in its own test project (add test data and screenshots here)~~
 - At least 3 tests should cover logic outside the components, example: GameNightState, filtering, or validation
 - At least 1 test should test a component, example: DiceRating sending the correct value through ValueChanged. Can use bUnit
 - Tests should cover normal use and edge cases
@@ -25,11 +25,58 @@ Must contain:
 ---
 
 ## Manual Test Log
-**Search with no hits, clicking "Choose a random game!" does nothing:**
+
+**Case: _Search with no hits, clicking "Choose a random game!" does not crash_**
+- Search for something that yields no hits
+- Number of players: `Any`
+- Click `Choose a random game!`
+
+**Expected result:**  
+- `Hits: 0`
+- `No games matching the search.`
+- No hits
+- No crash
+
+**Actual result:**
+
 ![manual test](Images/task1_manualtest_games_search.png)
 
-**Random game when there are hits:**
+**Case: _Search with hits, random game highlight working_**  
+- Search for something that yields at least 2 results
+- Click `Choose a random game!`
+
+**Expected result:**
+- `Hits: 2`
+- No message for no matching games
+- Highlighted random game
+
+**Actual result:**
 ![random when there are hits](Images/task1_manualtest_games_hit_random.png)
+
+**Case: _Dropdown menu affects hits_**  
+- Pick 7 players
+- Pick 9 players
+
+**Expected result:**
+- `Hits: 3`
+- `Hits: 1`
+
+**Actual result:**
+![dropdown7](Images/task1_manualtest_dropdown7_9.png)
+
+**Case: _Filtering and dropdown work together_**
+- Search for `span`
+- Dropdown: `5 players`
+- Dropdown: `6 players`
+
+**Expected result:**
+- `Hits: 2`
+- Two games, `Hits: 2`
+- No hits, `No games matching the search`
+
+**Actual result:**
+![dropdown and search](Images/task1_manualtest_dropdown_search.png)
+
 ---
 
 ## Task 1 Tests
