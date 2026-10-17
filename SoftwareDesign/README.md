@@ -4,9 +4,9 @@ _(Translated from Norwegian to English)_
 TODO: DELETE WHEN FINISHED!  
 #### Requirements
 - `GameCard` receives the game as a parameter (currently six separate values, not one `BoardGame`)
-- README.md: responsibility of the page and `GameCard`, and why they are split this way
+- ~~README.md: responsibility of the page and `GameCard`, and why they are split this way~~
 - Responsibility table written (what)
-- Why written
+- ~~Why written~~
 
 - ~~Page `/games` shows all games in the collection~~
 - ~~List lives in its own class, not in the component (`GameRepository`)~~
@@ -26,28 +26,22 @@ TODO: DELETE WHEN FINISHED!
 - ~~At least eight games (added 11)~~
 
 #### Test cases and edge cases
-- Search for an existing game, in both lowercase and uppercase
-- Search for something that doesn't exist: clear message shown
-- "Roll the dice" does not crash when there are no matches
-- Player filter boundaries: a 2-4 player game shows for 2 and 4, not for 1 or 5
-- Search and filter combined: hit count is correct
-- Clear the search field: whole collection shows again
+- ~~Search for an existing game, in both lowercase and uppercase~~
+- ~~Search for something that doesn't exist: clear message shown~~
+- ~~"Roll the dice" does not crash when there are no matches~~
+- ~~Player filter boundaries: a 2-4 player game shows for 2 and 4, not for 1 or 5~~
+- ~~Search and filter combined: hit count is correct~~
+- ~~Clear the search field: whole collection shows again~~
 
 #### Delivery
 - ~~The page~~
 - ~~The component~~
-- Test results (in README)
-- Division of responsibilities described in README.md
+- ~~Test results (in README)~~
+- ~~Division of responsibilities described in README.md~~
 
 #### Tip from the assignment
 - ~~Filtering gathered in one property in C#~~
-- Filter still in one place after adding the player filter
-
-#### Assessed
-- Interface split into components with clear responsibilities
-- Data binding and events used correctly
-- Edge cases handled
-- Code easy to read and change
+- ~~Filter still in one place after adding the player filter~~
 
 #### Notes for later
 - Filter runs twice per render (known limitation, accepted at this size)
@@ -106,10 +100,13 @@ because the page needs to pass the new value, and the card needs a new parameter
 This is the cost of the six separate parameters, but it keeps the card independent of `BoardGame`.
 
 **Test Results:**  
-Refer to the test suite [README](../SoftwareDesign.Tests/README.md)
+Refer to the documentation in [Test Suite README](../SoftwareDesign.Tests/README.md)
 
-**Design Choices**  
-Refer to the documentation in [DesignChoices](../Docs/DesignChoices.md)
+**Design Choices:**  
+Refer to the documentation in [DesignChoices.md](../Docs/DesignChoices.md)
+
+**AI Assistance Documentation:**  
+Refer to the documentation in [AIUse.md](../Docs/AIUse.md)
 
 ---
 
