@@ -7,21 +7,70 @@ Must contain:
 in memory with a database or adding a new field to the game.
 - Describe known limitations.
 
-## Task 1 - 
+## Overview
+- [Task 1 Design Choices](#task-1---design-choices)
+  - [Choice 1: Where Filtering Lives](#choice-where-filtering-lives)
+  - [Choice 2: Who Creates the Games and their IDs](#choice-who-creates-the-games-and-their-ids)
+  - [Choice 3: How the Page tells if a Card is Picked](#choice-how-the-page-tells-if-a-card-is-picked)
 
-**Games.razor**  
-Displays the games and allows user to search and filter at the same time.
+---
 
-**GameCard.razor**  
-Shows one game per card. 
+## Task 1 - Design Choices
+### Choice: Where Filtering Lives
 
-**GameRepository.cs**  
-Separation of concerns. The GameRepository is the One Source of Truth.
+| Choice                                | Reason                                                                                                                                  | Problem that led to choice                                       | Lifetime                                      |
+|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|-----------------------------------------------|
+| Filtering lives in `GameFilterService` | Separation of concerns, tidier code, easier to maintain, filtering need will expand, filter should not depend on where data comes from. | Filtering in the page couldn't be tested and cluttered the page. | Singleton, does not need to remember anything |
 
-**GameFilterService.cs**  
-Note to self:  
-Options were compared (page, repo, separate class)  
-Went with separate class for testability, because the filtering need will grow, and to avoid 
-dependency of where the data comes from.  
-The cost is one more class, one more registration, and the page has to pass the list in.
 
+| Alternative          | Reasoning                                                                                                                  |
+|----------------------|----------------------------------------------------------------------------------------------------------------------------|
+| Keep in page         | Did not opt for this because it can't be tested without rendering, and causes the page to be cluttered. Also not reusable. |
+| Filter in repository | Did not opt for this because it mixes concerns, and would create a dependency between the filter and repository.           |
+| Separate service     | Decided that this was the best option for separation of concerns, maintainability, testing, and encapsulation.             |
+
+
+The cost of this choice:  
+- One more class
+- One more registration
+- The page has to hand the list every time the filter is called
+
+---
+
+### Choice: Who Creates the Games and their IDs
+
+| Choice                                             | Reason                                                                                       | Problem that led to choice                                                                                                                              | Lifetime                                      |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| Repository decides IDs (Object initializer method) | Simple and testable, nobody has to invent an ID. IDs start at 1 and increment with no reuse. | Each game needs a unique ID because Task 2 will be using them in page routes, and Task 4 lets a game be deleted. It also makes no sense to reuse an ID. | Singleton, because there is one shared list and counter. |
+
+
+| Alternative              | Reasoning                                                                                                           |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------|
+| Constructor parameter    | Did not opt for this because the caller would have to supply an ID manually during creation.                        |
+| Set later through method | Did not opt for this because `Id` is `init`, and can only be set during creation.                                   |
+| Object initializer       | Chosen because it allows IDs to be created during object creation, and nobody outside the repo has to invent an ID. |
+
+The cost of this choice:
+- Because `Id` is `init`, the repository must build the game itself.
+- `RegisterNewBoardGame` takes five constructor values, so adding a field means changing the signature too.
+- Only convention keeps other code from creating a game without an ID.
+
+---
+
+### Choice: How the Page Tells if a Card is Picked
+
+| Choice                                       | Reason                                                                                                                                                 | Problem that led to choice                                                                                                      | Lifetime |
+|----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------|
+| `IsPickedCard` bool parameter on `GameCard`  | The page compares each game with the picked one and passes the result down. The card adds `picked-card` itself, so it stays in charge of its own look. | The page knows which game is picked, but the card only draws itself, so it needs a way to be told whether it is the picked one. | N/A      |
+
+
+| Alternative                  | Reasoning                                                                                                                                                      |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wrapper tag around each card | Did not opt for this because the page would have to know about the card's styling, and the card no longer controls its own look.                               |
+| Highlight by position        | Did not opt for this because the position of a game changes when the search or the dropdown changes the list, so the highlight would end up on the wrong card. |
+| Bool parameter               | Chosen because the card only needs to know `IsPickedCard`, not how the page found the pick.                                                                    |
+
+Cost of this choice:
+- One more parameter on the `GameCard`
+
+---
