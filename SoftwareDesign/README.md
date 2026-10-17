@@ -87,7 +87,23 @@ Components and data binding.**
 
 **Why Page and Component are split**  
 `GameCard` (component) and `Games` (page) are split because it is a more practical way to display and maintain 
-the game information. The `GameCard` is a reusable component that can easily be used on any page.
+the game information. The `GameCard` is a reusable component that can easily be used on any page.  
+
+The page, `Games.razor`, is responsible for displaying the `GameCard` and looping over the contents of the list received through 
+`GameRepository`. It displays buttons, search field, dropdown menu for number of players, and the `GameCard`.  
+It handles the button `@onclick` and displays the number of search hits. It also has logic for empty lists and non-results.
+
+The component, `GameCard.razor`, is responsible for the information in each card, and uses Parameter properties 
+which are passed down from the parent (`Games`) to the card, and correspond with the `BoardGame` model which every board game uses.  
+`GameCard` also handles the highlighting of a picked card, and is told by the page whether it is the picked card. 
+The page compares each game with the picked one and passes `IsPickedCard`. The card decides how the picked card looks.
+It knows nothing about the list, the search, or the repository.
+
+If I want to change how a card looks, I only have to change `GameCard`, because the page only displays the `GameCard`.  
+If I add a new field to `BoardGame`, I have to change the `BoardGame constructor`, the `RegisterNewBoardGame` signature, 
+the calls to `RegisterNewBoardGame`, and the tests that create games. I also have to change `Games.razor` and `GameCard`
+because the page needs to pass the new value, and the card needs a new parameter to show it.      
+This is the cost of the six separate parameters, but it keeps the card independent of `BoardGame`.
 
 **Test Results:**  
 Refer to the test suite [README](../SoftwareDesign.Tests/README.md)
