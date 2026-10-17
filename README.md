@@ -35,6 +35,9 @@ name and by number of players.
 
 ## Build and Run
 
+Requirement:  
+`.NET 10 SDK`
+
 ```bash
 cd SoftwareDesign
 dotnet build
