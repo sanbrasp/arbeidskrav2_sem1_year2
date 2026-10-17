@@ -41,4 +41,20 @@ for me to follow along.
 
 ---
 
+## Direct Effect From AI Assistance
+### Throwaway Seed Constructor 
+Used for quickly seeding some games for testing during development. Deleted after testing.
+
+### CSS Help
+- `flex`, `wrap`, `gap`, speed tutorials in CSS, sources for quickly reading up on it.  
+- I needed some help with the syntax for the hit counter inside a `<p>`.  
+- Gave me a refresher on the `? : operator` explained with a weather example and a lamp example for the class attribute, 
+which resulted in `<div class="game-card @(IsPickedCard ? "picked-card" : "")">`
+- The card markup block and simple CSS rule for `.picked-card` which I asked to be given straight up.
+- The syntax for page side attribute: `IsPickedCard="@(game == _randomBoardGame)"`
+- The CSS for showing the ID at the top right of the `GameCard`: `position: relative` on the card, and
+`position: absolute` with `top` and `right` on the ID. Given as is.
+
+---
+
 ## AI Use Reflection
