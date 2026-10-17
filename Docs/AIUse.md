@@ -96,3 +96,59 @@ I had written it in a way that made it clunky to read.
 ---
 
 ## AI Use Reflection
+Because my template already covers some of the requirements from the "AI Use" in the assignment, I will add 
+the missing sections here:
+
+**How AI Was Used**  
+[Refer to this section](#how-ai-has-been-used).
+
+**What AI Contributed**  
+Documented in detail in this file, under [this section](#direct-effect-from-ai-assistance).  
+Conceptual/Socratic documented briefly in [this section](#conceptual-discussions).  
+Translations documented in [this section](#translation).  
+Proof reading and code reviewing mentioned in [this section](#proof-reading-and-code-review).
+
+**How AI Affected the Final Solution**  
+_A selection of things AI affected in the project:_
+
+- Blazor project structure: because this is new to me, I needed some initial suggestions for how the structure itself looks
+compared to a regular C# project.
+- Test naming pattern: because I asked for a reminder of the naming convention, that directly affected how I named 
+the rest of the tests.
+- The seed games: because I don't know anything about board games, I asked `Claude.ai` to supply me with examples that I 
+used in the project.
+- Blazor wiring: I made a lot of syntax errors and needed some suggestions for the wiring of methods and data.
+- ID Design: AI suggested three options, where I chose the object initializer, and that directly affected 
+the project.
+
+**Things I have assessed, changed, or developed further from suggestions received**  
+_A selection of situations:_
+
+| Subject                                   | Disagreement                                                                                                                                                                                                                       | 
+|-------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Picked Card border thickness              | AI insisted I should keep the border thinner, but I thought the "highlight" became much clearer with a thicker border that visibly made the selected card pop out. I stayed with my own choice.                                    |
+| AI being picky about the manual test text | AI thought I should put more text in the "Actual result" section, whereas I already had screenshots showing every "Actual result" making it easy to compare with "Expected result". I stayed with my own choice.                   |
+| Six GameCard parameters kept              | AI wanted me to use the class itself as a parameter, to which I pointed out it would have created a dependency that I didn't want. I chose to keep six parameters. Final answer pending until I am able to ask someone about this. |
+
+Whenever AI gave me CSS visual styling (borders, colors) I would play around with it until I landed on something 
+I liked better, or decided to keep the suggestion from AI.
+
+**Errors, limitations or challenges brought on with the use of AI**  
+_A selection of situations with challenges and errors:_
+
+| Kind                            | Situation                                                                                                                                                                                                                  |
+|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Fact and verification of claims | AI listed a game example with the wrong player count. I set a rule for AI to always supply sources for its claims.                                                                                                         |
+|                                 | AI claimed that the DI container ignores internal constructors, which was based on weak evidence from an error text mentioning a public constructor.                                                                       |
+|                                 | Did not translate "Terningkast" well, which caused confusion later during the setup of the bounds for `SetRating`. It translated "Terningkast" to "Dice throw", which doesn't have the same underlying meaning in English. |
+| Misreadings                     | Misread my empty-list test and told me to fake a condition.                                                                                                                                                                |
+|                                 | Guessed that my `IsPickedCard` line was missing when it was due to where I had placed the `@()` in the class attribute.                                                                                                    |
+| Stale information               | Used to follow up bullet lists of to-dos, would list closed items as open due to reading from outdated sources internally.                                                                                                 |
+| Tutoring style                  | As per ground rules, had the role of tutor. Would ask way too many questions in one message that made things more confusing than it had to be. Adjusted several times.                                                     |
+|                                 | Would side-track from its own questions, and had to be re-adjusted a few times until the ground rule was very specific (no more than 1 or 2 questions per message, shorter replies, no side-tracking)                      |
+
+Limitations: 
+- I was sometimes too tired to follow the guided questions
+- AI can't see screenshots in .md files and will suggest things like "add some screenshots"
+- Long conversations outgrow AI's memory, and they have to be continued from a summary
+- As per the rule of providing sources, AI would sometimes provide made-up links or links it hadn't opened
