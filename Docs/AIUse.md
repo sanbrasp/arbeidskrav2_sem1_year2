@@ -9,6 +9,12 @@ Overview
 - [How AI Has Been Used](#how-ai-has-been-used)
 - [Conceptual Discussions](#conceptual-discussions)
 - [Translation](#translation)
+- [Direct Effect](#direct-effect-from-ai-assistance)
+  - [CSS Help](#css-help)
+  - [Theory Test Refresher](#theory-test-refresher)
+  - [Manual Test Explanation](#manual-test-explanation)
+  - [Formatting Suggestion](#formatting-suggestions-for-the-project-readme)
+  - [Rewording Paragraph](#rewording-of-a-messy-paragraph)
 - [Reflection](#ai-use-reflection)
 
 ---
