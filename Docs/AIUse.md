@@ -55,6 +55,21 @@ which resulted in `<div class="game-card @(IsPickedCard ? "picked-card" : "")">`
 - The CSS for showing the ID at the top right of the `GameCard`: `position: relative` on the card, and
 `position: absolute` with `top` and `right` on the ID. Given as is.
 
+### Theory Test Refresher
+`Claude.ai` gave me a "fill in the blanks" for the `Theory` part of a test to remind me of the syntax.  
+All test are written by myself.
+
+### Manual Test Explanation
+I was having some trouble understanding what exactly to do in a manual test, and the difference between automated and 
+manual in this contenxt. `Claude.ai` provided an explanation translated from Norwegian to English.
+
+### Formatting Suggestions for the Project Readme
+Suggested a body shape for the README for me to fill out.
+
+### Rewording of a Messy Paragraph
+`Claude.ai` suggested a rewrite of a paragraph in the "Why" section of Task 1 in the project README.
+I had written it in a way that made it clunky to read.
+
 ---
 
 ## AI Use Reflection
