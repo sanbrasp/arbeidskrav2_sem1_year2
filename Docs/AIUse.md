@@ -9,7 +9,10 @@ Overview
 - [How AI Has Been Used](#how-ai-has-been-used)
 - [Conceptual Discussions](#conceptual-discussions)
 - [Translation](#translation)
+- [Proof Reading and Code Reviews](#proof-reading-and-code-review)
 - [Direct Effect](#direct-effect-from-ai-assistance)
+  - [Throwaway Seed Constructor](#throwaway-seed-constructor)
+  - [Board Games Suggestions](#board-games-suggestions)
   - [CSS Help](#css-help)
   - [Theory Test Refresher](#theory-test-refresher)
   - [Manual Test Explanation](#manual-test-explanation)
@@ -31,13 +34,15 @@ and other helpful media based on my own notes from lectures and studies.
 _AI has not been used as a code generator or project architect. It has been used as a tutor and learning tool, and it has
 also been used for boilerplate tasks such as name generation for projects, translation of assignments, creating bullet lists of
 what was already in the assignment text, and things of that nature.  
-Whenever AI has directly affected code or the project is documented in this file._
+Whenever AI has directly affected the code or the project, it is documented in this file._
 
 ---
 
 ## Conceptual Discussions
 Briefly documents conversations of a Socratic nature where things like concepts, best practices, and other 
 subjects have been discussed.  
+Specific concepts discussed include but are not limited to: Object initializers, why DI is for services, what automated
+tests mean, test naming pattern conventions.
 
 ---
 
@@ -47,9 +52,21 @@ for me to follow along.
 
 ---
 
+## Proof Reading and Code Review
+`Claude.ai` has been used for proof reading documents and code reviews during this project.
+
+---
+
 ## Direct Effect From AI Assistance
-### Throwaway Seed Constructor 
+Things the AI assisted with that directly affected the contents of the project.
+
+### Throwaway Seed Constructor
 Used for quickly seeding some games for testing during development. Deleted after testing.
+
+### Board Games Suggestions
+Because I do not partake in board games, I don't know what exists out there, so I had `Claude.ai` find 
+a collection of various games with differing min and max players and categories, and used those in my project.    
+Note: The game `Wyrmspan` was added by myself with description from the creator.
 
 ### CSS Help
 - `flex`, `wrap`, `gap`, speed tutorials in CSS, sources for quickly reading up on it.  
@@ -63,11 +80,11 @@ which resulted in `<div class="game-card @(IsPickedCard ? "picked-card" : "")">`
 
 ### Theory Test Refresher
 `Claude.ai` gave me a "fill in the blanks" for the `Theory` part of a test to remind me of the syntax.  
-All test are written by myself.
+All tests are written by myself.
 
 ### Manual Test Explanation
 I was having some trouble understanding what exactly to do in a manual test, and the difference between automated and 
-manual in this contenxt. `Claude.ai` provided an explanation translated from Norwegian to English.
+manual in this context. `Claude.ai` provided an explanation translated from Norwegian to English.
 
 ### Formatting Suggestions for the Project Readme
 Suggested a body shape for the README for me to fill out.
