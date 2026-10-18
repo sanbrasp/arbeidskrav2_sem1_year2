@@ -62,4 +62,6 @@ internal class GameRepository
     {
         _boardGames.Add(game);
     }
+
+    internal BoardGame? GetGameById(int id) => _boardGames.FirstOrDefault(g => g.Id == id);
 }
