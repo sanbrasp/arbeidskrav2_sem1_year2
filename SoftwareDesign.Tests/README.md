@@ -25,26 +25,22 @@ Must contain:
 ---
 
 ## Manual Test Log
-_Note:  
-Since writing this section, one change to the style of the page has been made. The button `Choose a random game!` 
-is now called `🎲Roll the die`_
 
-**Case: _Search with no hits, clicking "Choose a random game!" does not crash_**
-- Search for something that yields no hits
+**Case: _Search with no hits, clicking "Choose a random game!" does not crash_**    
+- Search for `asd`
 - Number of players: `Any`
 - Click `🎲Roll the die`
 
-**Expected result:**  
+**Expected result:**    
 - `Hits: 0`
 - `No games matching the search.`
 - No hits
 - No crash
 
-**Actual result:**
-
+**Actual result:**  
 ![manual test](Images/task1_manualtest_games_search.png)
 
-**Case: _Search with hits, random game highlight working_**  
+**Case: _Search with hits, random game highlight working_**    
 - Search for something that yields at least 2 results
 - Click `🎲Roll the die`
 
@@ -53,31 +49,31 @@ is now called `🎲Roll the die`_
 - No message for no matching games
 - Highlighted random game
 
-**Actual result:**
+**Actual result:**  
 ![random when there are hits](Images/task1_manualtest_games_hit_random.png)
 
-**Case: _Dropdown menu affects hits_**  
+**Case: _Dropdown menu affects hits_**    
 - Pick 7 players
 - Pick 9 players
 
-**Expected result:**
+**Expected result:**  
 - `Hits: 3`
 - `Hits: 1`
 
-**Actual result:**
+**Actual result:**    
 ![dropdown7](Images/task1_manualtest_dropdown7_9.png)
 
-**Case: _Filtering and dropdown work together_**
+**Case: _Filtering and dropdown work together_**  
 - Search for `span`
 - Dropdown: `5 players`
 - Dropdown: `6 players`
 
-**Expected result:**
+**Expected result:**  
 - `Hits: 2`
 - Two games, `Hits: 2`
 - No hits, `No games matching the search`
 
-**Actual result:**
+**Actual result:**  
 ![dropdown and search](Images/task1_manualtest_dropdown_search.png)
 
 ---
