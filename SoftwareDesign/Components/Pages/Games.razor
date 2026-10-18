@@ -54,6 +54,7 @@ else
     private BoardGame? _randomBoardGame = null;
     private string _searchInput = "";
     private int _numberOfPlayers = 0;
+    private string _confirmation = "";
     
     private IReadOnlyList<BoardGame> SearchResultWithNumberOfPlayers => 
         _numberOfPlayers == 0 ? SearchResult : FilterService.FilterByNumberOfPlayers(SearchResult, _numberOfPlayers);
@@ -67,5 +68,10 @@ else
     private void RandomizeGame()
     {
         _randomBoardGame = Randomizer.GetRandomGame(SearchResultWithNumberOfPlayers);
+    }
+
+    private void HandleAddToGameNight(string name)
+    {
+        _confirmation = $"Game {name} has been added to game night";
     }
 }
