@@ -7,20 +7,20 @@ _(Translated from Norwegian to English)_
 - ~~Works with `@bind-Value`, never changes its own parameter, reports through `ValueChanged`~~
 - Used in two places: ~~read-only in `GameCard`~~, clickable on the game page
 - ~~`GameCard` gets an `EventCallback` for "Add to game night"; the card does not decide what happens, the parent shows a confirmation~~
-- Game page `/games/{Id:int}` with all details, opened from the card
-- Unknown ID: clear message and a link back to the game shelf
-- New rating on the game page shows immediately (saved only in Task 4)
-- Navigation menu with `NavLink` to home, game shelf and My Game Night, active link highlighted
-- `NavigationManager` used from code at least once (for example a back button)
-- Unknown addresses: own "Page not found" view with a link to the home page
+- ~~Game page `/games/{Id:int}` with all details, opened from the card~~
+- ~~Unknown ID: clear message and a link back to the game shelf~~
+- ~~New rating on the game page shows immediately (saved only in Task 4)~~
+- ~~Navigation menu with `NavLink` to home, game shelf and My Game Night, active link highlighted~~
+- ~~`NavigationManager` used from code at least once (for example a back button)~~
+- ~~Unknown addresses: own "Page not found" view with a link to the home page~~
 
 #### Test cases and edge cases
-- `/games/1` and a missing ID (`/games/9999`)
-- `/games/abc`: explain why it does not match the game page
-- Click rating 1 and 6 on the game page: the parent gets the right value
-- `ReadOnly` ignores clicks
+- ~~`/games/1` and a missing ID (`/games/9999`)~~
+- ~~`/games/abc`: explain why it does not match the game page~~
+- ~~Click rating 1 and 6 on the game page: the parent gets the right value~~
+- ~~`ReadOnly` ignores clicks~~
 - Value outside 1–6 into `DiceRating`: define and document what it shows
-- Menu highlighting follows the current page
+- ~~Menu highlighting follows the current page~~
 
 #### Delivery
 - README: parameters and events of `DiceRating` and `GameCard`
@@ -109,7 +109,7 @@ Component communication and navigation.
 | `Games.razor`                | Now has a confirmation field holding a message that is displayed if a game is added to "My Game Night". Message is not shown if a game is not added to "My Game Night".                                                  | Does not store the added game or decide what "adding" means.         |
 | `NavMenu.razor`              | Displays linked pages in the left side of the main page layout.                                                                                                                                                          |                                                                      |
 | `MyGameNight.razor`          | Does nothing for task 2, will contain data in task 3. Created skeleton for `NavMenu`. Does have a link to go back to Home.                                                                                               |                                                                      |
-| `NotFound.razor`             | Handles situations where a page that does not exist. Has a link to go back to Home.                                                                                                                                      |                                                                      |
+| `NotFound.razor`             | Handles situations where a page does not exist. Has a link to go back to Home.                                                                                                                                           |                                                                      |
 
 **Page table**  
 
@@ -129,10 +129,10 @@ Component communication and navigation.
 | `ValueChanged` | `EventCallback<int>` | Up        | Carries an `int` and is raised when the user clicks a die face, and not at all when `ReadOnly = true`. |
 | `ReadOnly`     | `bool`               | Down      | When true, switches off the clicks in the `GameCard` (example, shelf card).                            |
 
-A value within the range of 1 - 6 highlights a die face. Any other value (including 0 for an unrated game), leaves all six 
+A value within the range of 1 - 6, highlights a die face. Any other value (including 0 for an unrated game), leaves all six 
 unhighlighted.  
 The `@bind-Value` is supported by the component, but due to encapsulation, the `Rating` can only be set through `SetRating`.   
-The page instead uses`Value` and `ValueChanged`, and the handler calls `SetRating`. 
+The page instead uses `Value` and `ValueChanged`, and the handler calls `SetRating`. 
 
 
 **GameCard table**
@@ -151,7 +151,14 @@ The page instead uses`Value` and `ValueChanged`, and the handler calls `SetRatin
 
 
 **Data UP and data DOWN examples**  
-`GameCard`: `OnAddToGameNight` -> Up
+`DiceRating`: the parent (`GameDetails`) owns the rating, which lives in `BoardGame`.   
+`Value` goes down so the component can display it.  
+When a die is clicked, `ValueChanged` goes up with the new value.  
+The parent then updates the value, and a new Value comes down.  
+The component never changes the value directly.
+
+`GameCard`: TODO!!    
+
 
 **Why `/games/abc` fails**  
 Documented in the [Test Suite README](../SoftwareDesign.Tests/README.md) under `Task 2 Manual Test Log`.
@@ -164,13 +171,9 @@ Documented in the [Test Suite README](../SoftwareDesign.Tests/README.md) under `
 
 
 Keywords for myself, refine and rewrite:
-- Enumerable.Range(1,6)
 - `? :` pattern, option matching Value gets the class `selected`.
 - @onclick () => OnClicked(option)
-- Edge case: Value outside 1-6 matches no option, so nothing is highlighted, and component shows 6 unchosen options
 - Markup and CSS provided by  AI (although I only wanted the CSS and could've written the markup myself...)
-- OnAddToGameNight event in GameCard, carries the Name
-- DiceRating used in the GameCard and on the page
 - `GetGameById` good candidate for testing
 - Fix for all: ensure to note where methods live (in which class, ex. GetGameById lives in GameRepository)
 
