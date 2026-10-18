@@ -1,6 +1,35 @@
 ﻿# Dice Throw Café
 _(Translated from Norwegian to English)_
 
+### TASK 2 BULLET LIST (DELETE WHEN DONE)
+#### Requirements
+- `DiceRating` component: shows a rating 1–6, parameters `Value`, `ValueChanged` (`EventCallback<int>`), `ReadOnly`
+- Works with `@bind-Value`, never changes its own parameter, reports through `ValueChanged`
+- Used in two places: read-only in `GameCard`, clickable on the game page
+- `GameCard` gets an `EventCallback` for "Add to game night"; the card does not decide what happens, the parent shows a confirmation
+- Game page `/games/{Id:int}` with all details, opened from the card
+- Unknown ID: clear message and a link back to the game shelf
+- New rating on the game page shows immediately (saved only in Task 4)
+- Navigation menu with `NavLink` to home, game shelf and My Game Night, active link highlighted
+- `NavigationManager` used from code at least once (for example a back button)
+- Unknown addresses: own "Page not found" view with a link to the home page
+
+#### Test cases and edge cases
+- `/games/1` and a missing ID (`/games/9999`)
+- `/games/abc`: explain why it does not match the game page
+- Click rating 1 and 6 on the game page: the parent gets the right value
+- `ReadOnly` ignores clicks
+- Value outside 1–6 into `DiceRating`: define and document what it shows
+- Menu highlighting follows the current page
+
+#### Delivery
+- README: parameters and events of `DiceRating` and `GameCard`
+- Test results
+
+#### Notes for later
+- Task 3 fills in My Game Night
+- Task 4 saves the rating
+
 ---
 
 ## Overview
@@ -66,6 +95,18 @@ Refer to the documentation in [AIUse.md](../Docs/AIUse.md)
 ### Dice-Throw and Game Page
 Task 2:  
 Component communication and navigation.
+
+| Part                    | Does                                                                                                     | Does not                                                             |
+|-------------------------|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| `DiceRating.razor`      | Component, runs a foreach loop with a range from 1 - 6, sends parameters and eventcallback UP to parent. | Does not know anything about the page, classes, or other components. |
+| `DiceRating.razor.css`  | Handles the styling for the component.                                                                   | Does not do anything else. Just the style.                           |
+
+Keywords for myself:
+- Enumberable.Range(1,6)
+- `? :` pattern, option matching Value gets the class `selected`.
+- @onclick () => OnClicked(option)
+- Edgecase: Value outside 1-6 matches no option, so nothing is hightlighted, and component shows 6 unchosen options
+- Markup and CSS provided by  AI (although I only wanted the CSS and could've written the markup myself...)
 
 ---
 
