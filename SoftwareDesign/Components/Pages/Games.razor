@@ -31,6 +31,11 @@
     }
 </div>
 
+@if (!string.IsNullOrEmpty(_confirmation))
+{
+    <p class="confirmation">@_confirmation</p>
+}
+
 @if (_boardGames.Count == 0)
 {
     <p>No games found...</p>
@@ -41,8 +46,8 @@ else
         @foreach (var game in SearchResultWithNumberOfPlayers)
         {
             <GameCard Name="@game.Name" MinPlayers="@game.MinPlayers" MaxPlayers="@game.MaxPlayers"
-                      Category="@game.Category" Description="@game.Description" Rating="@game.Rating" 
-                      IsPickedCard="@(game == _randomBoardGame)" Id="@game.Id"/>
+            Category="@game.Category" Description="@game.Description" Rating="@game.Rating" 
+            IsPickedCard="@(game == _randomBoardGame)" Id="@game.Id" OnAddToGameNight="HandleAddToGameNight" />
         }
     </div>
 }
@@ -72,6 +77,6 @@ else
 
     private void HandleAddToGameNight(string name)
     {
-        _confirmation = $"Game {name} has been added to game night";
+        _confirmation = $"{name} has been added to game night";
     }
 }
