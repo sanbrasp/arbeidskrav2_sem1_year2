@@ -3,10 +3,10 @@ _(Translated from Norwegian to English)_
 
 ### TASK 2 BULLET LIST (DELETE WHEN DONE)
 #### Requirements
-- `DiceRating` component: shows a rating 1–6, parameters `Value`, `ValueChanged` (`EventCallback<int>`), `ReadOnly`
-- Works with `@bind-Value`, never changes its own parameter, reports through `ValueChanged`
-- Used in two places: read-only in `GameCard`, clickable on the game page
-- `GameCard` gets an `EventCallback` for "Add to game night"; the card does not decide what happens, the parent shows a confirmation
+- ~~`DiceRating` component: shows a rating 1–6, parameters `Value`, `ValueChanged` (`EventCallback<int>`), `ReadOnly`~~
+- ~~Works with `@bind-Value`, never changes its own parameter, reports through `ValueChanged`~~
+- Used in two places: ~~read-only in `GameCard`~~, clickable on the game page
+- ~~`GameCard` gets an `EventCallback` for "Add to game night"; the card does not decide what happens, the parent shows a confirmation~~
 - Game page `/games/{Id:int}` with all details, opened from the card
 - Unknown ID: clear message and a link back to the game shelf
 - New rating on the game page shows immediately (saved only in Task 4)
@@ -51,15 +51,16 @@ Components and data binding.**
 
 **Pages and Components:**  
 
-| Part                   | Does                                                                                                                                                                                                                            | Does not                                                             |
-|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
-| `Home.razor`           | Dice Throw Café home page. Welcomes the user.                                                                                                                                                                                   |                                                                      |
-| `GameRepository.cs`    | Owns the list, hands it out as read-only, owns IDs.                                                                                                                                                                             | Knows nothing about pages or search.                                 |
-| `Games.razor`          | Displays the library of games, allows search and filtering. Asks the repository for the games in `OnInitialized`, holds the search text, filters in one property, loops, and shows empty states (no result / empty games list). | Does not own or create games.                                        |
-| `GameCard.razor`       | Shows one game per card.                                                                                                                                                                                                        | Does not know the list, the search, or the repository.               |
-| `GameFilterService.cs` | Handles real-time filtering on letters and number of players.                                                                                                                                                                   | Does not know where the data comes from.                             |
-| `GameRandomizer.cs`    | Handles the choice of a random game based on the current view the user sees.                                                                                                                                                    | Does not know about anything but the games list.                     |
-| `BoardGame.cs`         | The model for a board game. Validates its own rating (1 - 6).                                                                                                                                                                   | Does not know anything about the other classes, pages or components. |
+| Part                              | Does                                                                                                                                                                                                                            | Does not                                                             |
+|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| `Home.razor`                      | Dice Throw Café home page. Welcomes the user.                                                                                                                                                                                   |                                                                      |
+| `GameRepository.cs`               | Owns the list, hands it out as read-only, owns IDs.                                                                                                                                                                             | Knows nothing about pages or search.                                 |
+| `Games.razor`                     | Displays the library of games, allows search and filtering. Asks the repository for the games in `OnInitialized`, holds the search text, filters in one property, loops, and shows empty states (no result / empty games list). | Does not own or create games.                                        |
+| `GameCard.razor`                  | Shows one game per card.                                                                                                                                                                                                        | Does not know the list, the search, or the repository.               |
+| `GameFilterService.cs`            | Handles real-time filtering on letters and number of players.                                                                                                                                                                   | Does not know where the data comes from.                             |
+| `GameRandomizer.cs`               | Handles the choice of a random game based on the current view the user sees.                                                                                                                                                    | Does not know about anything but the games list.                     |
+| `BoardGame.cs`                    | The model for a board game. Validates its own rating (1 - 6).                                                                                                                                                                   | Does not know anything about the other classes, pages or components. |
+| `BoardGame.RegisterNewBoardGame`  | Registers a new game and assigns an ID to the game during creation.                                                                                                                                                             |                                                                      |
 
 **Why Page and Component are split**  
 `GameCard` (component) and `Games` (page) are split because it is a more practical way to display and maintain 
@@ -92,21 +93,29 @@ Refer to the documentation in [AIUse.md](../Docs/AIUse.md)
 
 ---
 
-### Dice-Throw and Game Page
+### Dice Throw and Game Page
 Task 2:  
 Component communication and navigation.
 
-| Part                    | Does                                                                                                     | Does not                                                             |
-|-------------------------|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
-| `DiceRating.razor`      | Component, runs a foreach loop with a range from 1 - 6, sends parameters and eventcallback UP to parent. | Does not know anything about the page, classes, or other components. |
-| `DiceRating.razor.css`  | Handles the styling for the component.                                                                   | Does not do anything else. Just the style.                           |
+| Part                         | Does                                                                                                                        | Does not                                                        |
+|------------------------------|-----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| `DiceRating.razor`           | Component, runs a foreach loop with a range from 1 - 6, Value and ReadOnly comes DOWN from parent. ValueChanged reports UP. | Does not know about other pages, does not change its own Value. |
+| `DiceRating.razor.css`       | Handles the styling for the component.                                                                                      | Does not hold logic.                                            |
+| `GameCard.razor`             | Now shows a read-only `DiceRating` and raises `OnAddToGameNight`.                                                           | As noted in Task 1 table.                                       |
+| `GameRepository.GetGameById` | Looks up a game using its ID. Returns null if ID does not exist.                                                            ||
 
-Keywords for myself:
-- Enumberable.Range(1,6)
+Keywords for myself, refine and rewrite:
+- Enumerable.Range(1,6)
 - `? :` pattern, option matching Value gets the class `selected`.
 - @onclick () => OnClicked(option)
-- Edgecase: Value outside 1-6 matches no option, so nothing is hightlighted, and component shows 6 unchosen options
+- Edge case: Value outside 1-6 matches no option, so nothing is highlighted, and component shows 6 unchosen options
 - Markup and CSS provided by  AI (although I only wanted the CSS and could've written the markup myself...)
+- OnAddToGameNight event in GameCard, carries the Name
+- DiceRating used in the GameCard and on the page
+- Manual test log → screenshots of confirmation message
+- `GetGameById` good candidate for testing
+- Fix for all: ensure to note where methods live (in which class, ex. GetGameById lives in GameRepository)
+- 
 
 ---
 
