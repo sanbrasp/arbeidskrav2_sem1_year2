@@ -1,0 +1,23 @@
+﻿<div class="dice-rating">
+    @foreach (var option in Enumerable.Range(1, 6))
+    {
+        <button type="button"
+                class="dice-option @(option == Value ? "selected" : "") @(ReadOnly ? "read-only" : "")"
+                @onclick="() => OnClicked(option)">
+            @option
+        </button>
+    }
+</div>
+
+@code {
+    [Parameter] public int Value { get; set; }
+    [Parameter] public EventCallback<int> ValueChanged { get; set; }
+    [Parameter] public bool ReadOnly { get; set; }
+
+    private async Task OnClicked(int newValue)
+    {
+        if (ReadOnly) return;
+        
+        await ValueChanged.InvokeAsync(newValue);
+    }
+}

@@ -1,0 +1,22 @@
+﻿.dice-rating {
+    display: inline-flex;
+    gap: 0.25rem;
+}
+
+.dice-option {
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid #888;
+    border-radius: 0.4rem;
+    background: white;
+    cursor: pointer;
+}
+
+.dice-option.selected {
+    background: powderblue;
+    border-width: 2px;
+}
+
+.dice-option.read-only {
+    cursor: default;
+}
