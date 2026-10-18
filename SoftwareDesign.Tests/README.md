@@ -7,9 +7,9 @@ Testing Documentation
 Must contain:
 - ~~At least 5 automated tests in its own test project (add test data and screenshots here)~~
 - At least 3 tests should cover logic outside the components, example: GameNightState, filtering, or validation
-- At least 1 test should test a component, example: DiceRating sending the correct value through ValueChanged. Can use bUnit
+- At least 1 test should test a component, example: DiceRating (Rating) sending the correct value through ValueChanged. Can use bUnit
 - Tests should cover normal use and edge cases
-- Write a manual test log for test cases in task 1-4 that aren't automated. Log should show test case, steps, expected result
+- Write a manual test log for test cases in ~~task 1~~,2, 3, 4 that aren't automated. Log should show test case, steps, expected result
   and actual result.
 
 
@@ -25,11 +25,14 @@ Must contain:
 ---
 
 ## Manual Test Log
+_Note:  
+Since writing this section, one change to the style of the page has been made. The button `Choose a random game!` 
+is now called `🎲Roll the die`_
 
 **Case: _Search with no hits, clicking "Choose a random game!" does not crash_**
 - Search for something that yields no hits
 - Number of players: `Any`
-- Click `Choose a random game!`
+- Click `🎲Roll the die`
 
 **Expected result:**  
 - `Hits: 0`
@@ -43,7 +46,7 @@ Must contain:
 
 **Case: _Search with hits, random game highlight working_**  
 - Search for something that yields at least 2 results
-- Click `Choose a random game!`
+- Click `🎲Roll the die`
 
 **Expected result:**
 - `Hits: 2`
