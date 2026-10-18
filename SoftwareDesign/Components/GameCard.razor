@@ -4,10 +4,10 @@
     <p class="maxplayers">Max players: @MaxPlayers</p>
     <p class="category">Category: @Category</p>
     <p class="description">Description: @Description</p>
-    
     <DiceRating Value="Rating" ReadOnly="true" />
     <p class="id">Id: @Id</p>
-    <button class="play-button">Play</button>
+    <button class="add-to-game-night-button" @onclick="AddToGameNight">Add to game night
+    </button>
 </div>
 
 @code {
@@ -18,11 +18,11 @@
     [Parameter] public string Category { get; set; } = "";
     [Parameter] public string Description { get; set; } = "";
     [Parameter] public int Rating { get; set; }
-    [Parameter] public EventCallback<string> OnPick { get; set; }
+    [Parameter] public EventCallback<string> OnAddToGameNight { get; set; }
     [Parameter] public bool IsPickedCard { get; set; }
 
-    private async Task OnPickClicked()
+    private async Task AddToGameNight()
     {
-        await OnPick.InvokeAsync(Name);
+        await OnAddToGameNight.InvokeAsync(Name);
     }
 }
