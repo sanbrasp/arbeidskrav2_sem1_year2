@@ -1,0 +1,31 @@
+﻿@page "/games/{Id:int}"
+@using SoftwareDesign.Data
+@using SoftwareDesign.Models
+@inject GameRepository GameRepo
+
+<h3>GameDetails</h3>
+
+@if (_game == null)
+{
+    <p>No game with ID: @Id found.</p>
+    <a href="/games">Go back to the games.</a>
+}
+else
+{
+    <div class="id-lookup-result">
+        <p>Game found: @_game.Name</p>
+    </div>
+}
+
+
+@code {
+    private BoardGame? _game;
+
+    [Parameter] public int Id { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        _game = GameRepo.GetGameById(Id);
+    }
+
+}
