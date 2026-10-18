@@ -2,9 +2,10 @@
     @foreach (var option in Enumerable.Range(1, 6))
     {
         <button type="button"
+                aria-label="Rating @option of 6"
                 class="dice-option @(option == Value ? "selected" : "") @(ReadOnly ? "read-only" : "")"
                 @onclick="() => OnClicked(option)">
-            @option
+            @("⚀⚁⚂⚃⚄⚅"[option - 1])
         </button>
     }
 </div>
