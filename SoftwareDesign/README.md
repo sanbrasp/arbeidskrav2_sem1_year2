@@ -123,21 +123,35 @@ Component communication and navigation.
 
 **DiceRating table**  
 
-| Name           | Type | Direction | What it means |
-|----------------|------|-----------|---------------|
-| `Value`        | int  | Down      |               |
-| `ValueChanged` | int  | Up        |               |
-| `ReadOnly`     |      |           |               |
+| Name           | Type                 | Direction | What it means                                                                                          |
+|----------------|----------------------|-----------|--------------------------------------------------------------------------------------------------------|
+| `Value`        | `int`                | Down      | Gives the child an int value and decides which die is highlighted.                                     |
+| `ValueChanged` | `EventCallback<int>` | Up        | Carries an `int` and is raised when the user clicks a die face, and not at all when `ReadOnly = true`. |
+| `ReadOnly`     | `bool`               | Down      | When true, switches off the clicks in the `GameCard` (example, shelf card).                            |
+
+A value within the range of 1 - 6 highlights a die face. Any other value (including 0 for an unrated game), leaves all six 
+unhighlighted.  
+The `@bind-Value` is supported by the component, but due to encapsulation, the `Rating` can only be set through `SetRating`.   
+The page instead uses`Value` and `ValueChanged`, and the handler calls `SetRating`. 
+
 
 **GameCard table**
 
-| Name | Type | Direction | What it means |
-|------|------|-----------|---------------|
-|      |      |           |               |
+| Name               | Type                     | Direction | What it means                                                                                                     |
+|--------------------|--------------------------|-----------|-------------------------------------------------------------------------------------------------------------------|
+| `Id`               | `int`                    | Down      | Game's unique ID. Shown in the top right corner, used in the link to the game's page.                             |
+| `Name`             | `string`                 | Down      | The game's name. Also what `OnAddToGameNight` carries.                                                            |
+| `MinPlayers`       | `int`                    | Down      | Minimum number of players.                                                                                        |
+| `MaxPlayers`       | `int`                    | Down      | Maximum number of players.                                                                                        |
+| `Category`         | `string`                 | Down      | The category of the game.                                                                                         |
+| `Description`      | `string`                 | Down      | A short game description.                                                                                         |
+| `Rating`           | `int`                    | Down      | The game's rating, shown in a read-only `DiceRating`.                                                             |
+| `IsPickedCard`     | `bool`                   | Down      | When "true", adds the class `picked-card` to highlight a randomly picked game.                                    |
+| `OnAddToGameNight` | `EventCallback<string>`  | Up        | Raised when the user clicks "Add to game night". Carries the game's `Name` (string). Parent decides what happens. |
 
 
 **Data UP and data DOWN examples**  
-`DiceRating`: `OnAddToGameNight` raises 
+`GameCard`: `OnAddToGameNight` -> Up
 
 **Why `/games/abc` fails**  
 Documented in the [Test Suite README](../SoftwareDesign.Tests/README.md) under `Task 2 Manual Test Log`.
