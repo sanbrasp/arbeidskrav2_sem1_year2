@@ -115,6 +115,8 @@ Keywords for myself, refine and rewrite:
 - Manual test log → screenshots of confirmation message
 - `GetGameById` good candidate for testing
 - Fix for all: ensure to note where methods live (in which class, ex. GetGameById lives in GameRepository)
+- Limitation for task 2: page `GameDetails` will have dead buttons for now with the reuse of the card, will solve itself in task 3
+- Pages are marked when selected, use for manual tests with screenshots.
 - 
 
 ---
