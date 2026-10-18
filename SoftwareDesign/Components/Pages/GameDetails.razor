@@ -8,12 +8,15 @@
 @if (_game == null)
 {
     <p>No game with ID: @Id found.</p>
-    <a href="/games">Go back to the games.</a>
+    <a href="/games">Go back to the game library.</a>
 }
 else
 {
     <div class="id-lookup-result">
-        <p>Game found: @_game.Name</p>
+        <GameCard Name="@_game.Name" MinPlayers="@_game.MinPlayers" MaxPlayers="_game.MaxPlayers"
+                  Category="@_game.Category" Description="@_game.Description" Rating="_game.Rating"
+                  Id="_game.Id"/>
+        <DiceRating Value="@_game.Rating" ValueChanged="HandleRating"/>
     </div>
 }
 
@@ -28,4 +31,8 @@ else
         _game = GameRepo.GetGameById(Id);
     }
 
+    private void HandleRating(int clickedNumber)
+    {
+        _game?.SetRating(clickedNumber);
+    }
 }
