@@ -97,12 +97,57 @@ Refer to the documentation in [AIUse.md](../Docs/AIUse.md)
 Task 2:  
 Component communication and navigation.
 
-| Part                         | Does                                                                                                                        | Does not                                                        |
-|------------------------------|-----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| `DiceRating.razor`           | Component, runs a foreach loop with a range from 1 - 6, Value and ReadOnly comes DOWN from parent. ValueChanged reports UP. | Does not know about other pages, does not change its own Value. |
-| `DiceRating.razor.css`       | Handles the styling for the component.                                                                                      | Does not hold logic.                                            |
-| `GameCard.razor`             | Now shows a read-only `DiceRating` and raises `OnAddToGameNight`.                                                           | As noted in Task 1 table.                                       |
-| `GameRepository.GetGameById` | Looks up a game using its ID. Returns null if ID does not exist.                                                            ||
+**Components, pages and classes**
+
+| Part                         | Does                                                                                                                                                                                                                     | Does not                                                             |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| `DiceRating.razor`           | Component, runs a foreach loop with a range from 1 - 6, Value and ReadOnly comes DOWN from parent. ValueChanged reports UP.                                                                                              | Does not know about other pages, does not change its own Value.      |
+| `DiceRating.razor.css`       | Handles the styling for the component.                                                                                                                                                                                   | Does not hold logic.                                                 |
+| `GameCard.razor`             | Now shows a read-only `DiceRating` and raises `OnAddToGameNight` if a user adds a game.                                                                                                                                  | As noted in Task 1 table.                                            |
+| `GameRepository.GetGameById` | Looks up a game using its ID. Returns null if ID does not exist.                                                                                                                                                         | Does not decide what the page shows for missing game (page decides). |
+| `GameDetails.razor`          | Displays `GameCard` for chosen game (by ID), has button for going back to games, calls on `BoardGame`'s `SetRating` method instead of using `@bind-Value`. Uses NavigationManager in the button. Has handler for Rating. | Does not write to the rating directly, goes through `SetRating`.     |
+| `Games.razor`                | Now has a confirmation field holding a message that is displayed if a game is added to "My Game Night". Message is not shown if a game is not added to "My Game Night".                                                  | Does not store the added game or decide what "adding" means.         |
+| `NavMenu.razor`              | Displays linked pages in the left side of the main page layout.                                                                                                                                                          |                                                                      |
+| `MyGameNight.razor`          | Does nothing for task 2, will contain data in task 3. Created skeleton for `NavMenu`. Does have a link to go back to Home.                                                                                               |                                                                      |
+| `NotFound.razor`             | Handles situations where a page that does not exist. Has a link to go back to Home.                                                                                                                                      |                                                                      |
+
+**Page table**  
+
+| Route                | Goes to                                                                  |
+|----------------------|--------------------------------------------------------------------------|
+| `"/"`                | Goes to the root, "Home". The start page of the project.                 |
+| `"/games"`           | Goes to the "Game Shelf" where all games are displayed using `GameCard`. |
+| `"/games/{Id:int}"`  | Is a direct route to each game's page, navigated using the ID.           |
+| `"/my-game-night"`   | Goes to the "My Game Night" page that is empty for this task.            |
+
+
+**DiceRating table**  
+
+| Name           | Type | Direction | What it means |
+|----------------|------|-----------|---------------|
+| `Value`        | int  | Down      |               |
+| `ValueChanged` | int  | Up        |               |
+| `ReadOnly`     |      |           |               |
+
+**GameCard table**
+
+| Name | Type | Direction | What it means |
+|------|------|-----------|---------------|
+|      |      |           |               |
+
+
+**Data UP and data DOWN examples**  
+`DiceRating`: `OnAddToGameNight` raises 
+
+**Why `/games/abc` fails**  
+Documented in the [Test Suite README](../SoftwareDesign.Tests/README.md) under `Task 2 Manual Test Log`.
+
+**Limitations**  
+- Page `GameDetails` will have dead buttons for now when I reuse the card. This will solve itself in task 3 with saved state.
+- Two rating rows: for now there are two rating rows where one is static and follows the card, and one is clickable on the 
+`GameDetails` page.
+- In task 2, the set rating will not yet be stored, only displayed.
+
 
 Keywords for myself, refine and rewrite:
 - Enumerable.Range(1,6)
@@ -112,12 +157,8 @@ Keywords for myself, refine and rewrite:
 - Markup and CSS provided by  AI (although I only wanted the CSS and could've written the markup myself...)
 - OnAddToGameNight event in GameCard, carries the Name
 - DiceRating used in the GameCard and on the page
-- Manual test log → screenshots of confirmation message
 - `GetGameById` good candidate for testing
 - Fix for all: ensure to note where methods live (in which class, ex. GetGameById lives in GameRepository)
-- Limitation for task 2: page `GameDetails` will have dead buttons for now with the reuse of the card, will solve itself in task 3
-- Pages are marked when selected, use for manual tests with screenshots.
-- 
 
 ---
 
