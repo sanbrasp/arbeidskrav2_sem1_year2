@@ -16,15 +16,16 @@ Must contain:
 ---
 
 ## Overview
-- [Manual Test Log](#manual-test-log)
-- [Task 1 Tests](#task-1-tests)
+- [Manual Test Log](#task-1-manual-test-log)
+- [Task 1 Automated Tests](#task-1-automated-tests)
+- [Manual Test Log]()
 - [Task 2 Tests](#task-2-tests)
 - [Task 3 Tests](#task-3-tests)
 - [Task 4 Tests](#task-4-tests)
 
 ---
 
-## Manual Test Log
+## Task 1 Manual Test Log
 
 **Case: _Search with no hits, clicking "Choose a random game!" does not crash_**    
 - Search for `asd`
@@ -78,7 +79,7 @@ Must contain:
 
 ---
 
-## Task 1 Tests
+## Task 1 Automated Tests
 Task 1 test coverage.
 ![Task 1 Tests Run](Images/task1_tests_success.png)
 - `BoardGame.SetRating`
@@ -102,13 +103,81 @@ Task 1 test coverage.
 
 
 ## Task 2 Tests
+## Task 2 Manual Test Log
+(case, steps, expected, actual)
+
+**Case: Looking up an ID that exists**  
+
+**Steps**  
+- Navigate to `/games/1` using the URL field
+
+**Expected result**  
+- Hits: 1
+- Game: Wyrmspan
+
+**Actual result**  
+![Lookup existing ID](Images/task2_lookup_existingId.png)
+
+
+**Case: Looking up an ID that does not exist**  
+
+**Steps**  
+- Navigate to `/games/999` in the URL field
+
+**Expected result**  
+- Message displaying: `No game with ID 999 found.`
+- Link back to game library: `Go back to the game library`
+
+**Actual result**  
+![nonexisting Id](Images/task2_lookup_nonexistingId.png)
+
+
+**Case: Looking up an ID that is a string and not an int**  
+
+**Steps**  
+- Navigate to `/games/abc` in the URL field
+
+**Expected result**  
+- `Not Found` page
+- Text saying: `Sorry, the content you are looking for does not exist`
+- Link to go back home: `Go back to Home`
+
+**Actual result**  
+![wrong type lookup](Images/task2_lookup_usingthewrongtype.png)
+
+This fails because the type is `int`, set in the page `GameDetails` in the route as 
+`games/{Id:int}`. `abc` is not an int, so it won't be able to display anything.
+
+
+**Case: Clicking the clickable die changes the rating immediately**  
+
+**Steps**  
+- Click the link `Link to game's page` on the first game
+- Click on the die for `3` in the clickable row
+
+**Expected result**  
+- Clickable (outside the card) and un-clickable die is marked immediately on both
+
+**Actual result**  
+![die rating](Images/task2_clickingthedie_rating.png)
+
+---
+
+## Task 2 Automated Tests
 
 ---
 
 ## Task 3 Tests
+## Task 3 Manual Test Log
+
+## Task 3 Automated Tests
+
 
 ---
 
 ## Task 4 Tests
+## Task 4 Manual Test Log
+
+## Task 4 Automated Tests
 
 ---
