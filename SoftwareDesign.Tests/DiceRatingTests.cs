@@ -21,7 +21,7 @@ public class DiceRatingTests : BunitContext
     [Theory]
     [InlineData(7)]
     [InlineData(-1)]
-    [InlineData(0)]
+    [InlineData(0)] // is "not rated", acts like other out of bounds, no dice highlighted
     [InlineData(100)]
     public void DiceRating_ValueOutOfRange_NoDieIsHighlighted(int rating)
     {
