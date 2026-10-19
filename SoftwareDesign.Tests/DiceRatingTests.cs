@@ -52,4 +52,25 @@ public class DiceRatingTests : BunitContext
         // Assert
         Assert.Null(received);
     }
+
+    [Theory]
+    [InlineData(1)]
+    [InlineData(3)]
+    [InlineData(6)]
+    public void DiceRating_NotReadOnly_ClickingADieFace_ReportsTheCorrectRating(int rating)
+    {
+        // Arrange
+        int? received = null;
+        var cut = Render<DiceRating>(parameters => parameters
+            .Add(p => p.ReadOnly, false)
+            .Add(p => p.ValueChanged, value => received = value));
+
+        // Act
+        var result = cut.FindAll(".dice-option");
+        var die = result[rating - 1];
+        die.Click();
+
+        // Assert
+        Assert.Equal(rating, received);
+    }
 }
