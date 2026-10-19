@@ -20,6 +20,7 @@ Overview
   - [Rewording Paragraph](#rewording-of-a-messy-paragraph)
   - [bUnit First Test]()
   - [Reversed CallBack and Method Names](#reversed-callbackevent-and-method-names)
+  - [Lookup By ID When ID Not Found](#lookup-by-id-suggestions-for-id-not-found)
 - [Reflection](#ai-use-reflection)
 
 ---
@@ -111,6 +112,27 @@ tried to pull data from the wrong CSS classes a few times.
 
 ### Reversed CallbackEvent and Method Names
 I had reversed the method names, which I did not notice until I made Claude review my code.
+
+---
+
+### Lookup By ID Suggestions for ID Not Found
+AI named three ways to report: return null, throw, or `TryGet`.  
+I was already planning on returning null, but I wanted to see the alternatives.  
+Because it's not an error, throw was out of the question, and I did not want an extra `out` value, so 
+I stayed with my initial thought.  
+
+In the same code I also had a redundant guard that broke my logic, and forgot that `FirstOrDefault` already ensured 
+that null would be returned when ID was not found. AI pointed this out to me with guided questions.
+
+Missing ID is handled by `GameDetails`.
+
+---
+
+### Add To Gamenight Wiring
+I was unsure of where to wire the method because I was very tired. The AI tried directing me with guided 
+questions, but I was unable to comprehend, and also made mistakes in the syntax. I eventually asked it directly 
+where the wiring needed to happen, and it told me it needed to go inside the loop on the `GameCard tag` on the page.  
+I wrote the wiring for the confirmation message and adjusted the wiring based on guided questions from the AI.  
 
 ---
 
