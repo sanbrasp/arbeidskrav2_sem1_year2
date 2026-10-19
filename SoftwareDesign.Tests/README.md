@@ -7,19 +7,19 @@ Testing Documentation
 Must contain:
 - ~~At least 5 automated tests in its own test project (add test data and screenshots here)~~
 - At least 3 tests should cover logic outside the components, example: GameNightState, filtering, or validation
-- At least 1 test should test a component, example: DiceRating (Rating) sending the correct value through ValueChanged. Can use bUnit
+- ~~At least 1 test should test a component, example: DiceRating (Rating) sending the correct value through ValueChanged. Can use bUnit~~
 - Tests should cover normal use and edge cases
-- Write a manual test log for test cases in ~~task 1~~,2, 3, 4 that aren't automated. Log should show test case, steps, expected result
+- Write a manual test log for test cases in ~~task 1, 2~~, 3, 4 that aren't automated. Log should show test case, steps, expected result
   and actual result.
 
 
 ---
 
 ## Overview
-- [Manual Test Log](#task-1-manual-test-log)
+- [Task 1 Manual Test Log](#task-1-manual-test-log)
 - [Task 1 Automated Tests](#task-1-automated-tests)
-- [Manual Test Log]()
-- [Task 2 Tests](#task-2-tests)
+- [Task 2 Manual Test Log](#task-2-manual-test-log)
+- [Task 2 Automated Tests](#task-2-automated-tests)
 - [Task 3 Tests](#task-3-tests)
 - [Task 4 Tests](#task-4-tests)
 
@@ -82,6 +82,9 @@ Must contain:
 ## Task 1 Automated Tests
 Task 1 test coverage.
 ![Task 1 Tests Run](Images/task1_tests_success.png)
+
+**Test names:**  
+
 - `BoardGame.SetRating`
 - `GameFilterService.Filter` 
 - `GameFilterService.FilterByNumberOfPlayers` 
@@ -102,9 +105,8 @@ Task 1 test coverage.
 ---
 
 
-## Task 2 Tests
+
 ## Task 2 Manual Test Log
-(case, steps, expected, actual)
 
 **Case: Looking up an ID that exists**  
 
@@ -145,8 +147,9 @@ Task 1 test coverage.
 **Actual result**  
 ![wrong type lookup](Images/task2_lookup_usingthewrongtype.png)
 
-This fails because the type is `int`, set in the page `GameDetails` in the route as 
-`games/{Id:int}`. `abc` is not an int, so it won't be able to display anything.
+This fails because the type is `int`, set in the page `GameDetails` in the route pattern 
+`/games/{Id:int}`. `abc` is not an int, so it won't match. `GameDetails` never runs, so we don't get the 
+`No game with ID` message, and the router shows the "Not Found" page instead.
 
 
 **Case: Clicking the clickable die changes the rating immediately**  
@@ -156,14 +159,48 @@ This fails because the type is `int`, set in the page `GameDetails` in the route
 - Click on the die for `3` in the clickable row
 
 **Expected result**  
-- Clickable (outside the card) and un-clickable die is marked immediately on both
+- Clickable (outside the card) and un-clickable die are marked immediately on both
 
 **Actual result**  
 ![die rating](Images/task2_clickingthedie_rating.png)
 
+
+**Case: Active menu is marked**
+
+**Steps**
+- Run the project
+- Go to "`/games`" (either type manually or use the sidebar)
+- Go to "`/`"
+
+**Expected result**  
+- `Games` section will be marked
+- `Home` section will be marked
+
+**Actual result**  
+![marked page](Images/task2_activepageismarked.png)
+
 ---
 
 ## Task 2 Automated Tests
+Automated tests for task 2 running and succeeding:
+![task 2 tests](Images/task2_tests_success.png)
+
+**Test names:**  
+`DiceRating` tests:  
+- `DiceRating_NotReadOnly_ClickingADieFace_ReportsTheCorrectRating` (1 theory with 3 data rows)  
+- `DiceRating_RatingThreeGiven_DieFaceThreeIsHighlighted`
+- `DiceRating_ReadOnly_IgnoresClicks`
+- `DiceRating_ValueOutOfRange_NoDieIsHighlighted` (1 theory with 4 data rows)
+
+`GameRepository` tests (new in task 2):  
+- `GetGameById_ExistingId_ReturnsGame`
+- `GetGameById_NonExistingId_ReturnsNull`
+
+
+**Testing:**
+- Edge cases
+- Parent gets correct value for dice rating
+- Out of range values
 
 ---
 
