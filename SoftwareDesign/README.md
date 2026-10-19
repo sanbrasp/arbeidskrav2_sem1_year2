@@ -162,14 +162,6 @@ Documented in the [Test Suite README](../SoftwareDesign.Tests/README.md) under `
 `GameDetails` page.
 - In task 2, the set rating will not yet be stored, only displayed.
 
-
-Keywords for myself, refine and rewrite:
-- `? :` pattern, option matching Value gets the class `selected`.
-- @onclick () => OnClicked(option)
-- Markup and CSS provided by  AI (although I only wanted the CSS and could've written the markup myself...)
-- `GetGameById` good candidate for testing
-- Fix for all: ensure to note where methods live (in which class, ex. GetGameById lives in GameRepository)
-
 **Test Results:**  
 Refer to the documentation in [Test Suite README](../SoftwareDesign.Tests/README.md)
 
