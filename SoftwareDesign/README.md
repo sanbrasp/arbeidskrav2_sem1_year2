@@ -204,19 +204,22 @@ Video presentation will be available in the submission link, but not in the repo
 
 ## Sources
 
-| Subject                                        | URL                                                                                                                     |
-|------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| **Using Max on Enumerable collection:**        | https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.max?view=net-10.0                                   |
-| **DefaultIfEmpty:**                            | https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.defaultifempty?view=net-10.0                        |
-| **Refresher on Expression bodied definition:** | https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-operator#expression-body-definition |
-| **IEnumerable Any():**                         | https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.any?view=net-10.0                                   |
-| **Blazor Render Modes:**                       | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-10.0                       |
-| **Blazor data binding:**                       | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/data-binding?view=aspnetcore-10.0                       |
-| **Refresher on ternary conditional operator:** | https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator                       |
-| **Enumerable.Count:**                          | https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.count?view=net-10.0                                 |
-| **Blazor Event Handling:**                     | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/event-handling?view=aspnetcore-10.0                     |
-| **CSS borders:**                               | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/border                                            |
-| **CSS Box Shadows:**                           | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/box-shadow                                        |
-| **CSS background color:**                      | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/background-color                                  |
-| **Select Box Binding:**                        | https://stackoverflow.com/questions/58485439/select-box-binding-in-blazor                                               |
-| **CSS Text Color:**                            | https://www.w3schools.com/css/css_text.asp                                                                              |
+| Subject                                       | URL                                                                                                                     |
+|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| **Using Max on Enumerable collection**        | https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.max?view=net-10.0                                   |
+| **DefaultIfEmpty**                            | https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.defaultifempty?view=net-10.0                        |
+| **Refresher on Expression bodied definition** | https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-operator#expression-body-definition |
+| **IEnumerable Any()**                         | https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.any?view=net-10.0                                   |
+| **Blazor Render Modes**                       | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-10.0                       |
+| **Blazor data binding**                       | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/data-binding?view=aspnetcore-10.0                       |
+| **Refresher on ternary conditional operator** | https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator                       |
+| **Enumerable.Count**                          | https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.count?view=net-10.0                                 |
+| **Blazor Event Handling**                     | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/event-handling?view=aspnetcore-10.0                     |
+| **CSS borders**                               | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/border                                            |
+| **CSS Box Shadows**                           | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/box-shadow                                        |
+| **CSS background color**                      | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/background-color                                  |
+| **Select Box Binding**                        | https://stackoverflow.com/questions/58485439/select-box-binding-in-blazor                                               |
+| **CSS Text Color**                            | https://www.w3schools.com/css/css_text.asp                                                                              |
+| **Die Faces UTF Symbols**                     | https://www.w3schools.com/charsets/ref_utf_symbols.asp                                                                  |
+| **Die Face 1**                                | https://codepoints.net/search?na=DIE%20FACE-1                                                                           |
+| **Die Faces and other symbols**               | https://en.wikipedia.org/wiki/Miscellaneous_Symbols                                                                     |
