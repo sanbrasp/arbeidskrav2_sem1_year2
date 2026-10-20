@@ -10,24 +10,26 @@
 <h3>MyGameNight</h3>
 
 <p>Hits: @(_addedGames.Count)</p>
-<div class="game-grid">
-    @if (!_addedGames.Any())
-    {
-        <p>You haven't added any games yet! Go look at some!</p>
-        <a href="/games">Game library</a>
-    }
-    else
-    {
-        @foreach (var game in _addedGames)
-        {
-            <GameCard Name="@game.Name" MinPlayers="@game.MinPlayers" MaxPlayers="@game.MaxPlayers"
-                      Category="@game.Category" Description="@game.Description" Rating="@game.Rating" 
-                      IsInGameNight="@(State.IsGameInGameNightList(game.Id))" Id="@game.Id" />
-        }
-    }
-</div>
 
-<a href="/">Go back to home.</a>
+@if (!_addedGames.Any())
+{
+    <p>You haven't added any games yet! Go find some!</p>
+    <p><a href="/games">Game library</a></p>
+}
+else
+{
+    <div class="game-grid">
+    @foreach (var game in _addedGames)
+    {
+        <GameCard Name="@game.Name" MinPlayers="@game.MinPlayers" MaxPlayers="@game.MaxPlayers"
+                  Category="@game.Category" Description="@game.Description" Rating="@game.Rating" 
+                  IsInGameNight="@(State.IsGameInGameNightList(game.Id))" Id="@game.Id" OnRemoveFromGameNight="HandleRemoveFromGameNight" />
+    }
+    </div>
+}
+
+
+<p><a href="/">Go back to home</a></p>
 
 @code {
     IReadOnlyList<BoardGame> _addedGames = new List<BoardGame>();
@@ -35,6 +37,16 @@
     protected override void OnInitialized()
     {
         _addedGames = State.GetGameNightGames();
+    }
+
+    private void HandleRemoveFromGameNight(int id)
+    {
+        var game = GameRepo.GetGameById(id);
+
+        if (game != null)
+        {
+            State.RemoveFromGameNight(game);
+        }
     }
 
 }
