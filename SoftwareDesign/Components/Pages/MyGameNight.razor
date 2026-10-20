@@ -2,15 +2,17 @@
 @rendermode InteractiveServer
 @using SoftwareDesign.Data
 @using SoftwareDesign.Models
+@using SoftwareDesign.Services
 @inject GameRepository GameRepo
+@inject GameNightState State
 
 
 <h3>MyGameNight</h3>
 
 <div class="game-night-games">
-    <p>Hits: @(_addedGames.Count)</p>
+    <p>Hits: @(_addedGames.Count)</p> // list from service here
     
-    @if (!_addedGames.Any())
+    @if (!_addedGames.Any()) // list from service here
     {
         <p>You haven't added any games yet! Go look at some!</p>
         <a href="/games">Game library</a>
@@ -22,5 +24,9 @@
 @code {
     IReadOnlyList<BoardGame> _addedGames = new List<BoardGame>();
 
-    
+    protected override void OnInitialized()
+    {
+        _addedGames = State.GetGameNightGames();
+    }
+
 }
