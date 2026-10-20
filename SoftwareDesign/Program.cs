@@ -10,6 +10,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddSingleton<GameRepository>();
 builder.Services.AddSingleton<GameFilterService>();
 builder.Services.AddSingleton<GameRandomizer>();
+builder.Services.AddScoped<GameNightState>();
 
 var app = builder.Build();
 
