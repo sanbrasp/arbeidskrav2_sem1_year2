@@ -190,6 +190,7 @@ Notes to self:
 - `GameCard`'s `EventCallback` is updated to carry `Id` instead of `Name`.
 - Several new methods in `GameNightState`, add them to table.
 - CSS copied between classes, not according to DRY, but I don't know CSS and can't use shared css
+- buttons now work both on Games page and MyGameNight (only remove button shows on MyGameNight, one at a time in Games page)
 - 
 
 ---
