@@ -77,8 +77,14 @@ else
         _randomBoardGame = Randomizer.GetRandomGame(SearchResultWithNumberOfPlayers);
     }
 
-    private void HandleAddToGameNight(string name)
+    private void HandleAddToGameNight(int id)
     {
-        _confirmation = $"{name} has been added to game night";
+        var game = GameRepo.GetGameById(id);
+        
+        if (game != null)
+        {
+            State.AddToGameNight(game);
+            _confirmation = $"{game.Name} has been added to game night";
+        }
     }
 }
