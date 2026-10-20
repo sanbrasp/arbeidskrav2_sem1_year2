@@ -22,6 +22,15 @@ internal class GameNightState
         }
     }
 
+    internal void RemoveFromGameNight(BoardGame game)
+    {
+        if (_addedToGameNight.Any(x => x.Id == game.Id))
+        {
+            _addedToGameNight.RemoveAll(x => x.Id == game.Id);
+            OnChange?.Invoke();
+        }
+    }
+
     internal bool IsGameInGameNightList(int id)
     {
         return _addedToGameNight.Any(x => x.Id == id);
