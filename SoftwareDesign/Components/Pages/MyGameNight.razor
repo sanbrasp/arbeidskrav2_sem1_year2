@@ -9,13 +9,21 @@
 
 <h3>MyGameNight</h3>
 
-<div class="game-night-games">
-    <p>Hits: @(_addedGames.Count)</p> // list from service here
-    
-    @if (!_addedGames.Any()) // list from service here
+<p>Hits: @(_addedGames.Count)</p>
+<div class="game-grid">
+    @if (!_addedGames.Any())
     {
         <p>You haven't added any games yet! Go look at some!</p>
         <a href="/games">Game library</a>
+    }
+    else
+    {
+        @foreach (var game in _addedGames)
+        {
+            <GameCard Name="@game.Name" MinPlayers="@game.MinPlayers" MaxPlayers="@game.MaxPlayers"
+                      Category="@game.Category" Description="@game.Description" Rating="@game.Rating" 
+                      IsInGameNight="@(State.IsGameInGameNightList(game.Id))" Id="@game.Id" />
+        }
     }
 </div>
 
