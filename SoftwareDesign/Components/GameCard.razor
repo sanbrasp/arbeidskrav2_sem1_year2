@@ -1,4 +1,4 @@
-﻿<div class="game-card @(IsPickedCard ? "picked-card" : "")">
+﻿<div class="game-card @(IsPickedCard ? "picked-card" : "") @(IsInGameNight ? "game-night" : "")">
     <p class="name">@Name</p>
     <p class="minplayers">Min players: @MinPlayers</p>
     <p class="maxplayers">Max players: @MaxPlayers</p>
