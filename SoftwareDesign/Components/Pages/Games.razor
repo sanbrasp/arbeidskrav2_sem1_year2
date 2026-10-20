@@ -13,6 +13,7 @@
 <div class="search-field">
     <input @bind="_searchInput" @bind:event="oninput" placeholder="Search for a game" />
     <label for="dropdown-menu" class="dropdown-label">Number of players:</label>
+    
     <select @bind="_numberOfPlayers" id="dropdown-menu">
         <option value="0">Any</option>
         @for (int amount = 1; amount <= FilterService.MaxAmountOfPlayers(_boardGames); amount++)
