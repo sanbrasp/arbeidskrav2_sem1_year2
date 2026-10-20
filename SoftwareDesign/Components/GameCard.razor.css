@@ -51,6 +51,11 @@
     align-self: center;
 }
 
+.remove-from-game-night-button {
+    padding: 1rem;
+    align-self: center;
+}
+
 .picked-card {
     border: 1rem solid;
     background-color: powderblue;
