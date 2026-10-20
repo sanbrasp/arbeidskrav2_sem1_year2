@@ -181,6 +181,9 @@ Notes to self:
 - Scoped service for "MyGameNight" to survive page navigation (Limitation: does not survive refresh).
 - Not EventCallback for the changes that the service will handle, because parent child needed, but a subscription for listeners instead
 - New service: `GameNightState`.
+- The service holds the user's list (the one they add games to)
+- The list will contain the full games with every piece of info from ID to rating.
+- `@code` section in `NavMenu`, `OnInitialized()` and `Dispose()`
 - 
 
 ---
