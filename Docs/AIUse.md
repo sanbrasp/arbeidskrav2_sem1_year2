@@ -18,7 +18,7 @@ Overview
   - [Manual Test Explanation](#manual-test-explanation)
   - [Formatting Suggestion](#formatting-suggestions-for-the-project-readme)
   - [Rewording Paragraph](#rewording-of-a-messy-paragraph)
-  - [bUnit First Test]()
+  - [bUnit First Test](#bunit-first-test)
   - [Reversed CallBack and Method Names](#reversed-callbackevent-and-method-names)
   - [Lookup By ID When ID Not Found](#lookup-by-id-suggestions-for-id-not-found)
   - [AddToGameNight Wiring](#add-to-gamenight-wiring)
@@ -48,7 +48,9 @@ subjects have been discussed.
 Specific concepts discussed include but are not limited to: Object initializers, why DI is for services, what automated
 tests mean, test naming pattern conventions.  
 Discussions about async task and the loop of `OnClicked -> ValueChanged -> InvokeAsync`.  
-Hot Reload: "rude edits". "Deleting class.." scared me, so I needed an explanation for what it actually meant.
+Hot Reload: "rude edits". "Deleting class.." scared me, so I needed an explanation for what it actually meant.  
+Explanation on `OnInitialized` and `OnParameterSet`.  
+Discussed the difference between filtering and lookup.  
 
 ---
 
@@ -59,7 +61,8 @@ for me to follow along.
 ---
 
 ## Proof Reading and Code Review
-`Claude.ai` has been used for proof reading documents and code reviews during this project.
+`Claude.ai` has been used for proof reading documents and code reviews during this project.  
+Where needed, AI has suggested better wording using what I have already written myself.
 
 ---
 
@@ -106,7 +109,7 @@ I had written it in a way that made it clunky to read.
 ### bUnit First Test
 Since I have never worked with bUnit before, I had `Claude.ai` give me the shape of how one would write one.  
 I then filled out the triple a's myself and ran it.  
-I wrote the rest of the tests myself with only a few guided questions from `Claude.ai`. I got some syntax wrong, and 
+I wrote the rest of the tests myself based on an initial fill-in shape from `Claude.ai`. I got some syntax wrong, and 
 tried to pull data from the wrong CSS classes a few times.
 
 ---
@@ -132,8 +135,14 @@ Missing ID is handled by `GameDetails`.
 ### Add To Gamenight Wiring
 I was unsure of where to wire the method because I was very tired. The AI tried directing me with guided 
 questions, but I was unable to comprehend, and also made mistakes in the syntax. I eventually asked it directly 
-where the wiring needed to happen, and it told me it needed to go inside the loop on the `GameCard tag` on the page.  
+where the wiring needed to happen, and it told me it needed to go inside the loop on the `GameCard` tag on the page.  
 I wrote the wiring for the confirmation message and adjusted the wiring based on guided questions from the AI.  
+
+---
+
+### Fill-In Shape for Link in GameCard
+I was unsure how to put the link on the card because I was tired and exhausted, so AI provided the fill-in shape 
+`<a href="/games/@____">____</a>` for me, which I filled out and bugfixed myself because I used a closing tag too early and broke it.
 
 ---
 
@@ -175,7 +184,7 @@ _A selection of situations:_
 Whenever AI gave me CSS visual styling (borders, colors) I would play around with it until I landed on something 
 I liked better, or decided to keep the suggestion from AI.
 
-**Errors, limitations or challenges brought on with the use of AI**  
+**Errors or challenges brought on with the use of AI**  
 _A selection of situations with challenges and errors:_
 
 | Kind                            | Situation                                                                                                                                                                                                                                             |
@@ -191,7 +200,8 @@ _A selection of situations with challenges and errors:_
 |                                 | Gave me a full markup that I didn't ask for despite the ground rule of not giving free answers unless I specifically ask for examples (but then to not use data from the project in the example). Stopped doing this after I refined the ground rule. |
 
 
-Limitations: 
+**Limitations:**  
+_A selection of limitations:_
 - I was sometimes too tired to follow the guided questions
 - AI can't see screenshots in .md files and will suggest things like "add some screenshots"
 - Long conversations outgrow AI's memory, and they have to be continued from a summary
