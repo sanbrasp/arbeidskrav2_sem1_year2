@@ -21,4 +21,9 @@ internal class GameNightState
             OnChange?.Invoke(); // ring the bell!
         }
     }
+
+    internal bool IsGameInGameNightList(int id)
+    {
+        return _addedToGameNight.Any(x => x.Id == id);
+    }
 }
