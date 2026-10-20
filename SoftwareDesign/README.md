@@ -188,6 +188,9 @@ Notes to self:
 - The service should check for "is this game in the user's list" by comparing IDs of the games in the user's list
 - The callback that carries a `Name` (string) should carry the `Id` instead, then we can use `GameRepository.GetGameById`.
 - `GameCard`'s `EventCallback` is updated to carry `Id` instead of `Name`.
+- Several new methods in `GameNightState`, add them to table.
+- CSS copied between classes, not according to DRY, but I don't know CSS and can't use shared css
+- 
 
 ---
 
