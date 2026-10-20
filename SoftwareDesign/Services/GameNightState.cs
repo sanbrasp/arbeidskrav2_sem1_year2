@@ -4,10 +4,21 @@ namespace SoftwareDesign.Services;
 
 internal class GameNightState
 {
-    internal IReadOnlyList<BoardGame> _addedToGameNight = new List<BoardGame>();
+    private readonly List<BoardGame> _addedToGameNight = new List<BoardGame>();
+    public int Hits => _addedToGameNight.Count;
+    public event Action? OnChange; // bell
 
-    internal IReadOnlyList<BoardGame> GetGameNightGames()
+    public IReadOnlyList<BoardGame> GetGameNightGames()
     {
         return _addedToGameNight;
+    }
+
+    internal void AddToGameNight(BoardGame game)
+    {
+        if (_addedToGameNight.All(x => x.Id != game.Id))
+        {
+            _addedToGameNight.Add(game);
+            OnChange?.Invoke(); // ring the bell!
+        }
     }
 }
