@@ -180,6 +180,7 @@ Application state and responsive UI.
 Notes to self: 
 - Scoped service for "MyGameNight" to survive page navigation (Limitation: does not survive refresh).
 - Not EventCallback for the changes that the service will handle, because parent child needed, but a subscription for listeners instead
+- New service: `GameNightState`.
 - 
 
 ---
