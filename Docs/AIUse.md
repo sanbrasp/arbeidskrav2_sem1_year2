@@ -49,7 +49,7 @@ Specific concepts discussed include but are not limited to: Object initializers,
 tests mean, test naming pattern conventions.  
 Discussions about async task and the loop of `OnClicked -> ValueChanged -> InvokeAsync`.  
 Hot Reload: "rude edits". "Deleting class.." scared me, so I needed an explanation for what it actually meant.  
-Explanation on `OnInitialized` and `OnParameterSet`.  
+Explanation on `OnInitialized` and `OnParametersSet`.  
 Discussed the difference between filtering and lookup.  
 
 ---
