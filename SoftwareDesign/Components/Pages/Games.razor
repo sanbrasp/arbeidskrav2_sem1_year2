@@ -49,7 +49,7 @@ else
         {
             <GameCard Name="@game.Name" MinPlayers="@game.MinPlayers" MaxPlayers="@game.MaxPlayers"
             Category="@game.Category" Description="@game.Description" Rating="@game.Rating" 
-            IsPickedCard="@(game == _randomBoardGame)" Id="@game.Id" OnAddToGameNight="HandleAddToGameNight" />
+            IsPickedCard="@(game == _randomBoardGame)" IsInGameNight="@(State.IsGameInGameNightList(game.Id))" Id="@game.Id" OnAddToGameNight="HandleAddToGameNight" />
         }
     </div>
 }
