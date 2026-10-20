@@ -6,8 +6,18 @@
     <p class="description">Description: @Description</p>
     <DiceRating Value="Rating" ReadOnly="true" />
     <p class="id">Id: @Id</p>
-    <button class="add-to-game-night-button" @onclick="AddToGameNight">Add to game night
-    </button>
+    
+    @if (IsInGameNight)
+    {
+        <button class="remove-from-game-night-button" @onclick="RemoveFromGameNight">Remove the game from game night
+        </button>
+    }
+    else
+    {
+        <button class="add-to-game-night-button" @onclick="AddToGameNight">Add to game night
+        </button>
+    }
+    
     <a class="game-link" href="/games/@Id">Link to game's page.</a>
 </div>
 
@@ -22,9 +32,15 @@
     [Parameter] public bool IsPickedCard { get; set; }
     [Parameter] public bool IsInGameNight { get; set; }
     [Parameter] public EventCallback<int> OnAddToGameNight { get; set; }
+    [Parameter] public EventCallback<int> OnRemoveFromGameNight { get; set; }
     
     private async Task AddToGameNight()
     {
         await OnAddToGameNight.InvokeAsync(Id);
+    }
+
+    private async Task RemoveFromGameNight()
+    {
+        await OnRemoveFromGameNight.InvokeAsync(Id);
     }
 }
