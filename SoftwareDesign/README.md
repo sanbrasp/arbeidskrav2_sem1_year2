@@ -184,7 +184,10 @@ Notes to self:
 - The service holds the user's list (the one they add games to)
 - The list will contain the full games with every piece of info from ID to rating.
 - `@code` section in `NavMenu`, `OnInitialized()` and `Dispose()`
-- 
+- New parameter in `GameCard`: `IsInGameNight`.
+- The service should check for "is this game in the user's list" by comparing IDs of the games in the user's list
+- The callback that carries a `Name` (string) should carry the `Id` instead, then we can use `GameRepository.GetGameById`.
+- `GameCard`'s `EventCallback` is updated to carry `Id` instead of `Name`.
 
 ---
 
