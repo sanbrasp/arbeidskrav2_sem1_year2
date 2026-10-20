@@ -6,9 +6,9 @@ Testing Documentation
 
 Must contain:
 - ~~At least 5 automated tests in its own test project (add test data and screenshots here)~~
-- At least 3 tests should cover logic outside the components, example: GameNightState, filtering, or validation
+- ~~At least 3 tests should cover logic outside the components, example: GameNightState, filtering, or validation~~
 - ~~At least 1 test should test a component, example: DiceRating (Rating) sending the correct value through ValueChanged. Can use bUnit~~
-- Tests should cover normal use and edge cases
+- ~~Tests should cover normal use and edge cases~~
 - Write a manual test log for test cases in ~~task 1, 2~~, 3, 4 that aren't automated. Log should show test case, steps, expected result
   and actual result.
 
@@ -28,6 +28,8 @@ Must contain:
 ## Task 1 Manual Test Log
 
 **Case: _Search with no hits, clicking "Choose a random game!" does not crash_**    
+
+**Steps:**  
 - Search for `asd`
 - Number of players: `Any`
 - Click `🎲Roll the die`
@@ -42,6 +44,8 @@ Must contain:
 ![manual test](Images/task1_manualtest_games_search.png)
 
 **Case: _Search with hits, random game highlight working_**    
+
+**Steps:**  
 - Search for something that yields at least 2 results
 - Click `🎲Roll the die`
 
@@ -54,6 +58,8 @@ Must contain:
 ![random when there are hits](Images/task1_manualtest_games_hit_random.png)
 
 **Case: _Dropdown menu affects hits_**    
+
+**Steps:**  
 - Pick 7 players
 - Pick 9 players
 
@@ -65,6 +71,8 @@ Must contain:
 ![dropdown7](Images/task1_manualtest_dropdown7_9.png)
 
 **Case: _Filtering and dropdown work together_**  
+
+**Steps:**  
 - Search for `span`
 - Dropdown: `5 players`
 - Dropdown: `6 players`
@@ -114,7 +122,6 @@ Task 1 test coverage.
 - Navigate to `/games/1` using the URL field
 
 **Expected result**  
-- Hits: 1
 - Game: Wyrmspan
 
 **Actual result**  
@@ -164,6 +171,8 @@ This fails because the type is `int`, set in the page `GameDetails` in the route
 **Actual result**  
 ![die rating](Images/task2_clickingthedie_rating.png)
 
+Automated test also covers this case, further down in [this document](#task-2-automated-tests), 
+in the test: `DiceRating_NotReadOnly_ClickingADieFace_ReportsTheCorrectRating`.
 
 **Case: Active menu is marked**
 
@@ -187,7 +196,9 @@ Automated tests for task 2 running and succeeding:
 
 **Test names:**  
 `DiceRating` tests:  
-- `DiceRating_NotReadOnly_ClickingADieFace_ReportsTheCorrectRating` (1 theory with 3 data rows)  
+- `DiceRating_NotReadOnly_ClickingADieFace_ReportsTheCorrectRating` (1 theory with 3 data rows)
+  (_This test was also manually checked by hardcoding `1` and removing the ReadOnly guard in the method to ensure 
+`1` would still pass, while `3` and `6` would fail._)
 - `DiceRating_RatingThreeGiven_DieFaceThreeIsHighlighted`
 - `DiceRating_ReadOnly_IgnoresClicks`
 - `DiceRating_ValueOutOfRange_NoDieIsHighlighted` (1 theory with 4 data rows)
@@ -201,6 +212,9 @@ Automated tests for task 2 running and succeeding:
 - Edge cases
 - Parent gets correct value for dice rating
 - Out of range values
+- Read-only ignores clicks
+- Out-of-range values highlight nothing
+- `GetGameById` returns a game for an existing ID, and `null` if the ID does not exist.
 
 ---
 
