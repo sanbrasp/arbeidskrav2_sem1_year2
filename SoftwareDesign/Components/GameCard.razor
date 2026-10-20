@@ -20,6 +20,7 @@
     [Parameter] public string Description { get; set; } = "";
     [Parameter] public int Rating { get; set; }
     [Parameter] public bool IsPickedCard { get; set; }
+    [Parameter] public bool IsInGameNight { get; set; }
     [Parameter] public EventCallback<string> OnAddToGameNight { get; set; }
     
     private async Task AddToGameNight()
