@@ -1,10 +1,26 @@
 ﻿@page "/my-game-night"
+@rendermode InteractiveServer
+@using SoftwareDesign.Data
+@using SoftwareDesign.Models
+@inject GameRepository GameRepo
+
 
 <h3>MyGameNight</h3>
 
-<p>Nothing here yet...</p>
+<div class="game-night-games">
+    <p>Hits: @(_addedGames.Count)</p>
+    
+    @if (!_addedGames.Any())
+    {
+        <p>You haven't added any games yet! Go look at some!</p>
+        <a href="/games">Game library</a>
+    }
+</div>
+
 <a href="/">Go back to home.</a>
 
 @code {
+    IReadOnlyList<BoardGame> _addedGames = new List<BoardGame>();
+
     
 }
