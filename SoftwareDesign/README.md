@@ -209,10 +209,10 @@ that makes more sense to me.
 - 
 
 **App in 375px width**  
-![375px](Images/appsettings.Development_375px.png)
+![375px](Images/app_375px.png)
 
 **App in 1200px width**  
-![1200px](Images/appsettings.Development_1200px.png)
+![1200px](Images/app_1200px.png)
 
 ---
 
