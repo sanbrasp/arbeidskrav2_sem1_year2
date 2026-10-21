@@ -296,6 +296,65 @@ Automated tests for task 2 running and succeeding:
 **Actual result:**  
 ![game state](Images/task3_manual_statesurvivesnavigation.png)
 
+
+**Case: The same game cannot be added twice**
+
+**Steps:**
+- Add a game using the "Add to game night" button
+
+**Expected result:**
+- The button will change from `Add` to `Remove`, making duplicate addition impossible
+  (the service also ignores a second add)
+
+**Actual result:**  
+![cannot add twice](Images/task3_manual_gamecannotbeaddedtwice.png)
+
+
+**Case: Remove the last game from the list**
+
+**Steps:**  
+- Navigate to "My Game Night"
+- Click "Remove the game from game night"
+
+**Expected result:** 
+- The game will disappear
+- The page will show a count of 0
+- The page will show a message saying you haven't added any games
+- The page will show a link to go to the game library, and one to go to home
+
+**Actual result:**  
+![remove game](Images/task3_manual_removegamefrommygamenight.png)
+
+
+**Case: Total amount of playtime summarized with three games**
+
+**Steps:**
+- Add three games to "My Game Night": `Wyrmspan`, `Wingspan`, `Gloom Haven`
+- Navigate to "My Game Night"
+
+**Expected result:**
+- The page will report 3 games in the list
+- The page will report a combined estimated playtime of `300 minutes`
+
+**Actual result:**  
+![total playtime](Images/task3_manual_totalplaytime.png)
+
+
+
+**Case: Scoped Service, one circuit per tab**
+
+**Steps:**
+- Add games to "My Game Night" in one tab
+- Open a new tab
+- Navigate to "My Game Night" in the new tab and find it empty
+
+**Expected result:**
+- First tab will contain games you've added in "My Game Night"
+- Second tab will have an empty list in "My Game Night"
+
+**Actual result:**  
+![scoped](Images/task3_manual_tabsshowdifferentcontentsinmygamenight.png)
+
 </details>
 
 <details>
