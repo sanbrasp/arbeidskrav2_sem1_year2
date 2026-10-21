@@ -15,12 +15,14 @@
 ---
 
 ## About
-Second Arbeidskrav for Backend Programming, year 2, at Gokstad Akademiet.  
+Second Arbeidskrav for Backend Programming, semester 1, year 2, at Gokstad Akademiet.  
 
-This project represents a board game café where users can browse games, choose a random game, and filter by 
-name and by number of players.
+This project represents a board game café where the user can browse games, choose a random game, and filter by 
+name and by number of players.  
+The user is also able to add and remove games to and from their "My Game Night" page from the game shelf, 
+and remove games from "My Game Page".  
 
-(TODO: This might need to be extended when the project is finished!)
+This project is a practice project in working with Software Design using Blazor.
 
 ---
 
