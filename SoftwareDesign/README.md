@@ -175,6 +175,16 @@ Refer to the documentation in [AIUse.md](../Docs/AIUse.md)
 Task 3:  
 Application state and responsive UI.
 
+**Components, pages, classes**  
+
+| Part             | Does                                                                                                                                   | Does not                               |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
+| `GameNightState` | Holds the state for a user's Game Night, list of full games, rule for no duplicate additions                                           | Fill in                                |
+| `NavMenu`        | Added `@code` section. Subscribes to events from `GameNightState` in `OnInitialied`. Added method `Dispose`. Implements `IDisposable`. | fill in                                |
+| `GameCard`       | New parameter `IsInGameNight` allows page to ask if the game already exists in user's list.                                            | fill in                                |
+| `GameCard`       | Change to `EventCallback`, now carries `Id` instead of `Name`. Added param `OnRemoveFromGameNight`                                     | fill in Does not carry `Name`(string). |
+
+
 Notes to self: 
 - Scoped service for "MyGameNight" to survive page navigation (Limitation: does not survive refresh).
 - Not EventCallback for the changes that the service will handle, because parent child needed, but a subscription for listeners instead
@@ -190,7 +200,7 @@ Notes to self:
 - CSS copied between classes, not according to DRY, but I don't know CSS and can't use shared css
 - buttons now work (are no longer dead!) both on Games page and MyGameNight (only remove button shows on MyGameNight, 
 one at a time in Games page)
-- 
+- `OnRemoveGameNight` in `GameCard` for the table.
 
 ---
 
