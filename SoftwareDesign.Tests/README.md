@@ -329,7 +329,7 @@ Automated tests for task 2 running and succeeding:
 **Case: Total amount of playtime summarized with three games**
 
 **Steps:**
-- Add three games to "My Game Night": `Wyrmspan`, `Wingspan`, `Gloom Haven`
+- Add three games to "My Game Night": `Wyrmspan`, `Wingspan`, `Gloomhaven`
 - Navigate to "My Game Night"
 
 **Expected result:**
@@ -354,6 +354,23 @@ Automated tests for task 2 running and succeeding:
 
 **Actual result:**  
 ![scoped](Images/task3_manual_tabsshowdifferentcontentsinmygamenight.png)
+
+
+**Case: App at 375px and 1200px**  
+
+**Steps:**
+- Launch the project
+- Ctrl + Shift + M
+- Set width to `375` and `1200`
+
+**Expected result:**  
+- Scrollable version of the page
+- Usable navigation menu in burger shape
+
+**Actual result:**  
+![375px](Images/task3_app_375px.png) ![1200px](Images/task3_app_1200px.png)
+
+
 
 </details>
 
