@@ -5,7 +5,7 @@ namespace SoftwareDesign.Services;
 internal class GameNightState
 {
     private readonly List<BoardGame> _addedToGameNight = new List<BoardGame>();
-    public int Hits => _addedToGameNight.Count;
+    public int NumberOfGames => _addedToGameNight.Count;
     public event Action? OnChange; // bell
 
     public IReadOnlyList<BoardGame> GetGameNightGames()
