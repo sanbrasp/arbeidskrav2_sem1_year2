@@ -268,9 +268,35 @@ Automated tests for task 2 running and succeeding:
 - Expected
 - Actual
 
-</details>
+**Case: Adding game from shelf is visible in `MyGameNight`**
 
----
+**Steps:**  
+- Click "Add to game night" on any game
+- Watch "My Game Night" in the navigation menu
+- Navigate to "My Game Night"
+
+**Expected result:**  
+- Button on game card changes from `add` to `remove`
+- A die with the number of games added shows next to "My Game Night" in navigation menu
+- The game will display when navigating to "My Game Night"
+
+**Actual result:**  
+![game added](Images/task3_manual_gameaddedtoMyGameNight.png)
+
+
+**Case: State survives navigation**  
+
+**Steps:**
+- With a game in "My Game Night", navigate to `Home`, `Games`, and to a game's page
+
+**Expected result:**
+- The die with the number will remain to the right of "My Game Night" in the navigation menu
+- The state will survive navigation
+
+**Actual result:**  
+![game state](Images/task3_manual_statesurvivesnavigation.png)
+
+</details>
 
 <details>
 <summary><strong>Expand to see automated tests for task 3</strong></summary>
