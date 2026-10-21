@@ -183,7 +183,7 @@ Application state and responsive UI.
 | `NavMenu`        | Added `@code` section. Subscribes to events from `GameNightState` in `OnInitialied`. Added method `Dispose`. Implements `IDisposable`. | fill in                                |
 | `GameCard`       | New parameter `IsInGameNight` allows page to ask if the game already exists in user's list.                                            | fill in                                |
 | `GameCard`       | Change to `EventCallback`, now carries `Id` instead of `Name`. Added param `OnRemoveFromGameNight`                                     | fill in Does not carry `Name`(string). |
-
+| `BoardGame` | Now makes use of `PlaytimeMinutes` in the constructor. | fill in. |
 
 Notes to self: 
 - Scoped service for "MyGameNight" to survive page navigation (Limitation: does not survive refresh).
@@ -201,6 +201,7 @@ Notes to self:
 - buttons now work (are no longer dead!) both on Games page and MyGameNight (only remove button shows on MyGameNight, 
 one at a time in Games page)
 - `OnRemoveGameNight` in `GameCard` for the table.
+- Implement PlaytimeMinutes in `BoardGame` constructor and cascading items...
 
 ---
 
