@@ -49,6 +49,22 @@ public class GameNightStateTests
     }
 
     [Fact]
+    public void AddToGameNight_TwoObjectsWithSameId_FirstIsAdded()
+    {
+        // Arrange
+        var game1 = new BoardGame(
+            "Duplicate ID test game", 1, 5, "test category", "just a test", 20) {Id = _game.Id};
+        
+        // Act
+        _state.AddToGameNight(_game);
+        _state.AddToGameNight(game1);
+
+        // Assert
+        Assert.Equal(1, _state.NumberOfGames);
+        Assert.Equal("Test game", _state.GetGameNightGames()[0].Name);
+    }
+
+    [Fact]
     public void RemoveFromGameNight_EmptiesList()
     {
         // Arrange
