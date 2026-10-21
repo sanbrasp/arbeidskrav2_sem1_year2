@@ -16,16 +16,26 @@ Must contain:
 ---
 
 ## Overview
+- [Task 1 Tests](#task-1-tests)
 - [Task 1 Manual Test Log](#task-1-manual-test-log)
 - [Task 1 Automated Tests](#task-1-automated-tests)
+- [Task 2 Tests](#task-2-tests)
 - [Task 2 Manual Test Log](#task-2-manual-test-log)
 - [Task 2 Automated Tests](#task-2-automated-tests)
+- [Task 3 Tests](#task-3-tests)
 - [Task 3 Manual Test Log](#task-3-manual-test-log)
 - [Task 3 Automated Tests](#task-3-automated-tests)
 - [Task 4 Manual Test Log](#task-4-manual-test-log)
 - [Task 4 Automated Tests](#task-4-automated-tests)
 
 ---
+
+## Task 1 Tests
+
+<details>
+<summary><strong>Expand to see manual test log for task 1</strong></summary>
+
+<br>
 
 ## Task 1 Manual Test Log
 
@@ -87,7 +97,14 @@ Must contain:
 **Actual result:**  
 ![dropdown and search](Images/task1_manualtest_dropdown_search.png)
 
+</details>
+
 ---
+
+<details>
+<summary><strong>Expand to see automated tests for task 1</strong></summary>
+
+<br>
 
 ## Task 1 Automated Tests
 Task 1 test coverage.
@@ -112,9 +129,16 @@ Task 1 test coverage.
 - Range for number of players
 - Upper and lowercase searches
 
+</details>
+
 ---
 
+## Task 2 Tests
 
+<details>
+<summary><strong>Expand to see manual test log for task 2</strong></summary>
+
+<br>
 
 ## Task 2 Manual Test Log
 
@@ -190,9 +214,17 @@ in the test: `DiceRating_NotReadOnly_ClickingADieFace_ReportsTheCorrectRating`.
 **Actual result**  
 ![marked page](Images/task2_activepageismarked.png)
 
+</details>
+
 ---
 
+<details>
+<summary><strong>Expand to see automated tests for task 2</strong></summary>
+
+<br>
+
 ## Task 2 Automated Tests
+
 Automated tests for task 2 running and succeeding:
 ![task 2 tests](Images/task2_tests_success.png)
 
@@ -218,9 +250,17 @@ Automated tests for task 2 running and succeeding:
 - Out-of-range values highlight nothing
 - `GetGameById` returns a game for an existing ID, and `null` if the ID does not exist.
 
+</details>
+
 ---
 
 ## Task 3 Tests
+
+<details>
+<summary><strong>Expand to see manual test log for task 3</strong></summary>
+
+<br>
+
 ## Task 3 Manual Test Log
 
 - Case
@@ -228,19 +268,46 @@ Automated tests for task 2 running and succeeding:
 - Expected
 - Actual
 
+</details>
+
+---
+
+<details>
+<summary><strong>Expand to see automated tests for task 3</strong></summary>
+
+<br>
+
 ## Task 3 Automated Tests
+
+Add here
+
+</details>
 
 
 ---
 
 ## Task 4 Tests
+
+<details>
+<summary><strong>Expand to see manual test log for task 4</strong></summary>
+
+<br>
+
 ## Task 4 Manual Test Log
 - Case
 - Steps
 - Expected
 - Actual
 
+</details>
+
+<details>
+<summary><strong>Expand to see automated tests for task 4</strong></summary>
+
+<br>
 
 ## Task 4 Automated Tests
+
+</details>
 
 ---
