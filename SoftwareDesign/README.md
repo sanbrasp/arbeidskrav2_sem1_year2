@@ -206,7 +206,6 @@ one at a time in Games page)
 because the else branch does not launch if the list is empty. I made a decision to keep it hidden unless it has contents because 
 that makes more sense to me.
 - Duplicated logic, display, handlers in `GameDetails` (same in `Game` and `MyGameNight`)
-- 
 
 **App in 375px width**  
 ![375px](Images/app_375px.png)
