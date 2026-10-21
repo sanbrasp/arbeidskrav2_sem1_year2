@@ -202,6 +202,10 @@ Notes to self:
 one at a time in Games page)
 - `OnRemoveGameNight` in `GameCard` for the table.
 - Implement PlaytimeMinutes in `BoardGame` constructor and cascading items...
+- `TotalPlaytime` stays hidden in the else branch in `MyGamePage`, and the logic proves that it is at zero when it is hidden, 
+because the else branch does not launch if the list is empty. I made a decision to keep it hidden unless it has contents because 
+that makes more sense to me.
+- 
 
 ---
 
