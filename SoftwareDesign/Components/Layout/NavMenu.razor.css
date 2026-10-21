@@ -103,3 +103,7 @@
         overflow-y: auto;
     }
 }
+
+.state-badge {
+    margin-left: 0.5rem;
+}
