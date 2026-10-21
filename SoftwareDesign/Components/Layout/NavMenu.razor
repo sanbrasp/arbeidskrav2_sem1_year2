@@ -36,13 +36,10 @@
 
 @code
 {
-    private void OnInitialized()
-    {
-        // TODO: subscribe to events here
-    }
+    protected override void OnInitialized()
+        => State.OnChange += OnStateChanged;
     
-    public void Dispose()
-    {
-        // TODO: unsubscribe to events here
-    }
+    private void OnStateChanged() => InvokeAsync(StateHasChanged);
+
+    public void Dispose() => State.OnChange -= OnStateChanged;
 }
