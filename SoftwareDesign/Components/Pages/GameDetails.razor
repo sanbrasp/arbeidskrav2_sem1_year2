@@ -1,8 +1,10 @@
 ﻿@page "/games/{Id:int}"
 @using SoftwareDesign.Data
 @using SoftwareDesign.Models
+@using SoftwareDesign.Services
 @inject NavigationManager NavManager
 @inject GameRepository GameRepo
+@inject GameNightState State
 
 <h3>GameDetails</h3>
 
@@ -13,10 +15,15 @@
 }
 else
 {
+    @if (!string.IsNullOrEmpty(_confirmation))
+    {
+        <p class="confirmation">@_confirmation</p>
+    }
     <div class="id-lookup-result">
         <GameCard Name="@_game.Name" MinPlayers="@_game.MinPlayers" MaxPlayers="_game.MaxPlayers"
                   Category="@_game.Category" Description="@_game.Description" Rating="_game.Rating"
-                  Id="_game.Id"/>
+                  IsInGameNight="@(State.IsGameInGameNightList(_game.Id))" Id="_game.Id" 
+                  OnAddToGameNight="HandleAddToGameNight" OnRemoveFromGameNight="HandleRemoveFromGameNight"/>
         <DiceRating Value="@_game.Rating" ValueChanged="HandleRating"/>
         
         <button class="back-btn" @onclick="HandleBackButton">
@@ -28,6 +35,7 @@ else
 
 @code {
     private BoardGame? _game;
+    private string _confirmation = "";
 
     [Parameter] public int Id { get; set; }
 
@@ -44,5 +52,23 @@ else
     private void HandleBackButton()
     {
         NavManager.NavigateTo("/games");
+    }
+
+    private void HandleAddToGameNight(int id)
+    {
+        if (_game != null)
+        {
+            State.AddToGameNight(_game);
+            _confirmation = $"{_game.Name} has been added to game night";
+        }
+    }
+
+    private void HandleRemoveFromGameNight(int id)
+    {
+        if (_game != null)
+        {
+            State.RemoveFromGameNight(_game);
+            _confirmation = $"{_game.Name} has been removed from game night";
+        }
     }
 }
