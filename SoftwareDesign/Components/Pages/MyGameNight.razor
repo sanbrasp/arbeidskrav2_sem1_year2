@@ -18,13 +18,14 @@
 }
 else
 {
+    <p>Estimated total playtime: @State.TotalPlaytime</p>
     <div class="game-grid">
-        <p>Estimated total playtime: @State.TotalPlaytime</p>
         @foreach (var game in _addedGames)
         {
             <GameCard Name="@game.Name" MinPlayers="@game.MinPlayers" MaxPlayers="@game.MaxPlayers"
                       Category="@game.Category" Description="@game.Description" Rating="@game.Rating"
-                      IsInGameNight="@(State.IsGameInGameNightList(game.Id))" Id="@game.Id" OnRemoveFromGameNight="HandleRemoveFromGameNight"/>
+                      IsInGameNight="@(State.IsGameInGameNightList(game.Id))" Id="@game.Id" 
+                      OnRemoveFromGameNight="HandleRemoveFromGameNight"/>
         }
     </div>
 }
