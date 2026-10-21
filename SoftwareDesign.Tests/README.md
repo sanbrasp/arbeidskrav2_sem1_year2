@@ -20,8 +20,10 @@ Must contain:
 - [Task 1 Automated Tests](#task-1-automated-tests)
 - [Task 2 Manual Test Log](#task-2-manual-test-log)
 - [Task 2 Automated Tests](#task-2-automated-tests)
-- [Task 3 Tests](#task-3-tests)
-- [Task 4 Tests](#task-4-tests)
+- [Task 3 Manual Test Log](#task-3-manual-test-log)
+- [Task 3 Automated Tests](#task-3-automated-tests)
+- [Task 4 Manual Test Log](#task-4-manual-test-log)
+- [Task 4 Automated Tests](#task-4-automated-tests)
 
 ---
 
@@ -221,6 +223,11 @@ Automated tests for task 2 running and succeeding:
 ## Task 3 Tests
 ## Task 3 Manual Test Log
 
+- Case
+- Steps
+- Expected
+- Actual
+
 ## Task 3 Automated Tests
 
 
@@ -228,6 +235,11 @@ Automated tests for task 2 running and succeeding:
 
 ## Task 4 Tests
 ## Task 4 Manual Test Log
+- Case
+- Steps
+- Expected
+- Actual
+
 
 ## Task 4 Automated Tests
 
