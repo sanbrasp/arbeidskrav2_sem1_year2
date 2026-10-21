@@ -105,7 +105,7 @@ Component communication and navigation.
 | `"/"`               | Goes to the root, "Home". The start page of the project.                                               |
 | `"/games"`          | Goes to the "Game Shelf" where all games are displayed using `GameCard`.                               |
 | `"/games/{Id:int}"` | Is a direct route to each game's page, navigated using the ID.                                         |
-| `"/my-game-night"`  | Goes to the "My Game Night" page that is empty for this task.                                          |
+| `"/game-night"`     | Goes to the "My Game Night" page that is empty for this task.                                          |
 | "`/not-found`"      | Goes to the "Not Found" page in instances where a user tries to navigate to a page that does not exist |
 
 
