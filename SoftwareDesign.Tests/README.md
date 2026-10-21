@@ -279,7 +279,33 @@ Automated tests for task 2 running and succeeding:
 
 ## Task 3 Automated Tests
 
-Add here
+![success](Images/task3_automated_success.png)
+
+**Test names**  
+- `AddToGameNight_AddingDuplicateGame_IsIgnored`
+- `AddToGameNight_ShowsOneGameInList`
+- `AddToGameNight_TwoObjectsWithSameId_FirstIsAdded`
+- `IsGameInGameNightList_FalseWhenNotAdded`
+- `OnChange_IsRaisedOnce_OnDuplicateAdd`
+- `OnChange_IsRaisedOnce_WhenGameIsAdded`
+- `OnChange_RemovingGameNotInList_DoesNotRaiseOnChange`
+- `RemoveFromGameNight_EmptiesList`
+- `TotalPlaytime_EmptyList_EqualsZero`
+- `TotalPlaytime_ThreeGames_EqualsTheSumOfThree`
+
+**Test cases**  
+- Edge cases
+- Duplicate adds ignored
+- Adding one game shows one game in game list
+- Two objects with same ID added, only the first one is added
+- Return false if game is not added to game night
+- OnChange is raised only once on a duplicate add
+- OnChange is raised once when a game is added
+- Removing a game does not raise OnChange
+- Removing a game from a single element list empties the list
+- Total playtime on an empty list equals zero
+- TotalPlaytime sums up the playtime for three games
+
 
 </details>
 
@@ -307,6 +333,8 @@ Add here
 <br>
 
 ## Task 4 Automated Tests
+
+![task 4 success]()
 
 </details>
 
