@@ -88,10 +88,10 @@ public class GameNightStateTests
         // In the shared constructor
 
         // Act
-        var state = _state.TotalPlaytime;
+        var result = _state.TotalPlaytime;
         
         // Assert
-        Assert.Equal(0, state);
+        Assert.Equal(0, result);
     }
 
     [Fact]
@@ -106,6 +106,47 @@ public class GameNightStateTests
         // Assert
         Assert.False(result);
     }
-    
-    
+
+    [Fact]
+    public void OnChange_IsRaisedOnce_WhenGameIsAdded()
+    {
+        // Arrange
+        int counter = 0;
+        _state.OnChange += () => counter++;
+
+        // Act
+        _state.AddToGameNight(_game);
+
+        // Assert
+        Assert.Equal(1, counter);
+    }
+
+    [Fact]
+    public void OnChange_IsRaisedOnce_OnDuplicateAdd()
+    {
+        // Arrange
+        int counter = 0;
+        _state.OnChange += () => counter++;
+
+        // Act
+        _state.AddToGameNight(_game);
+        _state.AddToGameNight(_game);
+
+        // Assert
+        Assert.Equal(1, counter);
+    }
+
+    [Fact]
+    public void OnChange_RemovingGameNotInList_DoesNotRaiseOnChange()
+    {
+        // Arrange
+        int counter = 0;
+        _state.OnChange += () => counter++;
+
+        // Act
+        _state.RemoveFromGameNight(_game);
+
+        // Assert
+        Assert.Equal(0, counter);
+    }
 }
