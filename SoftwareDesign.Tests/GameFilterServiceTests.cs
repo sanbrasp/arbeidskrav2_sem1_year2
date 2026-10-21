@@ -10,8 +10,8 @@ public class GameFilterServiceTests
     public GameFilterServiceTests()
     {
         _gameFilterService = new GameFilterService();
-        _testList.Add(new BoardGame("Monkeys", 6, 8, "Adventure", "test game"));
-        _testList.Add(new BoardGame("Cards", 2, 4, "Card", "test game"));
+        _testList.Add(new BoardGame("Monkeys", 6, 8, "Adventure", "test game", 10));
+        _testList.Add(new BoardGame("Cards", 2, 4, "Card", "test game", 10));
     }
     
     

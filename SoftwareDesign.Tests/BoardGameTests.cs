@@ -10,7 +10,7 @@ public class BoardGameTests
     public void SetRating_AcceptsValue_WithinBoundaries(int rating)
     {
         // Arrange
-        BoardGame boardGame = new BoardGame("Test", 1, 2, "test", "test");
+        BoardGame boardGame = new BoardGame("Test", 1, 2, "test", "test", 10);
         
         // Act
         boardGame.SetRating(rating);
@@ -25,7 +25,7 @@ public class BoardGameTests
     public void SetRating_DoesNotAcceptValue_OutOfBoundaries(int rating)
     {
         // Arrange
-        BoardGame boardGame = new BoardGame("Test", 1, 2, "test", "test");
+        BoardGame boardGame = new BoardGame("Test", 1, 2, "test", "test", 10);
         
         // Act & Assert
         Assert.Throws<ArgumentOutOfRangeException>(() => boardGame.SetRating(rating));

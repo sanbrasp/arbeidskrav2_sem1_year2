@@ -26,7 +26,7 @@ public class GameRepositoryTests
         var gameCount = gameRepo.GetAllGames().Count;
 
         // Act
-        var newGame = gameRepo.RegisterNewBoardGame("TestGame", 1, 12, "test", "test");
+        var newGame = gameRepo.RegisterNewBoardGame("TestGame", 1, 12, "test", "test", 10);
 
         // Assert
         Assert.Equal((gameCount + 1), newGame.Id);

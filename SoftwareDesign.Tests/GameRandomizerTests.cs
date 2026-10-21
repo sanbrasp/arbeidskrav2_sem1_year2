@@ -24,7 +24,7 @@ public class GameRandomizerTests
     {
         // Arrange
         List<BoardGame> singleItemList = new List<BoardGame>();
-        BoardGame game = new BoardGame("Single Board Game", 1, 2, "Test", "Test");
+        BoardGame game = new BoardGame("Single Board Game", 1, 2, "Test", "Test", 10);
         singleItemList.Add(game);
         GameRandomizer randomizer = new GameRandomizer();
 
