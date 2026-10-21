@@ -205,7 +205,14 @@ one at a time in Games page)
 - `TotalPlaytime` stays hidden in the else branch in `MyGamePage`, and the logic proves that it is at zero when it is hidden, 
 because the else branch does not launch if the list is empty. I made a decision to keep it hidden unless it has contents because 
 that makes more sense to me.
+- Duplicated logic, display, handlers in `GameDetails` (same in `Game` and `MyGameNight`)
 - 
+
+**App in 375px width**  
+![375px](Images/appsettings.Development_375px.png)
+
+**App in 1200px width**  
+![1200px](Images/appsettings.Development_1200px.png)
 
 ---
 
@@ -255,3 +262,4 @@ Video presentation will be available in the submission link, but not in the repo
 | **Die Faces and other symbols**               | https://en.wikipedia.org/wiki/Miscellaneous_Symbols                                                                      |
 | **Blazor Dependency Injection**               | https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/dependency-injection?view=aspnetcore-10.0              |
 | **Events: Subscribe / Unsubscribe**           | https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-subscribe-to-and-unsubscribe-from-events |
+| **CSS Isolation**                             | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/css-isolation?view=aspnetcore-10.0                       |
