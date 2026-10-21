@@ -13,11 +13,7 @@ _(Translated from Norwegian to English)_
 
 #### Delivery
 - README: parameters and events of `DiceRating` and `GameCard`
-- Test results
-
-#### Notes for later
-- Task 3 fills in My Game Night
-- Task 4 saves the rating
+- ~~Test results~~
 
 ---
 
@@ -55,6 +51,7 @@ Components and data binding.**
 `GameCard` (component) and `Games` (page) are split because it is a more practical way to display and maintain 
 the game information. The `GameCard` is a reusable component that can easily be used on any page.  
 
+**Responsibilities**  
 The page, `Games.razor`, is responsible for displaying the `GameCard` and looping over the contents of the list received through 
 `GameRepository`. It displays buttons, search field, dropdown menu for number of players, and the `GameCard`.  
 It handles the button `@onclick` and displays the number of search hits. It also has logic for empty lists and non-results.
@@ -65,6 +62,7 @@ which are passed down from the parent (`Games`) to the card, and correspond with
 The page compares each game with the picked one and passes `IsPickedCard`. The card decides how the picked card looks.
 It knows nothing about the list, the search, or the repository.
 
+**Later Changes**  
 If I want to change how a card looks, I only have to change `GameCard`, because the page only displays the `GameCard`.  
 If I add a new field to `BoardGame`, I have to change the `BoardGame constructor`, the `RegisterNewBoardGame` signature, 
 the calls to `RegisterNewBoardGame`, and the tests that create games. I also have to change `Games.razor` and `GameCard`
@@ -157,7 +155,7 @@ The parent then shows a confirmation message, and the card never decides what "a
 Documented in the [Test Suite README](../SoftwareDesign.Tests/README.md) under `Task 2 Manual Test Log`.
 
 **Limitations**  
-- Page `GameDetails` will have dead buttons for now when I reuse the card. This will solve itself in task 3 with saved state.
+- Page `GameDetails` will have dead buttons for now when I reuse the card. This will solve itself in task 3 with shared state.
 - Two rating rows: for now there are two rating rows where one is static and follows the card, and one is clickable on the 
 `GameDetails` page.
 - In task 2, the set rating will not yet be stored, only displayed.
