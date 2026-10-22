@@ -147,6 +147,15 @@ Cost of this choice:
 
 ---
 
+<details>
+<summary>Expand to see task 4 choices</summary>
+
+## Task 4 Choice: TODO
+
+</details>
+
+---
+
 ## Easy and Harder to Change
 TODO: at least 2 examples.  
 storage swap? game-night CSS? PLaytimeMinutes? Name to Id callback?
