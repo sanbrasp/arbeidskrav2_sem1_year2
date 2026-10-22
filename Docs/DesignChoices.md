@@ -8,15 +8,21 @@ in memory with a database or adding a new field to the game.
 - Describe known limitations.
 
 ## Overview
-- [Task 1 Design Choices](#task-1---design-choices)
-  - [Choice 1: Where Filtering Lives](#choice-where-filtering-lives)
-  - [Choice 2: Who Creates the Games and their IDs](#choice-who-creates-the-games-and-their-ids)
-  - [Choice 3: How the Page tells if a Card is Picked](#choice-how-the-page-tells-if-a-card-is-picked)
+- [Design Choices](#design-choices)
+  - [Task 1 Choice 1: Where Filtering Lives](#task-1-choice-where-filtering-lives)
+  - [Task 1 Choice 2: Who Creates the Games and their IDs](#task-1-choice-who-creates-the-games-and-their-ids)
+  - [Task 1 Choice 3: How the Page tells if a Card is Picked](#task-1-choice-how-the-page-tells-if-a-card-is-picked)
+  - [Task 3 Choice 1: How the Game Night is Shared](#task-3-choice-how-the-game-night-is-shared)
+  - [Task 3 Choice 2: Lifetime of the Service](#task-3-choice-lifetime-of-the-service)
+  - [Task 3 Choice 3: Render Mode](#task-3-choice-render-mode)
 
 ---
 
-## Task 1 - Design Choices
-### Choice: Where Filtering Lives
+## Design Choices
+
+<details><summary>Expand to see task 1 choices</summary>
+
+### Task 1 Choice: Where Filtering Lives
 
 | Choice                                | Reason                                                                                                                                  | Problem that led to choice                                       | Lifetime                                      |
 |---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|-----------------------------------------------|
@@ -37,7 +43,7 @@ The cost of this choice:
 
 ---
 
-### Choice: Who Creates the Games and their IDs
+### Task 1 Choice: Who Creates the Games and their IDs
 
 | Choice                                             | Reason                                                                                       | Problem that led to choice                                                                                                                              | Lifetime                                      |
 |----------------------------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
@@ -57,7 +63,7 @@ The cost of this choice:
 
 ---
 
-### Choice: How the Page Tells if a Card is Picked
+### Task 1 Choice: How the Page Tells if a Card is Picked
 
 | Choice                                       | Reason                                                                                                                                                 | Problem that led to choice                                                                                                      | Lifetime |
 |----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------|
@@ -73,4 +79,22 @@ The cost of this choice:
 Cost of this choice:
 - One more parameter on the `GameCard`
 
+</details>
+
 ---
+
+<details><summary>Expand to see task 2 choices</summary>
+
+### Task 3 Choice: How the Game Night is Shared
+State service  
+Alternatives, reason, cost
+
+### Task 3 Choice: Lifetime of the Service
+Scoped  
+Reason, two-tab result, cost
+
+### Task 3 Choice: Render Mode
+Global Interactivity  
+Reason, per-page consequence, cost
+
+</details>
