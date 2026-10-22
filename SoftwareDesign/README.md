@@ -207,6 +207,16 @@ sequenceDiagram
     GameCard->>GameCard: shows Remove button and class game-night
 ```
 
+**Flow notes:**  
+The user `click`s the button, and then the event goes **up** from `GameCard` to `Games` page as an `EventCallback`, 
+carrying the `game.Id`.  
+`Games` (page) finds the game and calls `GameNightState.AddToGameNight`, which is where the user list lives.  
+(_All_ games live in `GameRepository`, which is the truth source).  
+The answer goes **down** to each card as the parameter `IsInGameNight` with "yes" or "no".  
+`NavMenu` is neither parent nor child of the page, but is _subscribed_ to `OnChange`, so it hears when the service 
+rings a bell (the `OnChange` event) and `NavMenu` redraws itself with `StateHasChanged`.
+
+
 **Updated Page Table**
 
 | Route           | Page             | Component     | Purpose                                                                  |
@@ -215,10 +225,40 @@ sequenceDiagram
 
 
 **State sharing assessment**  
-TODO!
+**Problem:**  
+Shelf (`Games`), game page (`GameDetails`), and game night (`MyGameNight`) must all show the same list.  
+`NavMenu` must show the number of games in the list (if any).  
+The list must survive navigation.
+
+**Options considered:** 
+
+| Option                           | Suitability | Reason                                                                                                                                                                           |
+|----------------------------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Parameters` and `EventCallback` | Negative.   | Would go through the component. Not usable because parent-child is required, and not present here.                                                                               |
+| Separate `state service`         | Positive.   | Uses events and subscriptions. Easy to implement.                                                                                                                                |
+| `Cascading Values`               | Negative    | It only passes data down and has no built-in way to tell components that something changed so  I would still need a bell. I am also not familiar enough with it to use it - yet. |
+
+**Choice:**  
+`State service`. It owns the list, the rules and the guards. The service is Scoped for navigation survival, and limited to 
+one circuit (two tabs show different results, as proven by the manual tasks in [Test Suite README](../SoftwareDesign.Tests/README.md)).  
+It is reachable by any component. The event tells subscribed components when it changes.
+
+**Cost:**  
+- Components depend on a service and must unsubscribe (Dispose)
+- The list is lost on "Refresh"
 
 **Local VS Application state**  
-TODO!
+
+| State of        | Lives in         | Who needs to know?                                  | Must state survive navigation? |
+|-----------------|------------------|-----------------------------------------------------|--------------------------------|
+| Search text     | `Games` page     | Only `Games` page                                   | No                             |
+| Game Night list | `GameNightState` | `Games`, `GameDetails`, `NavMenu` and `MyGameNight` | Yes                            |
+
+- The search text does not need to survive navigation. It will revert when the user navigates, which is expected
+and perfectly fine for a search field. It is local state.  
+- The game night list must survive navigation, and other pages need to know about the state in order to keep track 
+of which games have already been added to the user's list. It is application state.
+
 
 **Scoped VS Singleton**  
 TODO!
@@ -312,3 +352,4 @@ Video presentation will be available in the submission link, but not in the repo
 | **Blazor Dependency Injection**               | https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/dependency-injection?view=aspnetcore-10.0              |
 | **Events: Subscribe / Unsubscribe**           | https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-subscribe-to-and-unsubscribe-from-events |
 | **CSS Isolation**                             | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/css-isolation?view=aspnetcore-10.0                       |
+| **Cascading Values and Parameters**           | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/cascading-values-and-parameters?view=aspnetcore-10.0     |
