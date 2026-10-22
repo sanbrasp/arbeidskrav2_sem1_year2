@@ -86,15 +86,25 @@ Cost of this choice:
 <details><summary>Expand to see task 2 choices</summary>
 
 ### Task 3 Choice: How the Game Night is Shared
-State service  
-Alternatives, reason, cost
+State service
+
+| Alternatives | Reason | Cost |
+|--------------|--------|------|
+| | | |
 
 ### Task 3 Choice: Lifetime of the Service
-Scoped  
-Reason, two-tab result, cost
+Scoped
+
+| Reason | Two-Tab Result | Cost |
+|--------|----------------|------|
+| | | |
 
 ### Task 3 Choice: Render Mode
 Global Interactivity  
 Reason, per-page consequence, cost
+
+| Reason | Per-Page Consequence | Cost |
+|--------|----------------------|------|
+| | | |
 
 </details>
