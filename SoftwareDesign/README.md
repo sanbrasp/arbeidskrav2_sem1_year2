@@ -221,7 +221,7 @@ The list must survive navigation.
 | Option                           | Suitability | Reason                                                                                                                                                                           |
 |----------------------------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `Parameters` and `EventCallback` | Negative.   | Would go through the component. Not usable because parent-child is required, and not present here.                                                                               |
-| Separate `state service`         | Positive.   | Uses events and subscriptions. Easy to implement.                                                                                                                                |
+| Separate `state service`         | Positive.   | Uses events and subscriptions. Easy to implement. Can be reached from all components.                                                                                            |
 | `Cascading Values`               | Negative    | It only passes data down and has no built-in way to tell components that something changed so  I would still need a bell. I am also not familiar enough with it to use it - yet. |
 
 **Choice:**  
