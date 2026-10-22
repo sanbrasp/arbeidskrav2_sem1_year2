@@ -105,25 +105,40 @@ Cost of this choice:
 
 
 ### Task 3 Choice: Lifetime of the Service
-Scoped
 
-| Choice | Reason | Problem that led to choice | Lifetime |
-|--------|----------------|------|-------------|
-| `Scoped` | | | |
+| Choice | Reason | Problem that led to choice |
+|--------|----------------|------|
+| `Scoped` | Scoped creates one instance that follows one circuit (one user/tab) and is not shared with anyone else. | The user list must not be shared across users/tabs. Must survive navigation. |
 
 | Alternatives | Reasoning |
 |--------------|-----------|
-| `Singleton` | |
-| `Transient` | |
-| `Scoped` | |
+| `Singleton` | Not chosen because it would share the list between tabs/users. |
+| `Transient` | Not chosen because the list would not survive navigation. Every component gets its own instance. |
+| `Scoped` | Chosen because it lets the list survive navigation and does not share it with anyone else (its own circuit only). |
+
+**Cost of this choice:**  
+- The same guest using two tabs gets two lists
+- A refresh starts a new list
+
 
 
 ### Task 3 Choice: Render Mode
-Global Interactivity  
-Reason, per-page consequence, cost
 
-| Reason | Per-Page Consequence | Cost |
-|--------|----------------------|------|
-| | | |
+| Choice | Reason | Problem that led to choice | Lifetime |
+|--------|----------------|------|-------------|
+| `Global Interactivity` | The router passes the mode on to every page omitting the need for a manual `@rendermode`. All pages and menu share the same circuit. | The list must survive navigation and the menu must update live. | N/A |
+
+| Alternatives | Reasoning |
+|--------------|-----------|
+| `Global Interactivity` (`Routes`, `HeadOutlet`) |  |
+| `Interactivity per page` |  |
+| `Static rendering` (no interactivity) |  |
+
+**Cost of this choice:**  
+- One connection is held open per tab
+- If connection is lost, the list is lost
 
 </details>
+
+---
+
