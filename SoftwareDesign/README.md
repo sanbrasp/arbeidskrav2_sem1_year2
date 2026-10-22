@@ -177,13 +177,49 @@ Application state and responsive UI.
 
 **Components, pages, classes**  
 
-| Part             | Does                                                                                                                                   | Does not                               |
-|------------------|----------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
-| `GameNightState` | Holds the state for a user's Game Night, list of full games, rule for no duplicate additions                                           | Fill in                                |
-| `NavMenu`        | Added `@code` section. Subscribes to events from `GameNightState` in `OnInitialied`. Added method `Dispose`. Implements `IDisposable`. | fill in                                |
-| `GameCard`       | New parameter `IsInGameNight` allows page to ask if the game already exists in user's list.                                            | fill in                                |
-| `GameCard`       | Change to `EventCallback`, now carries `Id` instead of `Name`. Added param `OnRemoveFromGameNight`                                     | fill in Does not carry `Name`(string). |
-| `BoardGame` | Now makes use of `PlaytimeMinutes` in the constructor. | fill in. |
+| Part                    | Does                                                                                                                                                                                                                   | Does not                                                                         |
+|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| `GameNightState`        | Holds the state for a user's Game Night, list of full games, rule for no duplicate additions. Handles Add, Remove, and a check to see if game is in the list already.                                                  | Know anything about the pages or components, or find and create games (repo).    |
+| `NavMenu`               | Added `@code` section. Subscribes to events from `GameNightState` in `OnInitialized`. Added method `Dispose`. Implements `IDisposable`. Reads from `NumberOfGames`. Listens for `OnChange`.                            | Own or change the list.                                                          |
+| `GameCard` (Parameter)  | Page passes `IsInGameNight` down, and the card uses it.                                                                                                                                                                | Look up the service or decide if a game is in the list (page passes the answer). |
+| `GameCard` (CallBack)   | Change to `EventCallback`, now carries `Id` instead of `Name`. Added param `OnRemoveFromGameNight`, reports the click with the `Id`.                                                                                   | Carry `Name`(string), change the list itself.                                    |
+| `BoardGame`             | Now makes use of `PlaytimeMinutes` in the constructor.                                                                                                                                                                 | As in previous table.                                                            |
+| `MyGameNight`           | Displays list and total playtime. Shows number of games, and empty message with links. Handles removing a game from game list.                                                                                         | Own the list or work out the total playtime.                                     |
+| `Games`                 | New handlers for adding and removing game from game night, markup logic works out the value per card and passes it down. Asks the service for the list, and keeps only its own local state (search text, picked game). | Keep the game night list.                                                        |
+| `GameDetails`           | New handlers for adding and removing game from game night. Calls the service through the handlers.                                                                                                                     | Keep the list.                                                                   |
+| `Program.cs`            | New scoped service: `GameNightState`.                                                                                                                                                                                  | Share one list between users.                                                    |
+
+
+**Data flow**  
+TODO!
+
+**Updated Page Table**
+
+| Route           | Page             | Component     | Purpose                                                                  |
+|-----------------|------------------|---------------|--------------------------------------------------------------------------|
+| `"/game-night"` | `My Game Night`  | `MyGameNight` | Allows the user to see their chosen games, or remove them from the list. |
+
+
+**State sharing assessment**  
+TODO!
+
+**Local VS Application state**  
+TODO!
+
+**Scoped VS Singleton**  
+TODO!
+
+**Render Mode**  
+TODO!
+
+**State has one clear home**  
+TODO!
+
+**Component and Responsibility table**  
+TODO: Use the one I already have or create a new one?
+
+**Test Results:**  
+Refer to the documentation in [Test Suite README](../SoftwareDesign.Tests/README.md)
 
 Notes to self: 
 - Scoped service for "MyGameNight" to survive page navigation (Limitation: does not survive refresh).
@@ -201,11 +237,11 @@ Notes to self:
 - buttons now work (are no longer dead!) both on Games page and MyGameNight (only remove button shows on MyGameNight, 
 one at a time in Games page)
 - `OnRemoveGameNight` in `GameCard` for the table.
-- Implement PlaytimeMinutes in `BoardGame` constructor and cascading items...
-- `TotalPlaytime` stays hidden in the else branch in `MyGamePage`, and the logic proves that it is at zero when it is hidden, 
-because the else branch does not launch if the list is empty. I made a decision to keep it hidden unless it has contents because 
-that makes more sense to me.
-- Duplicated logic, display, handlers in `GameDetails` (same in `Game` and `MyGameNight`)
+- Implement PlaytimeMinutes in `BoardGame` constructor and in cascading items.
+- `TotalPlaytime` stays hidden in the else branch in `MyGameNight`, and the unit test `TotalPlaytime_EmptyList_EqualsZero` 
+proves that it is at zero when it is hidden, because the else branch does not launch if the list is empty. 
+I made a decision to keep it hidden unless it has contents because design-wise it made more sense to me.
+- Duplicated logic, display, handlers in `GameDetails` (same in `Games` and `MyGameNight`)
 
 **App in 375px width**  
 ![375px](Images/app_375px.png)
