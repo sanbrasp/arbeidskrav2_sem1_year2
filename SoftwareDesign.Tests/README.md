@@ -120,7 +120,7 @@ Task 1 test coverage.
 - `GameRepository.GetAllGames`
 - `GameRepository.RegisterNewBoardGame`
 
-**Testing:**
+**Test cases:**
 
 - Edge cases
 - No hits
@@ -262,12 +262,6 @@ Automated tests for task 2 running and succeeding:
 <br>
 
 ## Task 3 Manual Test Log
-
-- Case
-- Steps
-- Expected
-- Actual
-
 **Case: Adding game from shelf is visible in `MyGameNight`**
 
 **Steps:**  
