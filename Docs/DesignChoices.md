@@ -70,11 +70,11 @@ The cost of this choice:
 | `IsPickedCard` bool parameter on `GameCard`  | The page compares each game with the picked one and passes the result down. The card adds `picked-card` itself, so it stays in charge of its own look. | The page knows which game is picked, but the card only draws itself, so it needs a way to be told whether it is the picked one. | N/A      |
 
 
-| Alternative                  | Reasoning                                                                                                                                                      |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wrapper tag around each card | Did not opt for this because the page would have to know about the card's styling, and the card no longer controls its own look.                               |
-| Highlight by position        | Did not opt for this because the position of a game changes when the search or the dropdown changes the list, so the highlight would end up on the wrong card. |
-| Bool parameter               | Chosen because the card only needs to know `IsPickedCard`, not how the page found the pick.                                                                    |
+| Alternative                  | Reasoning  | Problem that led to choice | Lifetime  |                                                                                                                                                    |
+|------------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Wrapper tag around each card | |Did not opt for this because the page would have to know about the card's styling, and the card no longer controls its own look.                               |
+| Highlight by position        | |Did not opt for this because the position of a game changes when the search or the dropdown changes the list, so the highlight would end up on the wrong card. |
+| Bool parameter               | |Chosen because the card only needs to know `IsPickedCard`, not how the page found the pick.                                                                    |
 
 Cost of this choice:
 - One more parameter on the `GameCard`
@@ -83,21 +83,40 @@ Cost of this choice:
 
 ---
 
-<details><summary>Expand to see task 2 choices</summary>
+<details><summary>Expand to see task 3 choices</summary>
 
 ### Task 3 Choice: How the Game Night is Shared
-State service
 
-| Alternatives | Reason | Cost |
-|--------------|--------|------|
-| | | |
+| Choice | Reason | Problem that led to choice | Lifetime |
+|------------------|--------|----------------------------|----------|
+| State Service `GameNightState` | The service owns the list and its rules, and its events tells subscribers when the list changes. | The user's list and the total playtime needed to be tracked across several components. List must survive navigation. | Scoped, lives for the duration of the circuit. |
+
+
+| Alternatives | Reasoning |
+|-----------------------|--------|
+| `Parameters and EventCallback` | Not used because it requires a parent-child relationship. |
+| `Cascading Values` | Does not have a built-in way to tell components that something changed. Only passes data down. |
+| `State Service` | (Chosen) Uses events and subscriptions. Can be reached from all components. |
+
+
+**Cost of this choice:**  
+- The components depend on a service and have to subscribe and unsubscribe (`Dispose()`).  
+- The list is lost on "Refresh".
+
 
 ### Task 3 Choice: Lifetime of the Service
 Scoped
 
-| Reason | Two-Tab Result | Cost |
-|--------|----------------|------|
-| | | |
+| Choice | Reason | Problem that led to choice | Lifetime |
+|--------|----------------|------|-------------|
+| `Scoped` | | | |
+
+| Alternatives | Reasoning |
+|--------------|-----------|
+| `Singleton` | |
+| `Transient` | |
+| `Scoped` | |
+
 
 ### Task 3 Choice: Render Mode
 Global Interactivity  
