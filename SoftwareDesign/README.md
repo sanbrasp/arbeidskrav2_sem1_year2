@@ -261,7 +261,35 @@ of which games have already been added to the user's list. It is application sta
 
 
 **Scoped VS Singleton**  
-TODO!
+
+| Lifetime    | How long does it live                        | Who shares it                                                   | Suitable for                                         |
+|-------------|----------------------------------------------|-----------------------------------------------------------------|------------------------------------------------------|
+| `Scoped`    | In Blazor: the circuit, one tab's connection | Only that circuit (one tab).                                    | Database contexts, shopping carts, `GameNightState`  |
+| `Singleton` | From app start to app shutdown               | Everyone. All users and all requests get the exact same object. | Global settings, app configuration, caching, logging |
+
+
+Analogy:  
+- `Scoped`: A hotel room key card: The card is assigned to _your_ stay only. It works for everything in your room during your visit.
+When you check out, the key expires and the next guest gets a fresh one.  
+
+In this project, it would be the user's list. Every user gets their own list. They don't share the same list, and can 
+add and remove games from their own list without consequence for anyone else.
+
+
+- `Singleton`: A public school building: there is only one building. Everyone uses the same building to go to school.  
+
+In this project, if the user list was shared between _everyone_, everyone would get the same list, and add and remove things 
+that others have added. It would cause headaches and chaos, because nobody would know who owned which game, and the total playtime
+would be the sum of all the games for all the users combined.
+
+
+**Two Tabs and Scoped**  
+If the app is used with two tabs (or two users use it at the same time), those two will be independent of each other. They will be separate circuits.  
+This is demonstrated in the [Test Suite README](../SoftwareDesign.Tests/README.md) in the Task 3 Manual Tests section.  
+Adding games to "My Game Night" in one tab will not be reflected in the other tab.  
+The second tab can have an empty list, or other (and the same) games can be added to that list without touching the first
+tab.
+
 
 **Render Mode**  
 TODO!
@@ -330,26 +358,27 @@ Video presentation will be available in the submission link, but not in the repo
 
 ## Sources
 
-| Subject                                       | URL                                                                                                                      |
-|-----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| **Using Max on Enumerable collection**        | https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.max?view=net-10.0                                    |
-| **DefaultIfEmpty**                            | https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.defaultifempty?view=net-10.0                         |
-| **Refresher on Expression bodied definition** | https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-operator#expression-body-definition  |
-| **IEnumerable Any()**                         | https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.any?view=net-10.0                                    |
-| **Blazor Render Modes**                       | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-10.0                        |
-| **Blazor data binding**                       | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/data-binding?view=aspnetcore-10.0                        |
-| **Refresher on ternary conditional operator** | https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator                        |
-| **Enumerable.Count**                          | https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.count?view=net-10.0                                  |
-| **Blazor Event Handling**                     | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/event-handling?view=aspnetcore-10.0                      |
-| **CSS borders**                               | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/border                                             |
-| **CSS Box Shadows**                           | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/box-shadow                                         |
-| **CSS background color**                      | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/background-color                                   |
-| **Select Box Binding**                        | https://stackoverflow.com/questions/58485439/select-box-binding-in-blazor                                                |
-| **CSS Text Color**                            | https://www.w3schools.com/css/css_text.asp                                                                               |
-| **Die Faces UTF Symbols**                     | https://www.w3schools.com/charsets/ref_utf_symbols.asp                                                                   |
-| **Die Face 1**                                | https://codepoints.net/search?na=DIE%20FACE-1                                                                            |
-| **Die Faces and other symbols**               | https://en.wikipedia.org/wiki/Miscellaneous_Symbols                                                                      |
-| **Blazor Dependency Injection**               | https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/dependency-injection?view=aspnetcore-10.0              |
-| **Events: Subscribe / Unsubscribe**           | https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-subscribe-to-and-unsubscribe-from-events |
-| **CSS Isolation**                             | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/css-isolation?view=aspnetcore-10.0                       |
-| **Cascading Values and Parameters**           | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/cascading-values-and-parameters?view=aspnetcore-10.0     |
+| Subject                                                                                     | URL                                                                                                                      |
+|---------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| **Using Max on Enumerable collection**                                                      | https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.max?view=net-10.0                                    |
+| **DefaultIfEmpty**                                                                          | https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.defaultifempty?view=net-10.0                         |
+| **Refresher on Expression bodied definition**                                               | https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-operator#expression-body-definition  |
+| **IEnumerable Any()**                                                                       | https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.any?view=net-10.0                                    |
+| **Blazor Render Modes**                                                                     | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-10.0                        |
+| **Blazor data binding**                                                                     | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/data-binding?view=aspnetcore-10.0                        |
+| **Refresher on ternary conditional operator**                                               | https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator                        |
+| **Enumerable.Count**                                                                        | https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.count?view=net-10.0                                  |
+| **Blazor Event Handling**                                                                   | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/event-handling?view=aspnetcore-10.0                      |
+| **CSS borders**                                                                             | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/border                                             |
+| **CSS Box Shadows**                                                                         | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/box-shadow                                         |
+| **CSS background color**                                                                    | https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/background-color                                   |
+| **Select Box Binding**                                                                      | https://stackoverflow.com/questions/58485439/select-box-binding-in-blazor                                                |
+| **CSS Text Color**                                                                          | https://www.w3schools.com/css/css_text.asp                                                                               |
+| **Die Faces UTF Symbols**                                                                   | https://www.w3schools.com/charsets/ref_utf_symbols.asp                                                                   |
+| **Die Face 1**                                                                              | https://codepoints.net/search?na=DIE%20FACE-1                                                                            |
+| **Die Faces and other symbols**                                                             | https://en.wikipedia.org/wiki/Miscellaneous_Symbols                                                                      |
+| **Blazor Dependency Injection**                                                             | https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/dependency-injection?view=aspnetcore-10.0              |
+| **Events: Subscribe / Unsubscribe**                                                         | https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-subscribe-to-and-unsubscribe-from-events |
+| **CSS Isolation**                                                                           | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/css-isolation?view=aspnetcore-10.0                       |
+| **Cascading Values and Parameters**                                                         | https://learn.microsoft.com/en-us/aspnet/core/blazor/components/cascading-values-and-parameters?view=aspnetcore-10.0     |
+| **Should my Services be Transient, Scoped, or Singleton? @Bald. Bearded. Builder. YouTube** | https://www.youtube.com/watch?v=ToFqISWq4is                                                                              |
