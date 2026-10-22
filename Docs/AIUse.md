@@ -22,6 +22,9 @@ Overview
   - [Reversed CallBack and Method Names](#reversed-callbackevent-and-method-names)
   - [Lookup By ID When ID Not Found](#lookup-by-id-suggestions-for-id-not-found)
   - [AddToGameNight Wiring](#add-to-gamenight-wiring)
+  - [Fill-in shape for link in GameCard](#fill-in-shape-for-link-in-gamecard)
+  - [Syntax error during test writing](#syntax-error-missing-name)
+  - [Sequence Diagram Help](#sequence-diagram-help)
 - [Reflection](#ai-use-reflection)
 
 ---
@@ -88,6 +91,8 @@ which resulted in `<div class="game-card @(IsPickedCard ? "picked-card" : "")">`
 `position: absolute` with `top` and `right` on the ID. Given as is.
 - I could not figure out how to add die faces as buttons, so `Claude.ai` gave me the markup.
 - The first CSS for `DiceRating` in `DiceRating.razor.css` (dice-rating, dice-option.selected, dice-option).
+- CSS rule for "game-night" on the chosen card (light green background).
+- CSS rule for .state-badge: `margin-left: 0.5rem;` to make space in the menu.
 
 ### Theory Test Refresher
 `Claude.ai` gave me a "fill in the blanks" for the `Theory` part of a test to remind me of the syntax.  
@@ -143,6 +148,21 @@ I wrote the wiring for the confirmation message and adjusted the wiring based on
 ### Fill-In Shape for Link in GameCard
 I was unsure how to put the link on the card because I was tired and exhausted, so AI provided the fill-in shape 
 `<a href="/games/@____">____</a>` for me, which I filled out and bugfixed myself because I used a closing tag too early and broke it.
+
+---
+
+### Syntax Error (missing .Name)
+During test writing for task 3, I had forgotten to add a `.Name` in one of my asserts.  
+Since my test did not succeed and I couldn't see why, I had AI look at it, and it pointed out the error:  
+The call: `_state.GetGameNightGames()[0].Name`
+
+---
+
+### Sequence Diagram Help
+I had never used Mermaid before, and needed some start help when writing the diagram.  
+AI supplied the first line, then I tried myself. At the end I had forgotten to add one 
+part of the flow: `IsInGameNight = true`, which AI pointed out.  
+I asked AI to show me how the full diagram should look in text and compared it to what I had.
 
 ---
 
