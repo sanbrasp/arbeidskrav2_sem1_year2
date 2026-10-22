@@ -191,7 +191,21 @@ Application state and responsive UI.
 
 
 **Data flow**  
-TODO!
+
+```mermaid
+sequenceDiagram
+    User->>GameCard: clicks Add
+    GameCard->>Games: OnAddToGameNight(Id)
+    Games->>GameRepository: GetGameById(id)
+    GameRepository-->>Games: BoardGame
+    Games->>GameNightState: AddToGameNight(game)
+    GameNightState-->>NavMenu: OnChange
+    NavMenu->>NavMenu: InvokeAsync(StateHasChanged)
+    Games->>GameNightState: IsGameInGameNightList(game.Id)
+    GameNightState-->>Games: true
+    Games->>GameCard: IsInGameNight = true
+    GameCard->>GameCard: shows Remove button and class game-night
+```
 
 **Updated Page Table**
 
