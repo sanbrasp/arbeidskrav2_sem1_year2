@@ -99,7 +99,7 @@ Must contain:
 
 </details>
 
----
+
 
 <details>
 <summary><strong>Expand to see automated tests for task 1</strong></summary>
@@ -216,7 +216,7 @@ in the test: `DiceRating_NotReadOnly_ClickingADieFace_ReportsTheCorrectRating`.
 
 </details>
 
----
+
 
 <details>
 <summary><strong>Expand to see automated tests for task 2</strong></summary>
