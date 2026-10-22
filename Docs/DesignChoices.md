@@ -15,6 +15,9 @@ in memory with a database or adding a new field to the game.
   - [Task 3 Choice 1: How the Game Night is Shared](#task-3-choice-how-the-game-night-is-shared)
   - [Task 3 Choice 2: Lifetime of the Service](#task-3-choice-lifetime-of-the-service)
   - [Task 3 Choice 3: Render Mode](#task-3-choice-render-mode)
+  - [Task 4 Choice?]()
+  - [Easy and Harder to Change](#easy-and-harder-to-change)
+  - [Known Limitations](#known-limitations)
 
 ---
 
@@ -70,7 +73,7 @@ The cost of this choice:
 | `IsPickedCard` bool parameter on `GameCard`  | The page compares each game with the picked one and passes the result down. The card adds `picked-card` itself, so it stays in charge of its own look. | The page knows which game is picked, but the card only draws itself, so it needs a way to be told whether it is the picked one. | N/A      |
 
 
-| Alternative                  | Reasoning  | Problem that led to choice | Lifetime  |                                                                                                                                                    |
+| Alternative                  | Reasoning  | Problem that led to choice | Lifetime  |                                                                                                                                                    
 |------------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Wrapper tag around each card | |Did not opt for this because the page would have to know about the card's styling, and the card no longer controls its own look.                               |
 | Highlight by position        | |Did not opt for this because the position of a game changes when the search or the dropdown changes the list, so the highlight would end up on the wrong card. |
@@ -89,7 +92,7 @@ Cost of this choice:
 
 | Choice | Reason | Problem that led to choice | Lifetime |
 |------------------|--------|----------------------------|----------|
-| State Service `GameNightState` | The service owns the list and its rules, and its events tells subscribers when the list changes. | The user's list and the total playtime needed to be tracked across several components. List must survive navigation. | Scoped, lives for the duration of the circuit. |
+| State Service `GameNightState` | The service owns the list and its rules, and its event tells subscribers when the list changes. | The user's list and the total playtime needed to be tracked across several components. List must survive navigation. | Scoped, lives for the duration of the circuit. |
 
 
 | Alternatives | Reasoning |
@@ -130,15 +133,22 @@ Cost of this choice:
 
 | Alternatives | Reasoning |
 |--------------|-----------|
-| `Global Interactivity` (`Routes`, `HeadOutlet`) |  |
-| `Interactivity per page` |  |
-| `Static rendering` (no interactivity) |  |
+| `Global Interactivity` (`Routes`, `HeadOutlet`) | The whole app in one circuit. The scoped list survives navigation. One place decides the mode for everyone. |
+| `Interactivity per page` | Not chosen. A page with no render mode closes the circuit, so the list is lost, the buttons are dead, and the badge does not update. |
+| `Static rendering` (no interactivity) | Not chosen. Is not interactive, and would leave buttons dead. No circuit at all. No live menu, and no shared state between pages. |
 
 **Cost of this choice:**  
 - One connection is held open per tab
 - If connection is lost, the list is lost
 
+**Limitations**
+
 </details>
 
 ---
 
+## Easy and Harder to Change
+
+---
+
+## Known Limitations
