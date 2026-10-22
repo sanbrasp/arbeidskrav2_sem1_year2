@@ -148,7 +148,12 @@ Cost of this choice:
 ---
 
 ## Easy and Harder to Change
+TODO: at least 2 examples.  
+storage swap? game-night CSS? PLaytimeMinutes? Name to Id callback?
 
 ---
 
 ## Known Limitations
+TODO: task 3 items plus task 1 one?
+
+---
