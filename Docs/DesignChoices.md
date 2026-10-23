@@ -154,13 +154,25 @@ Cost of this choice:
 
 | Choice | Reason | Problem that led to choice | Lifetime |
 |---------------|----------------------------------------------------------|------|-------------|
-| `Minimal API` | More suitable for smaller projects such as this, less boilerplate, less ceremony, keeps Program.cs clean, extension method with endpoints. | TODO | N/A |
+| `Minimal API` | More suitable for smaller projects such as this, less boilerplate, less ceremony, keeps Program.cs clean, extension method with endpoints. | Project has TODO number of endpoints | N/A |
 
 | Alternatives | Reasoning |
 |--------------|-----------|
 | `Controller` | Not chosen because it would be more suitable for a larger project that would benefit from more advanced validation and model binding. |
 | `Minimal API`| Chosen because I want to gain as much learning from this project as possible and have less experience with Minimal API, because Minimal API is the more suitable choice for such a small project. |
 
+**Cost of this choice:**
+- Less familiar for me to work with Minimal API
+- Less structure by default
+
+
+### Task 4 Choice: Where does the API Live
+
+| Choice | Reason | Problem that led to choice | Lifetime |
+|---------------|----------------------------------------------------------|------|-------------|
+
+| Alternatives | Reasoning |
+|--------------|-----------|
 
 </details>
 
