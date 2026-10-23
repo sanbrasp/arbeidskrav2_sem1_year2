@@ -313,6 +313,8 @@ Refer to the documentation in [Test Suite README](../SoftwareDesign.Tests/README
 Task 4:  
 HttpClient and CRUD against Rest API.
 
+Due to the nature of the task, it has its own readme in [SoftwareDesign.Api project](../SoftwareDesign.Api/README.md)
+
 ---
 
 ## Design Documentation, Design Choices, and Testing
