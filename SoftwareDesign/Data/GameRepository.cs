@@ -7,11 +7,7 @@ internal class GameRepository
     private readonly List<BoardGame> _boardGames = new List<BoardGame>();
     private int _nextId = 1;
     
-    public IReadOnlyList<BoardGame> GetAllGames()
-    {
-        return _boardGames;
-    }
-
+    
     public GameRepository()
     {
         RegisterNewBoardGame("Wyrmspan", 1, 5, "Strategy",
@@ -46,6 +42,11 @@ internal class GameRepository
         
         RegisterNewBoardGame("Dixit", 3, 6, "Storytelling", 
             "Give clues to pictures that some, but not all, players should guess.", 120);
+    }
+    
+    public IReadOnlyList<BoardGame> GetAllGames()
+    {
+        return _boardGames;
     }
 
     internal BoardGame RegisterNewBoardGame(
