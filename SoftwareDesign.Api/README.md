@@ -11,10 +11,12 @@ The now obsolete `SoftwareDesign.GameRepository` will be kept for history.
 
 ## Table
 
-| Endpoint              | Old repository method  | New repo method | Takes                                         | Ole method returns                          | New method returns |
-|-----------------------|------------------------|-----------------|-----------------------------------------------|---------------------------------------------|--------------------| 
-| GET `/api/games`      |                        |                 | The list of game, or empty list               |
-| GET `/api/games/{id}` | `GetGameById`          |                 | BoardGame game                                | A game, or null                             |                    | 
-| POST                  | `RegisterNewBoardGame` |                 | Everything but `Id` properties as parameters. | A new game with assigned ID, added to list. |                    | 
-| PUT                   |                        |                 |                                               | or 404                                      |                    | 
-| DELETE                |                        |                 |                                               | or 404                                      |                    | 
+| Endpoint              | Old repository method                                                                                                  | New repo method |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------|-----------------| 
+| GET `/api/games`      | `GetAllGames()`                                                                                                        |                 |
+| GET `/api/games/{id}` | `GetGameById(int id)`                                                                                                  |                 | 
+| POST `/api/games`     | `RegisterNewBoardGame(string name, int minPlayers, int maxPlayers, string category, string description, int playtime)` |                 | 
+| PUT                   | N/A                                                                                                                    |                 | 
+| DELETE                | N/A                                                                                                                    |                 |
+
+
