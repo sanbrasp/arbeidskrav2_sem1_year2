@@ -170,9 +170,11 @@ Cost of this choice:
 
 | Choice | Reason | Problem that led to choice | Lifetime |
 |---------------|----------------------------------------------------------|------|-------------|
+| Separate project within the solution, `SoftwareDesign.Api` | This allows us to shut the API down and fulfil the task requirements. | It must be possible to shut the API off to test what happens. | N/A |
 
 | Alternatives | Reasoning |
 |--------------|-----------|
+| TODO | TODO |
 
 </details>
 
