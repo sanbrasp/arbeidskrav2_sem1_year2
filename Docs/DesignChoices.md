@@ -150,19 +150,31 @@ Cost of this choice:
 <details>
 <summary>Expand to see task 4 choices</summary>
 
-## Task 4 Choice: TODO
+### Task 4 Choice: Type of API
+
+| Choice | Reason | Problem that led to choice | Lifetime |
+|---------------|----------------------------------------------------------|------|-------------|
+| `Minimal API` | More suitable for smaller projects such as this, less boilerplate, less ceremony, keeps Program.cs clean, extension method with endpoints. | TODO | N/A |
+
+| Alternatives | Reasoning |
+|--------------|-----------|
+| `Controller` | Not chosen because it would be more suitable for a larger project that would benefit from more advanced validation and model binding. |
+| `Minimal API`| Chosen because I want to gain as much learning from this project as possible and have less experience with Minimal API, because Minimal API is the more suitable choice for such a small project. |
+
 
 </details>
 
 ---
 
 ## Easy and Harder to Change
+Examples from the full project.  
 TODO: at least 2 examples.  
 storage swap? game-night CSS? PLaytimeMinutes? Name to Id callback?
 
 ---
 
 ## Known Limitations
+Examples from the full project.  
 TODO: task 3 items plus task 1 one?
 
 ---
