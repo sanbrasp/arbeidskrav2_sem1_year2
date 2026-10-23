@@ -58,5 +58,6 @@ Press the `Play` button.
 - [Design Documentation](Docs/DesignDocumentation.md)
 - [Design Choices](Docs/DesignChoices.md)
 - [Test Documentation](SoftwareDesign.Tests/README.md)
+- [API Documentation](SoftwareDesign.Api/README.md)
 - [AI Use Documentation](Docs/AIUse.md)
 - [Commit History](Docs/CommitHistory.md)
