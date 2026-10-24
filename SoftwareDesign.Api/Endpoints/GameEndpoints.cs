@@ -1,13 +1,16 @@
 ﻿using SoftwareDesign.Api.Data;
 using SoftwareDesign.Api.Models;
+using SoftwareDesign.Api.Validation;
 
 namespace SoftwareDesign.Api.Endpoints;
 
 internal static class GameEndpoints
 {
+    private const string BasePath = "/api/games";
+    
     public static void Map(WebApplication app)
     {
-        var group = app.MapGroup("/api/games");
+        var group = app.MapGroup(BasePath);
 
         group.MapGet("/", GetAllGames);
 
@@ -24,15 +27,14 @@ internal static class GameEndpoints
     
     
     // Handlers
-    private static IResult GetAllGames(GameRepository gameRepo)
+    private static IResult GetAllGames(GameRepository gameRepo) // GET
     {
         return TypedResults.Ok(gameRepo.GetAllGames());
     }
     
-    private static IResult GetGameById(int id, GameRepository gameRepo)
+    private static IResult GetGameById(int id, GameRepository gameRepo) // GET
     {
         var game = gameRepo.GetGameById(id);
-        
         if (game is null)
         {
             return TypedResults.NotFound();
@@ -40,18 +42,39 @@ internal static class GameEndpoints
         return TypedResults.Ok(game);
     }
 
-    private static IResult CreateGame(GameRequest request)
+    private static IResult CreateGame(GameRequest request, GameRepository gameRepo) // POST
     {
-        throw new NotImplementedException();
+        var validation = ValidationHelpers.ValidateRequest(request);
+        if (validation.Count > 0)
+            return TypedResults.ValidationProblem(validation);
+        
+        var newGame = gameRepo.RegisterNewBoardGame(request);
+        var address = BasePath + "/" + newGame.Id;
+        
+        return TypedResults.Created(address, newGame); // 201
     }
 
-    private static IResult UpdateGame(int id, GameRequest request)
+    private static IResult UpdateGame(int id, GameRequest request, GameRepository gameRepo) // PUT
     {
-        throw new NotImplementedException();
+        var validation = ValidationHelpers.ValidateRequest(request); // 400
+        if (validation.Count > 0)
+            return TypedResults.ValidationProblem(validation); // 400
+        
+        var updatedGame = gameRepo.UpdateGame(id, request);
+        if (updatedGame is null)
+        {
+            return TypedResults.NotFound(); // 404
+        }
+        
+        return TypedResults.Ok(updatedGame); // 200
     }
 
-    private static IResult DeleteGame(int id)
+    private static IResult DeleteGame(int id, GameRepository gameRepo) // DELETE
     {
-        throw new NotImplementedException();
+        var deleted = gameRepo.DeleteGame(id);
+        if (!deleted)
+            return TypedResults.NotFound();
+        
+        return TypedResults.NoContent();
     }
 }
