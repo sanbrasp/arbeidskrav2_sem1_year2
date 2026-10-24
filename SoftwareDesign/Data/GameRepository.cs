@@ -8,6 +8,9 @@ internal class GameRepository
     private int _nextId = 1;
     
     
+    /// <summary>
+    /// Seeder constructor for SoftwareDesign/GameRepository
+    /// </summary>
     public GameRepository()
     {
         RegisterNewBoardGame("Wyrmspan", 1, 5, "Strategy",
