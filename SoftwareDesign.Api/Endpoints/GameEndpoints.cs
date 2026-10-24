@@ -1,4 +1,5 @@
-﻿using SoftwareDesign.Api.Models;
+﻿using SoftwareDesign.Api.Data;
+using SoftwareDesign.Api.Models;
 
 namespace SoftwareDesign.Api.Endpoints;
 
@@ -23,14 +24,20 @@ internal static class GameEndpoints
     
     
     // Handlers
-    private static IResult GetAllGames()
+    private static IResult GetAllGames(GameRepository gameRepo)
     {
-        throw new NotImplementedException();
+        return TypedResults.Ok(gameRepo.GetAllGames());
     }
     
-    private static IResult GetGameById(int id)
+    private static IResult GetGameById(int id, GameRepository gameRepo)
     {
-        throw new NotImplementedException();
+        var game = gameRepo.GetGameById(id);
+        
+        if (game is null)
+        {
+            return TypedResults.NotFound();
+        }
+        return TypedResults.Ok(game);
     }
 
     private static IResult CreateGame(GameRequest request)
