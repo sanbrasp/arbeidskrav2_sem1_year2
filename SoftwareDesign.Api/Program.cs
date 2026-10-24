@@ -1,4 +1,5 @@
 using SoftwareDesign.Api.Data;
+using SoftwareDesign.Api.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-//app.MapGet();
+GameEndpoints.Map(app); // adds the endpoints
 
 app.Run();
